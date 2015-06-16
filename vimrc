@@ -1,83 +1,59 @@
-" .vimrc
-" See: http://vimdoc.sourceforge.net/htmldoc/options.html for details
+set nocompatible
+filetype off
 
-" For multi-byte character support (CJK support, for example):
-"set fileencodings=ucs-bom,utf-8,cp936,big5,euc-jp,euc-kr,gb18030,latin1
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+    Plugin 'gmarik/Vundle.vim'
+    Plugin 'davidhalter/jedi-vim'
+    Plugin 'bling/vim-airline'
+    Plugin 'Rip-Rip/clang_complete'
+    Plugin 'sjl/badwolf'
+    Plugin 'Valloric/MatchTagAlways'
+    Plugin 'scrooloose/nerdtree'
+call vundle#end()
 
 set fileencodings=utf-8
 
-set tabstop=4       " Number of spaces that a <Tab> in the file counts for.
+set tabstop=4
 
-set shiftwidth=4    " Number of spaces to use for each step of (auto)indent.
+set shiftwidth=4
 
-set expandtab       " Use the appropriate number of spaces to insert a <Tab>.
-                    " Spaces are used in indents with the '>' and '<' commands
-                    " and when 'autoindent' is on. To insert a real tab when
-                    " 'expandtab' is on, use CTRL-V <Tab>.
+set expandtab
 
-set smarttab        " When on, a <Tab> in front of a line inserts blanks
-                    " according to 'shiftwidth'. 'tabstop' is used in other
-                    " places. A <BS> will delete a 'shiftwidth' worth of space
-                    " at the start of the line.
+set smarttab
 
-set showcmd         " Show (partial) command in status line.
+set showcmd
 
-set number          " Show line numbers.
+set number
 
-set showmatch       " When a bracket is inserted, briefly jump to the matching
-                    " one. The jump is only done if the match can be seen on the
-                    " screen. The time to show the match can be set with
-                    " 'matchtime'.
+set showmatch
 
-set hlsearch        " When there is a previous search pattern, highlight all
-                    " its matches.
+set hlsearch
 
-set incsearch       " While typing a search command, show immediately where the
-                    " so far typed pattern matches.
+set incsearch
 
-set smartcase       " Override the 'ignorecase' option if the search pattern
-                    " contains upper case characters.
+set smartcase
 
 set wildignorecase
+
 set wildmenu
 
-set backspace=2     " Influences the working of <BS>, <Del>, CTRL-W
-                    " and CTRL-U in Insert mode. This is a list of items,
-                    " separated by commas. Each item allows a way to backspace
-                    " over something.
+set backspace=2
 
-set autoindent      " Copy indent from current line when starting a new line
-                    " (typing <CR> in Insert mode or when using the "o" or "O"
-                    " command).
+set autoindent
 
-set textwidth=120    " Maximum width of text that is being inserted. A longer
-                    " line will be broken after white space to get this width.
+set textwidth=160
 
-set formatoptions=c,q,r,t " This is a sequence of letters which describes how
-                    " automatic formatting is to be done.
-                    "
-                    " letter    meaning when present in 'formatoptions'
-                    " ------    ---------------------------------------
-                    " c         Auto-wrap comments using textwidth, inserting
-                    "           the current comment leader automatically.
-                    " q         Allow formatting of comments with "gq".
-                    " r         Automatically insert the current comment leader
-                    "           after hitting <Enter> in Insert mode.
-                    " t         Auto-wrap text using textwidth (does not apply
-                    "           to comments)
+set formatoptions=c,q,r,t
 
-set ruler           " Show the line and column number of the cursor position,
-                    " separated by a comma.
+set ruler
 
-set background=dark " When set to "dark", Vim will try to use colors that look
-                    " good on a dark background. When set to "light", Vim will
-                    " try to use colors that look good on a light background.
-                    " Any other value is illegal.
+set background=dark
 
 set noshowmode
 let g:bufferline_echo = 0
 set laststatus=2
-let g:airline_theme='badwolf'
+let g:airline_theme = 'badwolf'
 let g:Powerline_symbols = 'unicode'
 
 set timeoutlen=50
@@ -95,27 +71,23 @@ let g:clang_hl_errors=1
 
 let g:clang_library_path = '/usr/lib/'
 
-
 set tabpagemax=50
 
 "set t_Co=256
 
-execute pathogen#infect()
+inoremap ( ()<Left>
+inoremap [ []<Left>
+inoremap { {}<Left>
+inoremap " ""<Left>
+inoremap ' ''<Left>
 
 colorscheme badwolf
 
 map <F9> :tabp <CR>
 map <F10> :tabn <CR>
 
-inoremap (      ()<Left>
-inoremap [      []<Left>
-inoremap {      {}<Left>
-inoremap "      ""<Left>
-inoremap '      ''<Left>
-
 set complete=.,w,b,u,U,t,i,d
 set completeopt=menu
-"set completeopt-=preview
 
 filetype plugin indent on
 
@@ -130,5 +102,6 @@ syntax on
     \<BS>};<CR>
     \<ESC><Right>xxx
 
-:command -nargs=1 Itags :normal i<<args>></<args>><ESC>bba
+:command -nargs=1 Itags :normal i<<args>></<args>><CR><ESC>xx
+
 

@@ -55,7 +55,7 @@ screens = [
     ),
 ]
 
-subprocess.call(['hsetroot','-fill','/home/antoine/Pictures/Wallpaper/blackpattern.jpg'])
+#subprocess.call(['hsetroot','-fill','/home/antoine/Pictures/Wallpaper/blackpattern.jpg'])
 
 dgroups_key_binder = None
 dgroups_app_rules = []

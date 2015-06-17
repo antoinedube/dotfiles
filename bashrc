@@ -7,7 +7,6 @@ alias valgrind='valgrind --leak-check=full --show-reachable=yes --track-origins=
 alias aria-bt='aria2c --bt-min-crypto-level=arc4 --bt-require-crypto=true'
 alias grep='grep -ni --color=auto'
 alias qemu64='qemu-system-x86_64 -enable-kvm'
-alias rails='/home/antoine/.gem/ruby/2.1.0/bin/rails'
 alias vim='vim -p'
 
 source ~/.git-completion.bash

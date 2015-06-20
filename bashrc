@@ -1,3 +1,28 @@
+export ESC=$( printf '\033' )
+
+function find_git_branch() {
+  # Get git branch modified status
+  local status=$( git status --porcelain 2> /dev/null )
+  local modified=''
+  if [[ "$status" != "" ]]; then
+    modified="!!"
+  fi
+
+  local branch
+  local revision
+
+  if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
+    if [[ "$branch" == "HEAD" ]]; then
+      branch='detached*'
+    fi
+    revision="$( git rev-parse HEAD | cut -c1-6 )"
+    git_branch="[$branch >> $revision  ${ESC}[0;30m${ESC}[43m$modified${ESC}[0m ]"
+  else
+    git_branch=""
+  fi
+
+}
+
 [ -z "$PS1" ] && return
 
 export EDITOR="vim"

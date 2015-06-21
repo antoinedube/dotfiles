@@ -5,7 +5,7 @@ function find_git_branch() {
   local status=$( git status --porcelain 2> /dev/null )
   local modified=''
   if [[ "$status" != "" ]]; then
-    modified="!!"
+    modified=" !!"
   fi
 
   local branch
@@ -16,7 +16,13 @@ function find_git_branch() {
       branch='detached*'
     fi
     revision="$( git rev-parse HEAD | cut -c1-6 )"
-    git_branch="[$branch >> $revision  ${ESC}[0;30m${ESC}[43m$modified${ESC}[0m ]"
+    opening_bracket="${ESC}[38;5;237m[${ESC}[0m"
+    colored_branch="${ESC}[38;5;214m$branch${ESC}[0m"
+    middle_symbol="${ESC}[38;5;237m>>${ESC}[0m"
+    colored_revision="${ESC}[38;5;245m$revision${ESC}[0m"
+    modif_symbol="${ESC}[1;33m$modified${ESC}[0m"
+    closing_bracket="${ESC}[38;5;237m]${ESC}[0m"
+    git_branch="${opening_bracket}${colored_branch} ${middle_symbol} ${colored_revision}${modif_symbol}${closing_bracket} "
   else
     git_branch=""
   fi
@@ -39,13 +45,10 @@ source ~/.git-completion.bash
 cd ~
 
 
-PS1='\[\e[0;32m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] \[\e[0;97m\]'
-
-[[ "$PS1" ]]
+PROMPT_COMMAND="find_git_branch;"
+PS1='\[${ESC}[38;5;34m\]\u\[${ESC}[0m\] \[${ESC}[38;5;27m\]\w\[${ESC}[0m\] \[$git_branch\]\[${ESC}[38;5;10m\]\$\[${ESC}[0m \]'
 
 
 export PATH="$PATH:$HOME/.rvm/bin"
-
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 [[ -r "$HOME/.rvm/scripts/completion" ]] && source "$HOME/.rvm/scripts/completion"

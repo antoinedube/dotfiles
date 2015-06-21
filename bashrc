@@ -20,7 +20,7 @@ function find_git_branch() {
     colored_branch="${ESC}[38;5;214m$branch${ESC}[0m"
     middle_symbol="${ESC}[38;5;237m>>${ESC}[0m"
     colored_revision="${ESC}[38;5;245m$revision${ESC}[0m"
-    modif_symbol="${ESC}[1;33m$modified${ESC}[0m"
+    modif_symbol="${ESC}[38;5;202m$modified${ESC}[0m"
     closing_bracket="${ESC}[38;5;237m]${ESC}[0m"
     git_branch="${opening_bracket}${colored_branch} ${middle_symbol} ${colored_revision}${modif_symbol}${closing_bracket} "
   else

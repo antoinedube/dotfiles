@@ -45,7 +45,7 @@ screens = [
             [
                 widget.GroupBox(),
                 widget.Prompt(),
-                widget.WindowName(),
+                widget.Spacer(),
                 widget.Systray(),
                 widget.Clock(format='%A %B %d, %Y -- %H:%M:%S'),
             ],

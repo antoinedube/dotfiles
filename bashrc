@@ -44,6 +44,8 @@ source /usr/share/git/completion/git-completion.bash
 
 cd ~
 
+# ssh-add
+
 
 PROMPT_COMMAND="find_git_branch;"
 PS1='\[${ESC}[38;5;34m\]\u\[${ESC}[0m\] \[${ESC}[38;5;27m\]\w\[${ESC}[0m\] \[$git_branch\]\[${ESC}[38;5;10m\]\$\[${ESC}[0m\] '

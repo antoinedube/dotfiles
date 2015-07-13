@@ -1,0 +1,13 @@
+[user]
+	name = Antoine Dube
+	email = antoine.dube@gmail.com
+
+[core]
+	editor = vim
+
+[push]
+	default = simple
+
+[alias]
+    ll = log --graph --oneline --decorate
+

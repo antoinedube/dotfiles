@@ -1,9 +1,16 @@
 [user]
-	name = Antoine Dube
+	name = Antoine Dubé
 	email = antoine.dube@gmail.com
 
 [core]
 	editor = vim
+    deltaBaseCacheLimit = 1G
+
+[color]
+	ui = auto
+	branch = auto
+	diff = auto
+	status = auto
 
 [push]
 	default = simple

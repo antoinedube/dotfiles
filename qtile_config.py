@@ -26,7 +26,7 @@ for i in groups:
 
 layouts = [
     layout.xmonad.MonadTall(
-        ratio=0.6,
+        ratio=0.55,
         border_focus='#555555',
         border_normal='#222222'
     ),

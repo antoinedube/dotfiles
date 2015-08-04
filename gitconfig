@@ -1,19 +1,19 @@
 [user]
-	name = Antoine Dubé
-	email = antoine.dube@gmail.com
+    name = Antoine Dubé
+    email = antoine.dube@gmail.com
 
 [core]
-	editor = vim
+    editor = vim
     deltaBaseCacheLimit = 1G
 
 [color]
-	ui = auto
-	branch = auto
-	diff = auto
-	status = auto
+    ui = auto
+    branch = auto
+    diff = auto
+    status = auto
 
 [push]
-	default = simple
+    default = simple
 
 [alias]
     ll = log --graph --oneline --decorate

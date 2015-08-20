@@ -13,42 +13,25 @@ call vundle#begin()
 call vundle#end()
 
 set fileencodings=utf-8
-
 set tabstop=4
-
 set shiftwidth=4
-
 set expandtab
-
 set smarttab
-
 set showcmd
-
 set number
-
 set showmatch
-
 set hlsearch
-
 set incsearch
-
 set smartcase
-
 set wildignorecase
-
 set wildmenu
-
 set backspace=2
-
 set autoindent
-
 set textwidth=160
-
 set formatoptions=c,q,r,t
-
 set ruler
-
 set background=dark
+set list
 
 set noshowmode
 let g:bufferline_echo = 0

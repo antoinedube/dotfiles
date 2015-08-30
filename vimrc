@@ -31,7 +31,6 @@ set textwidth=160
 set formatoptions=c,q,r,t
 set ruler
 set background=dark
-set list
 
 set noshowmode
 let g:bufferline_echo = 0

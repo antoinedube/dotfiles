@@ -32,6 +32,7 @@ function find_git_branch() {
 [ -z "$PS1" ] && return
 
 export EDITOR="vim"
+export HISTCONTROL=ignoreboth
 
 alias l='ls -lh --group-directories-first --color=auto'
 alias valgrind='valgrind --leak-check=full --show-reachable=yes --track-origins=yes'

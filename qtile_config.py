@@ -14,7 +14,7 @@ keys = [
     Key([mod],"Tab", lazy.next_layout()),
 ]
 
-groups = [Group(i) for i in "uiophjkl"]
+groups = [Group(i) for i in "uiojkl"]
 
 for i in groups:
     keys.append(

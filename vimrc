@@ -10,6 +10,7 @@ call vundle#begin()
     Plugin 'sjl/badwolf'
     Plugin 'Valloric/MatchTagAlways'
     Plugin 'scrooloose/nerdtree'
+    Plugin 'suan/vim-instant-markdown'
 call vundle#end()
 
 set fileencodings=utf-8
@@ -72,6 +73,7 @@ set complete=.,w,b,u,U,t,i,d
 set completeopt=menu
 
 filetype plugin indent on
+filetype plugin on
 
 syntax on
 

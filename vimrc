@@ -10,6 +10,7 @@ call vundle#begin()
     Plugin 'sjl/badwolf'
     Plugin 'Valloric/MatchTagAlways'
     Plugin 'scrooloose/nerdtree'
+    Plugin 'suan/vim-instant-markdown'
 call vundle#end()
 
 set fileencodings=utf-8

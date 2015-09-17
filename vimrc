@@ -73,6 +73,7 @@ set complete=.,w,b,u,U,t,i,d
 set completeopt=menu
 
 filetype plugin indent on
+filetype plugin on
 
 syntax on
 

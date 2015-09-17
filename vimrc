@@ -64,7 +64,7 @@ inoremap { {}<Left>
 inoremap " ""<Left>
 inoremap ' ''<Left>
 
-colorscheme badwolf
+colorscheme darkdevel
 
 map <F9> :tabp <CR>
 map <F10> :tabn <CR>

@@ -41,6 +41,10 @@ alias grep='grep -ni --color=auto'
 alias qemu64='qemu-system-x86_64 -enable-kvm'
 alias vim='vim -p'
 
+shopt -s autocd
+shopt -s checkwinsize
+shopt -s globstar
+
 source /usr/share/git/completion/git-completion.bash
 
 cd ~

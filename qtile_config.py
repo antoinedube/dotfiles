@@ -10,8 +10,8 @@ keys = [
     Key([mod], "space", lazy.layout.next()),
     Key([mod], "Return", lazy.spawn("urxvt")),
     Key([mod], "r", lazy.spawncmd()),
-    Key([mod, "control"], "r", lazy.restart()),
-    Key([mod],"Tab", lazy.next_layout()),
+    Key([mod], "Tab", lazy.next_layout()),
+    Key([mod], "y", lazy.widget['notify'].toggle())
 ]
 
 groups = [Group(i) for i in "uiojkl"]
@@ -46,6 +46,7 @@ screens = [
                 widget.GroupBox(),
                 widget.Prompt(),
                 widget.Spacer(),
+                widget.Notify(),
                 widget.NetGraph(),
                 widget.Sep(),
                 widget.CPUGraph(),

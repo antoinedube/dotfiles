@@ -54,7 +54,7 @@ screens = [
                 widget.Clock(format='%A %B %d, %Y -- %H:%M:%S'),
             ],
             25,
-            background=['#050505',"#202020"]
+            background=['#1F1F1F',"#1F1F2F"]
         ),
     ),
 ]

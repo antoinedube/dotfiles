@@ -14,9 +14,12 @@ call vundle#begin()
 call vundle#end()
 
 set fileencodings=utf-8
+
 set tabstop=4
 set shiftwidth=4
+set softtabstop=4
 set expandtab
+
 set smarttab
 set showcmd
 set number
@@ -74,6 +77,8 @@ set completeopt=menu
 
 filetype plugin indent on
 filetype plugin on
+
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
 syntax on
 

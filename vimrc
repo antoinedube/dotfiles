@@ -11,6 +11,7 @@ call vundle#begin()
     Plugin 'Valloric/MatchTagAlways'
     Plugin 'scrooloose/nerdtree'
     Plugin 'suan/vim-instant-markdown'
+    Plugin 'hallison/vim-darkdevel'
 call vundle#end()
 
 set fileencodings=utf-8

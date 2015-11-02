@@ -12,6 +12,7 @@ call vundle#begin()
     Plugin 'scrooloose/nerdtree'
     Plugin 'suan/vim-instant-markdown'
     Plugin 'hallison/vim-darkdevel'
+    Plugin 'veloce/vim-behat'
 call vundle#end()
 
 set fileencodings=utf-8

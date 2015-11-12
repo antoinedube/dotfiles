@@ -74,6 +74,9 @@ colorscheme darkdevel
 map <F9> :tabp <CR>
 map <F10> :tabn <CR>
 
+map <F11> :cp <CR>
+map <F12> :cn <CR>
+
 set complete=.,w,b,u,U,t,i,d
 set completeopt=menu
 
@@ -81,6 +84,7 @@ filetype plugin indent on
 filetype plugin on
 
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
 
 syntax on
 

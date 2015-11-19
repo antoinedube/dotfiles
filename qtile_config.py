@@ -28,9 +28,9 @@ for i in groups:
 
 layouts = [
     layout.xmonad.MonadTall(
-        ratio=0.55,
-        border_focus='#555555',
-        border_normal='#222222'
+        ratio=0.5,
+        border_focus='#333333',
+        border_normal='#111111'
     ),
     layout.Max()
 ]

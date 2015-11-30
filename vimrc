@@ -13,6 +13,7 @@ call vundle#begin()
     Plugin 'suan/vim-instant-markdown'
     Plugin 'hallison/vim-darkdevel'
     Plugin 'veloce/vim-behat'
+    Plugin 'tpope/vim-fugitive'
 call vundle#end()
 
 set fileencodings=utf-8
@@ -85,6 +86,7 @@ filetype plugin on
 
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 
 syntax on
 

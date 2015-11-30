@@ -37,7 +37,7 @@ export HISTCONTROL=ignoreboth
 alias l='ls -lh --group-directories-first --color=auto'
 alias valgrind='valgrind --leak-check=full --show-reachable=yes --track-origins=yes'
 alias aria-bt='aria2c --bt-min-crypto-level=arc4 --bt-require-crypto=true'
-alias grep='grep -ni --color=auto'
+alias grep='grep -n --color=auto'
 alias qemu64='qemu-system-x86_64 -enable-kvm'
 alias vim='vim -p 2>/dev/null'
 

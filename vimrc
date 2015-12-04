@@ -62,6 +62,8 @@ let g:clang_library_path = '/usr/lib/'
 
 set tabpagemax=50
 
+let g:tex_flavor = "latex"
+
 "set t_Co=256
 
 inoremap ( ()<Left>

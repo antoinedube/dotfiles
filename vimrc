@@ -8,10 +8,10 @@ call vundle#begin()
     Plugin 'bling/vim-airline'
     Plugin 'Rip-Rip/clang_complete'
     Plugin 'sjl/badwolf'
+    Plugin 'hallison/vim-darkdevel'
     Plugin 'Valloric/MatchTagAlways'
     Plugin 'scrooloose/nerdtree'
     Plugin 'suan/vim-instant-markdown'
-    Plugin 'hallison/vim-darkdevel'
     Plugin 'veloce/vim-behat'
     Plugin 'tpope/vim-fugitive'
 call vundle#end()
@@ -72,7 +72,7 @@ inoremap { {}<Left>
 inoremap " ""<Left>
 inoremap ' ''<Left>
 
-colorscheme darkdevel
+colorscheme badwolf
 
 map <F9> :tabp <CR>
 map <F10> :tabn <CR>

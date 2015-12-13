@@ -15,6 +15,7 @@ call vundle#begin()
     Plugin 'veloce/vim-behat'
     Plugin 'tpope/vim-fugitive'
     Plugin 'lervag/vimtex'
+    Plugin 'nvie/vim-flake8'
 call vundle#end()
 
 set fileencodings=utf-8

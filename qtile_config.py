@@ -45,6 +45,15 @@ screens = [
     Screen(
         bottom=bar.Bar(
             [
+                widget.Spacer(),
+            ],
+            25,
+            background=['#1F1F1F',"#2C2C2F"]
+        ),
+    ),
+    Screen(
+        bottom=bar.Bar(
+            [
                 widget.GroupBox(),
                 widget.Prompt(),
                 widget.Spacer(),

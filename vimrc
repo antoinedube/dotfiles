@@ -91,6 +91,8 @@ autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 
+autocmd BufWritePre * :%s/\s\+$//e
+
 syntax on
 
 :command -nargs=1 Icppclass :normal i

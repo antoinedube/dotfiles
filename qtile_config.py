@@ -1,6 +1,6 @@
 import subprocess
 
-from libqtile.config import Key, Screen, Group, Drag, Click
+from libqtile.config import Key, Screen, Group
 from libqtile.command import lazy
 from libqtile import layout, bar, widget
 
@@ -13,15 +13,19 @@ keys = [
     Key([mod], "Tab", lazy.next_layout()),
     Key([mod], "y", lazy.widget['notify'].toggle()),
     Key([mod, "shift"], "g", lazy.layout.shuffle_up()),
-    Key([mod, "shift"], "h", lazy.layout.shuffle_down())
+    Key([mod, "shift"], "h", lazy.layout.shuffle_down()),
+    Key([mod], "1", lazy.to_screen(1)),
+    Key([mod], "2", lazy.to_screen(0))
 ]
 
-groups = [Group(i) for i in "uiojkl"]
+groups = [Group(i) for i in "uiojklbnm"]
 
 for i in groups:
     keys.append(
         Key([mod], i.name, lazy.group[i.name].toscreen())
     )
+
+for i in groups:
     keys.append(
         Key([mod, "shift"], i.name, lazy.window.togroup(i.name))
     )
@@ -45,10 +49,11 @@ screens = [
     Screen(
         bottom=bar.Bar(
             [
+                widget.GroupBox(),
                 widget.Spacer(),
             ],
             25,
-            background=['#1F1F1F',"#2C2C2F"]
+            background=['#1F1F1F', "#2C2C2F"]
         ),
     ),
     Screen(
@@ -62,12 +67,12 @@ screens = [
                 widget.Clock(format='%A %B %d, %Y -- %H:%M:%S'),
             ],
             25,
-            background=['#1F1F1F',"#2C2C2F"]
+            background=['#1F1F1F', "#2C2C2F"]
         ),
     ),
 ]
 
-subprocess.call(['hsetroot','-fill','/home/antoine/Pictures/Wallpaper/blackpattern.jpg'])
+subprocess.call(['hsetroot', '-fill', '/home/antoine/Pictures/Wallpaper/blackpattern.jpg'])
 
 dgroups_key_binder = None
 dgroups_app_rules = []

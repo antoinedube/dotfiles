@@ -16,6 +16,7 @@ call vundle#begin()
     Plugin 'tpope/vim-fugitive'
     Plugin 'lervag/vimtex'
     Plugin 'nvie/vim-flake8'
+    Plugin 'morhetz/gruvbox'
 call vundle#end()
 
 set fileencodings=utf-8
@@ -44,7 +45,7 @@ set background=dark
 set noshowmode
 let g:bufferline_echo = 0
 set laststatus=2
-let g:airline_theme = 'badwolf'
+let g:airline_theme = 'gruvbox'
 let g:Powerline_symbols = 'unicode'
 
 set timeoutlen=50
@@ -74,7 +75,8 @@ inoremap { {}<Left>
 inoremap " ""<Left>
 inoremap ' ''<Left>
 
-colorscheme badwolf
+colorscheme gruvbox
+let g:gruvbox_contrast_dark = 'hard'
 
 map <F9> :tabp <CR>
 map <F10> :tabn <CR>

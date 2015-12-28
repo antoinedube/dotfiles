@@ -11,14 +11,12 @@ call vundle#begin()
     Plugin 'hallison/vim-darkdevel'
     Plugin 'Valloric/MatchTagAlways'
     Plugin 'scrooloose/nerdtree'
-    Plugin 'suan/vim-instant-markdown'
     Plugin 'veloce/vim-behat'
     Plugin 'tpope/vim-fugitive'
     Plugin 'lervag/vimtex'
     Plugin 'nvie/vim-flake8'
     Plugin 'morhetz/gruvbox'
     Plugin 'petRUShka/vim-opencl'
-    Plugin 'scrooloose/syntastic'
 call vundle#end()
 
 set fileencodings=utf-8

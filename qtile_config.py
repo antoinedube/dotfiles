@@ -15,7 +15,8 @@ keys = [
     Key([mod, "shift"], "g", lazy.layout.shuffle_up()),
     Key([mod, "shift"], "h", lazy.layout.shuffle_down()),
     Key([mod], "1", lazy.to_screen(1)),
-    Key([mod], "2", lazy.to_screen(0))
+    Key([mod], "2", lazy.to_screen(0)),
+    Key(["control", "mod1"], "l", lazy.spawn("i3lock -c 444444"))
 ]
 
 groups = [Group(i) for i in "uiojklbnm"]
@@ -72,7 +73,7 @@ screens = [
     ),
 ]
 
-subprocess.call(['hsetroot', '-fill', '/home/antoine/Pictures/Wallpaper/blackpattern.jpg'])
+#subprocess.call(['hsetroot', '-fill', '/home/antoine/Pictures/Wallpaper/blackpattern.jpg'])
 
 dgroups_key_binder = None
 dgroups_app_rules = []

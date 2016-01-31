@@ -10,14 +10,14 @@ URxvt*buffered: true
 ! URxvt*geometry: 174x58
 
 ! Use the specified colour as the windows background colour [default White]; option -bg.
-URxvt*background: rgba:1111/1111/1111/AAAA
+URxvt*background: rgba:2222/2222/2222/CCCC
 
 ! Use the specified colour as the windows foreground colour [default Black]; option -fg.
 URxvt*foreground: White
 
 ! URxvt*transparent: true
 ! URxvt*.shading: 0 to 99 darkens, 101 to 200 lightens
-! URxvt*shading: 25
+! URxvt*shading: 20
 
 ! Select the fonts to be used. This is a comma separated list of font names that are checked in order when trying to find glyphs for characters. The first font defines the cell size for characters; other fonts might be
 URxvt*font: xft:terminus:size=10

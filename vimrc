@@ -55,6 +55,8 @@ set nowritebackup
 set noswapfile
 set cursorline
 
+set scrolloff=10
+
 let c_space_errors = 1
 let c_comment_strings = 1
 

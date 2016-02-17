@@ -8,7 +8,7 @@ call vundle#begin()
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
     Plugin 'Rip-Rip/clang_complete'
-    Plugin 'hallison/vim-darkdevel'
+    Plugin 'morhetz/gruvbox'
     Plugin 'Valloric/MatchTagAlways'
     Plugin 'scrooloose/nerdtree'
     Plugin 'veloce/vim-behat'
@@ -35,7 +35,7 @@ set wildignorecase
 set wildmenu
 set backspace=2
 set autoindent
-set textwidth=160
+set textwidth=230
 set formatoptions=c,q,r,t
 set ruler
 set background=dark
@@ -66,7 +66,7 @@ set tabpagemax=50
 
 let g:tex_flavor = "latex"
 
-"set t_Co=256
+set t_Co=256
 
 inoremap ( ()<Left>
 inoremap [ []<Left>
@@ -94,8 +94,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 syntax on
 
-colorscheme darkdevel
-let g:airline_theme='dark'
+colorscheme gruvbox
+let g:gruvbox_contrast_dark='hard'
+let g:airline_theme='gruvbox'
 
 
 :command -nargs=1 Icppclass :normal i

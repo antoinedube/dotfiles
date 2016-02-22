@@ -33,6 +33,7 @@ function find_git_branch() {
 
 export EDITOR="vim"
 export HISTCONTROL=ignoreboth
+LS_COLORS=$LS_COLORS:'di=1;37;104' ; export LS_COLORS
 
 alias l='ls -lh --group-directories-first --color=auto'
 alias valgrind='valgrind --leak-check=full --show-reachable=yes --track-origins=yes'

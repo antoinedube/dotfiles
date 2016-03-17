@@ -73,7 +73,7 @@ screens = [
     ),
 ]
 
-#subprocess.call(['hsetroot', '-fill', '/home/antoine/Pictures/Wallpaper/blackpattern.jpg'])
+subprocess.call(['hsetroot', '-fill', '/home/antoine/dotfiles/wallpaper'])
 #subprocess.call(['synapse', '-s'])
 
 dgroups_key_binder = None

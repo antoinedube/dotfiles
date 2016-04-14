@@ -11,6 +11,7 @@ call vundle#begin()
     Plugin 'morhetz/gruvbox'
     Plugin 'Valloric/MatchTagAlways'
     Plugin 'scrooloose/nerdtree'
+    Plugin 'scrooloose/syntastic'
     Plugin 'veloce/vim-behat'
     Plugin 'tpope/vim-fugitive'
     Plugin 'lervag/vimtex'
@@ -62,6 +63,17 @@ let g:clang_complete_copen=1
 let g:clang_hl_errors=1
 
 let g:clang_library_path = '/usr/lib/'
+
+let g:syntastic_python_python_exec = '/usr/bin/python'
+let g:syntastic_javascript_checkers = ['eslint']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 set tabpagemax=50
 

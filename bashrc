@@ -32,6 +32,8 @@ function find_git_branch() {
 [ -z "$PS1" ] && return
 
 export EDITOR="vim"
+export TERM="rxvt"
+
 export HISTCONTROL=ignoreboth
 LS_COLORS=$LS_COLORS:'di=0;37;104' ; export LS_COLORS
 

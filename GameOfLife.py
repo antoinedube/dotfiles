@@ -15,7 +15,6 @@ class GameOfLife:
         for step in range(n_steps):
             self.apply_rules()
             print('step: ', step)
-            print('system: ', self.system)
 
     def export(self):
         return self.system
@@ -83,8 +82,8 @@ class Graph:
         pp.show()
 
 if __name__ == "__main__":
-    game_of_life = GameOfLife()
-    game_of_life.run(100)
+    game_of_life = GameOfLife(dimensions={'x': 100, 'y': 100})
+    game_of_life.run(50)
     graph = Graph()
     graph.plot(game_of_life.export())
     graph.save()

@@ -34,8 +34,8 @@ for i in groups:
 layouts = [
     layout.xmonad.MonadTall(
         ratio=0.5,
-        border_focus='#333333',
-        border_normal='#111111'
+        border_focus='#303030',
+        border_normal='#252525'
     ),
     layout.Max()
 ]
@@ -74,7 +74,7 @@ screens = [
 ]
 
 subprocess.call(['hsetroot', '-fill', '/home/antoine/dotfiles/wallpaper'])
-#subprocess.call(['synapse', '-s'])
+# subprocess.call(['synapse', '-s'])
 
 dgroups_key_binder = None
 dgroups_app_rules = []

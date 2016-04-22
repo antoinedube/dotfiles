@@ -66,9 +66,12 @@ class GameOfLife:
 
 
 class Graph:
+    def __init__(self):
+        self.figure = pp.figure(figsize=(20, 10))
+
     def plot(self, data=None):
         if data is None:
-            self.data = np.random.randn(100, 100)
+            self.data = np.random.randn(100, 200)
         else:
             self.data = data
 
@@ -76,13 +79,13 @@ class Graph:
         pp.axis('off')
 
     def save(self):
-        pp.savefig('image.png', bbox_inches='tight')
+        self.figure.savefig('image.png', bbox_inches='tight')
 
     def show(self):
-        pp.show()
+        self.figure.show()
 
 if __name__ == "__main__":
-    game_of_life = GameOfLife(dimensions={'x': 100, 'y': 100})
+    game_of_life = GameOfLife(dimensions={'x': 50, 'y': 100})
     game_of_life.run(50)
     graph = Graph()
     graph.plot(game_of_life.export())

@@ -66,6 +66,7 @@ let g:clang_library_path = '/usr/lib/'
 
 let g:syntastic_python_python_exec = '/usr/bin/python'
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_c_checkers = ['splint']
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*

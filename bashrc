@@ -33,6 +33,7 @@ function find_git_branch() {
 
 export EDITOR="vim"
 export TERM="rxvt"
+export BROWSER="chromium-continuous-bin"
 
 export HISTCONTROL=ignoreboth
 LS_COLORS=$LS_COLORS:'di=0;37;104' ; export LS_COLORS

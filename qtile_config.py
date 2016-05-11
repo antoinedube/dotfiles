@@ -63,7 +63,7 @@ screens = [
                 widget.GroupBox(),
                 widget.Prompt(),
                 widget.Spacer(),
-                widget.Notify(default_timeout=10),
+                widget.Notify(default_timeout=5),
                 widget.Systray(padding=10),
                 widget.Clock(format='%A %B %d, %Y -- %H:%M:%S'),
             ],

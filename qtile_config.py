@@ -1,3 +1,4 @@
+import os
 import subprocess
 
 from libqtile.config import Key, Screen, Group
@@ -5,6 +6,8 @@ from libqtile.command import lazy
 from libqtile import layout, bar, widget
 
 mod = "mod4"
+
+current_directory = os.path.dirname(os.path.realpath(__file__))
 
 keys = [
     Key([mod], "space", lazy.layout.next()),
@@ -16,7 +19,7 @@ keys = [
     Key([mod, "shift"], "h", lazy.layout.shuffle_down()),
     Key([mod], "1", lazy.to_screen(1)),
     Key([mod], "2", lazy.to_screen(0)),
-    Key(["control", "mod1"], "l", lazy.spawn("i3lock -c 444444"))
+    Key(["control", "mod1"], "l", lazy.spawn(current_directory + "/lock_screen.sh"))
 ]
 
 groups = [Group(i) for i in "uiojklbnm"]

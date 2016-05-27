@@ -282,5 +282,3 @@ URxvt*url-launcher: firefox
 
 ! Turn on/off ISO 14755 5.2 mode (default enabled).
 ! URxvt*iso14755_52: boolean
-
-

@@ -20,7 +20,7 @@ URxvt*foreground: White
 ! URxvt*shading: 20
 
 ! Select the fonts to be used. This is a comma separated list of font names that are checked in order when trying to find glyphs for characters. The first font defines the cell size for characters; other fonts might be
-URxvt*font: xft:terminus:size=10
+URxvt*font: xft:Roboto Mono for Powerline:size=10
 
 URxvt*dynamicColors: on
 

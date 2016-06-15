@@ -44,33 +44,40 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font='Terminus',
+    font='Roboto Mono Light',
     fontsize=14,
-    padding=2,
+    padding=4,
+)
+
+group_box_settings = dict(
+    borderwidth=2,
+    disable_drag=True,
+    center_aligned=True,
+    fontsize=12
 )
 
 screens = [
     Screen(
         bottom=bar.Bar(
             [
-                widget.GroupBox(),
+                widget.GroupBox(**group_box_settings),
                 widget.Spacer(),
             ],
-            25,
+            30,
             background=['#1F1F1F', "#2C2C2F"]
         ),
     ),
     Screen(
         bottom=bar.Bar(
             [
-                widget.GroupBox(),
+                widget.GroupBox(**group_box_settings),
                 widget.Prompt(),
                 widget.Spacer(),
                 widget.Notify(default_timeout=5),
                 widget.Systray(padding=10),
                 widget.Clock(format='%A %B %d, %Y -- %H:%M:%S'),
             ],
-            25,
+            30,
             background=['#1F1F1F', "#2C2C2F"]
         ),
     ),
@@ -88,12 +95,4 @@ cursor_warp = False
 floating_layout = layout.Floating()
 auto_fullscreen = True
 
-# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
-# # string besides java UI toolkits; you can see several discussions on the
-# # mailing lists, github issues, and other WM documentation that suggest setting
-# # this string if your java app doesn't work correctly. We may as well just lie
-# # and say that we're a working one by default.
-# #
-# # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
-# # java that happens to be on java's whitelist.
 wmname = "LG3D"

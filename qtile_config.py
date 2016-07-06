@@ -83,7 +83,7 @@ screens = [
     ),
 ]
 
-subprocess.call(['hsetroot', '-fill', '/home/antoine/dotfiles/wallpaper'])
+subprocess.call(['hsetroot', '-fill', current_directory + '/wallpaper'])
 # subprocess.call(['synapse', '-s'])
 
 dgroups_key_binder = None

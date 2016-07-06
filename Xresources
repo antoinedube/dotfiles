@@ -10,7 +10,7 @@ URxvt*buffered: true
 ! URxvt*geometry: 174x58
 
 ! Use the specified colour as the windows background colour [default White]; option -bg.
-URxvt*background: rgba:2222/2222/2222/CCCC
+URxvt*background: rgba:1111/1111/1111/FFFF
 
 ! Use the specified colour as the windows foreground colour [default Black]; option -fg.
 URxvt*foreground: White

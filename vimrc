@@ -42,9 +42,6 @@ set formatoptions=c,q,r,t
 set ruler
 set background=dark
 
-set spell
-set spelllang=en_ca
-
 set noshowmode
 let g:bufferline_echo = 0
 set laststatus=2

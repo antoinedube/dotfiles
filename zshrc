@@ -18,10 +18,18 @@ alias vim='vim -p 2>/dev/null'
 alias lock='i3lock'
 
 plugins+=(zsh-completions)
-autoload -Uz colors compinit promptinit
+autoload -Uz colors compinit promptinit vcs_info
 colors
 compinit
 promptinit
+
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:git*' formats "%b  %m  %u  %c  %a "
+zstyle ':vcs_info:git*' actionformats "%b  %F{${red}}| %a%f"
+precmd () {
+  vcs_info
+}
 
 SEGMENT_SEPARATOR="\ue0b0"
 PLUSMINUS="\u00b1"
@@ -33,8 +41,10 @@ GEAR="\u2699"
 
 # http://www.nparikh.org/unix/prompt.php
 # https://gist.github.com/agnoster/3712874
+# https://github.com/bhilburn/powerlevel9k/blob/master/powerlevel9k.zsh-theme
 
 #PS1='%F{blue}%n%{$reset_color%} at %m:%/ %# '
 PS1='%F{208}%n%f%F{yellow}@%f%F{blue}%m%f %# '
 PS2='> '
-RPROMPT="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
+# RPROMPT="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
+RPROMPT="\$vcs_info_msg_0_"

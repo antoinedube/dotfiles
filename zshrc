@@ -1,9 +1,10 @@
 setopt extendedGlob
 setopt HIST_IGNORE_DUPS
 setopt prompt_subst
+setopt menu_complete
 
 export EDITOR="vim"
-export TERM="rxvt"
+export TERM="rxvt-unicode-256color"
 export BROWSER="chromium"
 export HISTCONTROL=ignoreboth
 
@@ -18,18 +19,16 @@ alias vim='vim -p 2>/dev/null'
 alias lock='i3lock'
 
 plugins+=(zsh-completions)
-autoload -Uz colors compinit promptinit vcs_info
+autoload -Uz colors compinit promptinit
 colors
 compinit
 promptinit
 
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:git*' formats "%b  %m  %u  %c  %a "
-zstyle ':vcs_info:git*' actionformats "%b  %F{${red}}| %a%f"
-precmd () {
-  vcs_info
-}
+# Custom prompt setup
+
+# http://www.nparikh.org/unix/prompt.php
+# https://gist.github.com/agnoster/3712874
+# https://github.com/bhilburn/powerlevel9k/blob/master/powerlevel9k.zsh-theme
 
 SEGMENT_SEPARATOR="\ue0b0"
 PLUSMINUS="\u00b1"
@@ -39,12 +38,112 @@ CROSS="\u2718"
 LIGHTNING="\u26a1"
 GEAR="\u2699"
 
-# http://www.nparikh.org/unix/prompt.php
-# https://gist.github.com/agnoster/3712874
-# https://github.com/bhilburn/powerlevel9k/blob/master/powerlevel9k.zsh-theme
+CURRENT_BG='NONE'
+PRIMARY_FG=black
+
+prompt_segment() {
+  local bg fg
+  [[ -n $1 ]] && bg="%K{$1}" || bg="%k"
+  [[ -n $2 ]] && fg="%F{$2}" || fg="%f"
+  if [[ $CURRENT_BG != 'NONE' && $1 != $CURRENT_BG ]]; then
+    print -n "%{$bg%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{$fg%}"
+  else
+    print -n "%{$bg%}%{$fg%}"
+  fi
+  CURRENT_BG=$1
+  [[ -n $3 ]] && print -n $3
+}
+
+prompt_end() {
+  if [[ -n $CURRENT_BG ]]; then
+    print -n "%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
+  else
+    print -n "%{%k%}"
+  fi
+  print -n "%{%f%}"
+  CURRENT_BG=''
+}
+
+prompt_status() {
+  local symbols
+  symbols=()
+  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}$CROSS"
+  [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}$LIGHTNING"
+
+  [[ -n "$symbols" ]] && prompt_segment $PRIMARY_FG default " $symbols "
+}
+
+prompt_context() {
+  local user=`whoami`
+
+  prompt_segment 155 black " %(!.%{%F{yellow}%}.)$user "
+}
+
+prompt_dir() {
+  prompt_segment blue grey ' %~ '
+}
+
+prompt_main() {
+  RETVAL=$?
+  CURRENT_BG='NONE'
+  prompt_status
+  prompt_context
+  prompt_dir
+  prompt_end
+}
+
+prompt_right() {
+  local color ref
+  is_dirty() {
+    test -n "$(git status --porcelain --ignore-submodules)"
+  }
+  ref="$vcs_info_msg_0_"
+  if [[ -n "$ref" ]]; then
+    if is_dirty; then
+      color=yellow
+      ref="${ref} $PLUSMINUS"
+    else
+      color=green
+      ref="${ref} "
+    fi
+    if [[ "${ref/.../}" == "$ref" ]]; then
+      ref="$BRANCH $ref"
+    else
+      ref="$DETACHED ${ref/.../}"
+    fi
+    prompt_segment $color $PRIMARY_FG
+    print -Pn " $ref"
+  fi
+}
+
+prompt_precmd() {
+  vcs_info
+  PROMPT='%{%f%b%k%}$(prompt_main) '
+  RPROMPT='$(prompt_right)'
+}
+
+custom_prompt_setup() {
+  autoload -Uz vcs_info add-zsh-hook
+
+  prompt_opts=(cr subst percent)
+  add-zsh-hook precmd prompt_precmd
+
+  zstyle ':vcs_info:*' enable git
+  zstyle ':vcs_info:*' check-for-changes false
+  zstyle ':vcs_info:git*' formats "%b"
+  zstyle ':vcs_info:git*' actionformats "%b (%a)"
+  zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+  zstyle ':completion:*' menu select
+}
+
+# precmd () {
+#  vcs_info
+#}
 
 #PS1='%F{blue}%n%{$reset_color%} at %m:%/ %# '
-PS1='%F{208}%n%f%F{yellow}@%f%F{blue}%m%f %# '
-PS2='> '
+# PS1='%F{208}%n%f%F{yellow}@%f%F{blue}%m%f %# '
+# PS2='> '
 # RPROMPT="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
-RPROMPT="\$vcs_info_msg_0_"
+# RPROMPT="\$vcs_info_msg_0_"
+
+custom_prompt_setup "$@"

@@ -1,8 +1,3 @@
-setopt extendedGlob
-setopt HIST_IGNORE_DUPS
-setopt prompt_subst
-setopt menu_complete
-
 export EDITOR="vim"
 export TERM="rxvt-unicode-256color"
 export BROWSER="chromium"
@@ -24,11 +19,21 @@ colors
 compinit
 promptinit
 
-# Custom prompt setup
+setopt extendedGlob
+setopt HIST_IGNORE_DUPS
+setopt prompt_subst
+setopt menu_complete
 
-# http://www.nparikh.org/unix/prompt.php
-# https://gist.github.com/agnoster/3712874
-# https://github.com/bhilburn/powerlevel9k/blob/master/powerlevel9k.zsh-theme
+HISTSIZE=10000
+if (( ! EUID )); then
+  HISTFILE=~/.history_root
+else
+  HISTFILE=~/.history
+fi
+SAVEHIST=10000
+
+bindkey -v
+bindkey '^R' history-incremental-search-backward
 
 SEGMENT_SEPARATOR="\ue0b0"
 PLUSMINUS="\u00b1"
@@ -68,50 +73,44 @@ prompt_status() {
   local symbols
   symbols=()
   [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}$CROSS"
-  [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}$LIGHTNING"
-
-  [[ -n "$symbols" ]] && prompt_segment $PRIMARY_FG default " $symbols "
+  [[ -n "$symbols" ]] && prompt_segment NONE default " $symbols "
 }
 
 prompt_context() {
   local user=`whoami`
-
-  prompt_segment 155 black " %(!.%{%F{yellow}%}.)$user "
+  prompt_segment 237 39 " $user "
 }
 
 prompt_dir() {
-  prompt_segment blue grey ' %~ '
+  prompt_segment 33 235 " %~ "
 }
 
 prompt_main() {
-  RETVAL=$?
   CURRENT_BG='NONE'
-  prompt_status
   prompt_context
   prompt_dir
   prompt_end
 }
 
 prompt_right() {
+  RETVAL=$?
+  CURRENT_BG='NONE'
+  prompt_status
+  prompt_git
+}
+
+prompt_git() {
   local color ref
-  is_dirty() {
-    test -n "$(git status --porcelain --ignore-submodules)"
-  }
+  is_dirty() { test -n "$(git status --porcelain --ignore-submodules)" }
   ref="$vcs_info_msg_0_"
   if [[ -n "$ref" ]]; then
     if is_dirty; then
-      color=yellow
-      ref="${ref} $PLUSMINUS"
+      color=166
     else
       color=green
-      ref="${ref} "
     fi
-    if [[ "${ref/.../}" == "$ref" ]]; then
-      ref="$BRANCH $ref"
-    else
-      ref="$DETACHED ${ref/.../}"
-    fi
-    prompt_segment $color $PRIMARY_FG
+    ref="$BRANCH ${ref}"
+    prompt_segment NONE $color
     print -Pn " $ref"
   fi
 }
@@ -135,15 +134,5 @@ custom_prompt_setup() {
   zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
   zstyle ':completion:*' menu select
 }
-
-# precmd () {
-#  vcs_info
-#}
-
-#PS1='%F{blue}%n%{$reset_color%} at %m:%/ %# '
-# PS1='%F{208}%n%f%F{yellow}@%f%F{blue}%m%f %# '
-# PS2='> '
-# RPROMPT="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
-# RPROMPT="\$vcs_info_msg_0_"
 
 custom_prompt_setup "$@"

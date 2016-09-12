@@ -109,9 +109,10 @@ prompt_git() {
     else
       color=green
     fi
+    local commit_hash="$( git rev-parse HEAD | cut -c1-6 )"
     ref="$BRANCH ${ref}"
     prompt_segment NONE $color
-    print -Pn " $ref"
+    print -Pn "$commit_hash $ref"
   fi
 }
 

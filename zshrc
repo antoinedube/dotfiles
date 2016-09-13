@@ -110,7 +110,7 @@ prompt_git() {
       color=green
     fi
     local commit_hash="$( git rev-parse HEAD | cut -c1-6 )"
-    prompt_segment 237 $color "$BRANCH  $commit_hash "
+    prompt_segment 237 $color " $BRANCH  $commit_hash "
     prompt_segment $color 235 " $ref "
     prompt_end
   fi

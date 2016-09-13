@@ -159,7 +159,7 @@ URxvt*scrollTtyKeypress: True
 ! URxvt*termName: termname
 
 ! Specifies number of lines (pixel height) to insert between each row of the display [default 0]; option -lsp.
-! URxvt*lineSpace: number
+! URxvt*lineSpace: 10
 
 ! True: handle Meta (Alt) + keypress to set the 8th bit. False: handle Meta (Alt) + keypress as an escape prefix [default].
 ! URxvt*meta8: boolean
@@ -269,7 +269,7 @@ URxvt.keysym.Control-Right:    \033[1;5C
 ! URxvt*searchable-scrollback: keysym
 
 ! Specifies the program to be started with a URL argument. Used by the "selection-popup" and "matcher" perl extensions.
-URxvt*url-launcher: firefox
+URxvt*url-launcher: chromium
 
 ! Compile frills: Sets the WM_TRANSIENT_FOR property to the given window id.
 ! URxvt*transient-for: windowid

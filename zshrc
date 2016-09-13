@@ -133,6 +133,7 @@ custom_prompt_setup() {
   zstyle ':vcs_info:git*' actionformats "%b (%a)"
   zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
   zstyle ':completion:*' menu select
+  zstyle ':completion:*' rehash true
 }
 
 custom_prompt_setup "$@"

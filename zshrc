@@ -107,7 +107,7 @@ prompt_git() {
     if is_dirty; then
       color=166
     else
-      color=green
+      color=70
     fi
     local commit_hash="$( git rev-parse HEAD | cut -c1-6 )"
     prompt_segment 237 $color " $BRANCH  $commit_hash "

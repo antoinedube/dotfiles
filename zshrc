@@ -76,6 +76,12 @@ prompt_status() {
   [[ -n "$symbols" ]] && prompt_segment NONE default " $symbols "
 }
 
+prompt_virtualenv() {
+    if [ -n "$VIRTUAL_ENV" ]; then
+        prompt_segment 26 235 " [venv] "
+    fi
+}
+
 prompt_context() {
   local user=`whoami`
   prompt_segment 237 39 " $user "
@@ -87,6 +93,7 @@ prompt_dir() {
 
 prompt_main() {
   CURRENT_BG='NONE'
+  prompt_virtualenv
   prompt_context
   prompt_dir
   prompt_end

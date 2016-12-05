@@ -78,13 +78,13 @@ prompt_status() {
 
 prompt_virtualenv() {
     if [ -n "$VIRTUAL_ENV" ]; then
-        prompt_segment 26 235 " [venv] "
+        prompt_segment 33 235 " [venv] "
     fi
 }
 
 prompt_context() {
   local user=`whoami`
-  prompt_segment 237 39 " $user "
+  prompt_segment 237 33 " $user "
 }
 
 prompt_dir() {
@@ -149,3 +149,4 @@ custom_prompt_setup "$@"
 export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 [[ -r "$HOME/.rvm/scripts/completion" ]] && source "$HOME/.rvm/scripts/completion"
+source /usr/share/nvm/init-nvm.sh

@@ -4,18 +4,11 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
     Plugin 'gmarik/Vundle.vim'
-    Plugin 'davidhalter/jedi-vim'
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
-    Plugin 'Rip-Rip/clang_complete'
     Plugin 'morhetz/gruvbox'
-    Plugin 'Valloric/MatchTagAlways'
-    Plugin 'scrooloose/nerdtree'
-    Plugin 'scrooloose/syntastic'
     Plugin 'veloce/vim-behat'
     Plugin 'tpope/vim-fugitive'
-    Plugin 'lervag/vimtex'
-    Plugin 'nvie/vim-flake8'
     Plugin 'kchmck/vim-coffee-script'
 call vundle#end()
 
@@ -56,30 +49,7 @@ set cursorline
 
 set scrolloff=10
 
-let c_space_errors = 1
-let c_comment_strings = 1
-
-let g:clang_complete_copen=1
-let g:clang_hl_errors=1
-
-let g:clang_library_path = '/usr/lib/'
-
-let g:syntastic_python_python_exec = '/usr/bin/python'
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_c_checkers = ['splint']
-let g:syntastic_cpp_checkers = ['clang_check']
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
 set tabpagemax=50
-
-let g:tex_flavor = "latex"
 
 set t_Co=256
 

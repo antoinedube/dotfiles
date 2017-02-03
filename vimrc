@@ -1,16 +1,11 @@
-set nocompatible
-filetype off
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-    Plugin 'gmarik/Vundle.vim'
-    Plugin 'vim-airline/vim-airline'
-    Plugin 'vim-airline/vim-airline-themes'
-    Plugin 'morhetz/gruvbox'
-    Plugin 'veloce/vim-behat'
-    Plugin 'tpope/vim-fugitive'
-    Plugin 'kchmck/vim-coffee-script'
-call vundle#end()
+call plug#begin('~/.vim/plugged')
+    Plug 'morhetz/gruvbox'
+    Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+    Plug 'zchee/deoplete-clang'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'freeo/vim-kalisi'
+call plug#end()
 
 set fileencodings=utf-8
 
@@ -36,9 +31,6 @@ set ruler
 set background=dark
 
 set noshowmode
-let g:bufferline_echo = 0
-set laststatus=2
-let g:Powerline_symbols = 'unicode'
 
 set timeoutlen=50
 
@@ -79,19 +71,12 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 syntax on
 
-colorscheme gruvbox
-let g:gruvbox_contrast_dark='hard'
-let g:airline_theme='gruvbox'
+colorscheme kalisi
+let g:airline_theme='kalisi'
 
+let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
+let g:deoplete#sources#clang#clang_header='/usr/lib/clang'
+let g:deoplete#sources#clang#std={'c': 'c11', 'cpp': 'c++11'}
+let g:deoplete#enable_at_startup = 1
 
-:command -nargs=1 Icppclass :normal i
-    \class <args> {<CR>
-    \  public:<CR>
-    \    <args>();<CR>
-    \virtual ~<args>();<CR>
-    \<BS><BS>  private:<CR>
-    \<BS>};<CR>
-    \<ESC><Right>xxx
-
-:command -nargs=1 Itags :normal i<<args>></<args>><CR><ESC>xx
 

@@ -2,9 +2,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'morhetz/gruvbox'
     Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
     Plug 'zchee/deoplete-clang'
+    Plug 'zchee/deoplete-jedi'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'freeo/vim-kalisi'
+    Plug 'carlitux/deoplete-ternjs'
+    Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 set fileencodings=utf-8
@@ -45,12 +48,6 @@ set tabpagemax=50
 
 set t_Co=256
 
-inoremap ( ()<Left>
-inoremap [ []<Left>
-inoremap { {}<Left>
-inoremap " ""<Left>
-inoremap ' ''<Left>
-
 map <F9> :tabp <CR>
 map <F10> :tabn <CR>
 
@@ -77,6 +74,14 @@ let g:airline_theme='kalisi'
 let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
 let g:deoplete#sources#clang#clang_header='/usr/lib/clang'
 let g:deoplete#sources#clang#std={'c': 'c11', 'cpp': 'c++11'}
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup=1
+let g:deoplete#auto_complete_start_length=1
 
+let g:tern_request_timeout=1
+let g:tern_show_signature_in_pum='0'
+let g:tern#filetypes=['js', 'jsx']
+
+let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_cpp_checkers = ['gcc']
+let g:syntastic_c_checkers = ['gcc']
 

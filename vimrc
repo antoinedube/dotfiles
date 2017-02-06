@@ -8,6 +8,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'freeo/vim-kalisi'
     Plug 'carlitux/deoplete-ternjs'
     Plug 'vim-syntastic/syntastic'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'tpope/vim-fugitive'
 call plug#end()
 
 set fileencodings=utf-8
@@ -48,6 +50,10 @@ set tabpagemax=50
 
 set t_Co=256
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
 map <F9> :tabp <CR>
 map <F10> :tabn <CR>
 
@@ -77,10 +83,14 @@ let g:deoplete#sources#clang#std={'c': 'c11', 'cpp': 'c++11'}
 let g:deoplete#enable_at_startup=1
 let g:deoplete#auto_complete_start_length=1
 
+let g:jedi#popup_select_first=1
+
 let g:tern_request_timeout=1
 let g:tern_show_signature_in_pum='0'
 let g:tern#filetypes=['js', 'jsx']
 
+let g:syntastic_check_on_open=0
+let g:syntastic_check_on_wq=0
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_cpp_checkers = ['gcc']
 let g:syntastic_c_checkers = ['gcc']

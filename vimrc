@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'freeo/vim-kalisi'
     Plug 'jiangmiao/auto-pairs'
     Plug 'morhetz/gruvbox'
+    Plug 'mtscout6/syntastic-local-eslint.vim'
     Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
     Plug 'tpope/vim-fugitive'
     Plug 'vim-airline/vim-airline'
@@ -56,9 +57,9 @@ map <F12> :cn <CR>
 filetype plugin indent on
 filetype plugin on
 
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-autocmd Filetype html setlocal ts=2 sts=2 sw=2
-autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
+autocmd Filetype html setlocal ts=4 sts=4 sw=4
+autocmd Filetype ruby setlocal ts=4 sts=4 sw=4
 
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -84,4 +85,5 @@ let g:syntastic_check_on_wq=0
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_cpp_checkers = ['gcc']
 let g:syntastic_c_checkers = ['gcc']
+let g:syntastic_javascript_checkers = ['eslint']
 

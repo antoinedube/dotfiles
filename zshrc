@@ -1,4 +1,4 @@
-export EDITOR="vim"
+export EDITOR="nvim"
 export TERM="rxvt-unicode-256color"
 export BROWSER="chromium"
 export HISTCONTROL=ignoreboth

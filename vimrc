@@ -67,6 +67,7 @@ syntax on
 
 colorscheme kalisi
 let g:airline_theme='kalisi'
+let g:airline_powerline_fonts=1
 
 let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
 let g:deoplete#sources#clang#clang_header='/usr/lib/clang'

@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'mtscout6/syntastic-local-eslint.vim'
     Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
     Plug 'tpope/vim-fugitive'
+    Plug 'udalov/kotlin-vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'vim-syntastic/syntastic'
@@ -74,6 +75,7 @@ let g:deoplete#sources#clang#clang_header='/usr/lib/clang'
 let g:deoplete#sources#clang#std={'c': 'c11', 'cpp': 'c++11'}
 let g:deoplete#enable_at_startup=1
 let g:deoplete#auto_complete_start_length=1
+let g:deoplete#auto_complete_delay=25
 
 let g:jedi#popup_select_first=1
 

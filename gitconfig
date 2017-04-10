@@ -15,6 +15,23 @@
 [push]
     default = simple
 
+[merge]
+    conflictStyle = diff3
+
+[status]
+    showUntrackedFiles = all
+
+[transfer]
+    fsckobjects = true
+
 [alias]
     ll = log -n 25 --graph --oneline --decorate
 
+[diff]
+    tool = icdiff
+
+[difftool]
+    prompt = false
+
+[difftool "icdiff"]
+    cmd = /usr/bin/icdiff --line-numbers $LOCAL $REMOTE

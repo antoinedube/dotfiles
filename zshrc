@@ -1,6 +1,6 @@
 export EDITOR="nvim"
 export TERM="rxvt-unicode-256color"
-export BROWSER="chromium"
+export BROWSER="vivaldi-stable"
 export HISTCONTROL=ignoreboth
 
 # LS_COLORS=$LS_COLORS:'di=0;37;104';
@@ -40,7 +40,7 @@ SEGMENT_SEPARATOR="\ue0b0"
 PLUSMINUS="\u00b1"
 BRANCH="\ue0a0"
 DETACHED="\u27a6"
-CROSS="\u2718"
+ERROR=":("
 LIGHTNING="\u26a1"
 GEAR="\u2699"
 
@@ -73,8 +73,8 @@ prompt_end() {
 prompt_status() {
   local symbols
   symbols=()
-  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}$CROSS"
-  [[ -n "$symbols" ]] && prompt_segment NONE default " $symbols "
+  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}$ERROR"
+  [[ -n "$symbols" ]] && prompt_segment NONE default " $symbols"
 }
 
 prompt_virtualenv() {

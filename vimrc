@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'jiangmiao/auto-pairs'
     Plug 'morhetz/gruvbox'
     Plug 'mtscout6/syntastic-local-eslint.vim'
+    Plug 'mxw/vim-jsx'
     Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
     Plug 'tpope/vim-fugitive'
     Plug 'udalov/kotlin-vim'
@@ -67,6 +68,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 syntax on
 
 colorscheme kalisi
+
+let g:jsx_ext_required=0
+
 let g:airline_theme='kalisi'
 let g:airline_powerline_fonts=1
 

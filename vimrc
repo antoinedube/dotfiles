@@ -31,6 +31,7 @@ set noshowmode
 set noswapfile
 set nowritebackup
 set number
+set relativenumber
 set ruler
 set scrolloff=10
 set shiftwidth=4

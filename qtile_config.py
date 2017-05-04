@@ -1,9 +1,9 @@
 import os
 import subprocess
 
-from libqtile.config import Key, Screen, Group
-from libqtile.command import lazy
 from libqtile import layout, bar, widget
+from libqtile.command import lazy
+from libqtile.config import Key, Screen, Group
 
 mod = "mod4"
 
@@ -61,16 +61,6 @@ screens = [
         bottom=bar.Bar(
             [
                 widget.GroupBox(**group_box_settings),
-                widget.Spacer(),
-            ],
-            30,
-            background=['#1F1F1F', "#2C2C2F"]
-        ),
-    ),
-    Screen(
-        bottom=bar.Bar(
-            [
-                widget.GroupBox(**group_box_settings),
                 widget.Prompt(),
                 widget.Spacer(),
                 widget.Notify(default_timeout=5),
@@ -79,12 +69,36 @@ screens = [
             ],
             30,
             background=['#1F1F1F', "#2C2C2F"]
+        )
+    ),
+    Screen(
+        bottom=bar.Bar(
+            [
+                widget.GroupBox(**group_box_settings),
+                widget.Spacer(),
+                widget.DebugInfo(),
+                widget.CPUGraph(),
+                widget.MemoryGraph(),
+                widget.NetGraph()
+            ],
+            30,
+            background=['#1F1F1F', "#2C2C2F"]
         ),
     ),
 ]
 
-subprocess.call(['hsetroot', '-fill', current_directory + '/wallpaper'])
-# subprocess.call(['synapse', '-s'])
+subprocess.Popen(
+    [
+        'hsetroot',
+        '-fill',
+        '/home/antoine/pictures/wallpapers/frima_wallpaper.jpg'
+    ]
+)
+subprocess.Popen(
+    [
+        'pasystray'
+    ]
+)
 
 dgroups_key_binder = None
 dgroups_app_rules = []

@@ -26,6 +26,7 @@
 
 [alias]
     ll = log -n 25 --graph --oneline --decorate
+    dt = difftool
 
 [diff]
     tool = icdiff

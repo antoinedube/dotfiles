@@ -3,7 +3,7 @@
     email = antoine.dube@gmail.com
 
 [core]
-    editor = vim
+    editor = nvim
     deltaBaseCacheLimit = 1G
 
 [color]

@@ -1,16 +1,15 @@
 call plug#begin('~/.vim/plugged')
+    Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+    Plug 'benjie/neomake-local-eslint.vim'
     Plug 'carlitux/deoplete-ternjs'
     Plug 'freeo/vim-kalisi'
     Plug 'jiangmiao/auto-pairs'
     Plug 'morhetz/gruvbox'
-    Plug 'mtscout6/syntastic-local-eslint.vim'
     Plug 'mxw/vim-jsx'
-    Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+    Plug 'neomake/neomake'
     Plug 'tpope/vim-fugitive'
-    Plug 'udalov/kotlin-vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'vim-syntastic/syntastic'
     Plug 'zchee/deoplete-clang'
     Plug 'zchee/deoplete-jedi'
 call plug#end()
@@ -60,11 +59,8 @@ map <F12> :cn <CR>
 filetype plugin indent on
 filetype plugin on
 
-autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
-autocmd Filetype html setlocal ts=4 sts=4 sw=4
-autocmd Filetype ruby setlocal ts=4 sts=4 sw=4
-
 autocmd BufWritePre * :%s/\s\+$//e
+autocmd! BufWritePost * Neomake
 
 syntax on
 
@@ -88,10 +84,8 @@ let g:tern_request_timeout=1
 let g:tern_show_signature_in_pum='0'
 let g:tern#filetypes=['js', 'jsx']
 
-let g:syntastic_check_on_open=0
-let g:syntastic_check_on_wq=0
-let g:syntastic_python_checkers = ['pylint']
-let g:syntastic_cpp_checkers = ['gcc']
-let g:syntastic_c_checkers = ['gcc']
-let g:syntastic_javascript_checkers = ['eslint']
+let g:neomake_python_enabled_maker = ['flake8']
+let g:neomake_javascript_enabled_maker = ['eslint']
+let g:neomake_c_enabled_maker = ['gcc']
+let g:neomake_json_enabled_maker = ['jsonlint']
 

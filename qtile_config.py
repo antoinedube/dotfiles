@@ -13,6 +13,7 @@ keys = [
     Key([mod], "space", lazy.layout.next()),
     Key([mod], "Return", lazy.spawn("urxvt")),
     Key([mod], "r", lazy.spawncmd()),
+    Key([mod, "shift"], "r", lazy.restart()),
     Key([mod], "Tab", lazy.next_layout()),
     Key([mod], "y", lazy.widget['notify'].toggle()),
     Key([mod, "shift"], "g", lazy.layout.shuffle_up()),

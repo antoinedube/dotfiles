@@ -84,8 +84,21 @@ let g:tern_request_timeout=1
 let g:tern_show_signature_in_pum='0'
 let g:tern#filetypes=['js', 'jsx']
 
-let g:neomake_python_enabled_maker = ['flake8']
-let g:neomake_javascript_enabled_maker = ['eslint']
-let g:neomake_c_enabled_maker = ['gcc']
-let g:neomake_json_enabled_maker = ['jsonlint']
+let g:neomake_python_enabled_makers=['flake8']
+let g:neomake_javascript_enabled_makers=['eslint']
+let g:neomake_c_enabled_makers=['gcc']
+let g:neomake_json_enabled_makers=['jsonlint']
+
+let g:neomake_c_gcc_maker={
+            \'exe': 'gcc',
+            \'args': [
+            \ '-fsyntax-only',
+            \ '-std=c11',
+            \ '-Wall',
+            \ '-Wextra',
+            \ '-pedantic',
+            \ '-I.',
+            \ ],
+    \ }
+
 

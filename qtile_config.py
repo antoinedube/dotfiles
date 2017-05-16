@@ -65,20 +65,6 @@ screens = [
         bottom=bar.Bar(
             [
                 widget.GroupBox(**group_box_settings),
-                widget.Prompt(),
-                widget.Spacer(),
-                widget.Notify(default_timeout=5),
-                widget.Systray(padding=10),
-                widget.Clock(format='%A %B %d, %Y -- %H:%M:%S'),
-            ],
-            30,
-            background=['#1F1F1F', "#2C2C2F"]
-        )
-    ),
-    Screen(
-        bottom=bar.Bar(
-            [
-                widget.GroupBox(**group_box_settings),
                 widget.Spacer(),
                 widget.DebugInfo(),
                 widget.CPUGraph(),
@@ -89,15 +75,29 @@ screens = [
             background=['#1F1F1F', "#2C2C2F"]
         ),
     ),
+    Screen(
+        bottom=bar.Bar(
+            [
+                widget.GroupBox(**group_box_settings),
+                widget.Prompt(),
+                widget.Spacer(),
+                widget.Notify(default_timeout=5),
+                widget.Systray(padding=10),
+                widget.Clock(format='%A %B %d, %Y -- %H:%M:%S'),
+            ],
+            30,
+            background=['#1F1F1F', "#2C2C2F"]
+        )
+    ),
 ]
 
-subprocess.Popen(
-    [
-        'hsetroot',
-        '-fill',
-        '/home/antoine/pictures/wallpapers/frima_wallpaper.jpg'
-    ]
-)
+# subprocess.Popen(
+#     [
+#         'hsetroot',
+#         '-fill',
+#         '/home/antoine/pictures/wallpapers/frima_wallpaper.jpg'
+#     ]
+# )
 subprocess.Popen(
     [
         'pasystray'

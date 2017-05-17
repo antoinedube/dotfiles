@@ -60,6 +60,7 @@ filetype plugin indent on
 filetype plugin on
 
 autocmd BufWritePre * :%s/\s\+$//e
+autocmd! BufReadPost * Neomake
 autocmd! BufWritePost * Neomake
 
 syntax on

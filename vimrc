@@ -7,6 +7,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'morhetz/gruvbox'
     Plug 'mxw/vim-jsx'
     Plug 'neomake/neomake'
+    Plug 'saltstack/salt-vim'
     Plug 'tpope/vim-fugitive'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -65,11 +66,11 @@ autocmd! BufWritePost * Neomake
 
 syntax on
 
-colorscheme kalisi
+colorscheme gruvbox
 
 let g:jsx_ext_required=0
 
-let g:airline_theme='kalisi'
+let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts=1
 
 let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'

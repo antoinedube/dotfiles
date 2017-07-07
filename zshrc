@@ -40,7 +40,6 @@ SEGMENT_SEPARATOR="\ue0b0"
 PLUSMINUS="\u00b1"
 BRANCH="\ue0a0"
 DETACHED="\u27a6"
-ERROR=":("
 LIGHTNING="\u26a1"
 GEAR="\u2699"
 
@@ -73,7 +72,6 @@ prompt_end() {
 prompt_status() {
   local symbols
   symbols=()
-  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}$ERROR"
   [[ -n "$symbols" ]] && prompt_segment NONE default " $symbols"
 }
 

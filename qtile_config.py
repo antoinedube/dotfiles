@@ -57,7 +57,9 @@ group_box_settings = dict(
     borderwidth=2,
     disable_drag=True,
     center_aligned=True,
-    fontsize=12
+    fontsize=12,
+    highlight_method='block',
+    rounded=False
 )
 
 screens = [

@@ -20,10 +20,7 @@ keys = [
     Key([mod, "shift"], "h", lazy.layout.shuffle_down()),
     Key([mod], "1", lazy.to_screen(1)),
     Key([mod], "2", lazy.to_screen(0)),
-    Key(["control", "mod1"], "l", lazy.spawn(current_directory + "/lock_screen.sh")),
-    Key(["control", "mod1", "shift"], "g", lazy.spawn(current_directory + "/remote-genevieve.sh")),
-    Key(["control", "mod1", "shift"], "c", lazy.spawn(current_directory + "/remote-chronosvm.sh")),
-    Key(["control", "mod1", "shift"], "o", lazy.spawn(current_directory + "/remote-outils-internes.sh"))
+    Key(["control", "mod1"], "l", lazy.spawn(current_directory + "/lock_screen.sh"))
 ]
 
 groups = [Group(i) for i in "uiojklbnm"]
@@ -67,20 +64,6 @@ screens = [
         bottom=bar.Bar(
             [
                 widget.GroupBox(**group_box_settings),
-                widget.Prompt(),
-                widget.Spacer(),
-                widget.Notify(default_timeout=5),
-                widget.Systray(padding=10),
-                widget.Clock(format='%A %B %d, %Y -- %H:%M:%S'),
-            ],
-            30,
-            background=['#1F1F1F', "#2C2C2F"]
-        )
-    ),
-    Screen(
-        bottom=bar.Bar(
-            [
-                widget.GroupBox(**group_box_settings),
                 widget.Spacer(),
                 widget.DebugInfo(),
                 widget.CPUGraph(),
@@ -91,10 +74,24 @@ screens = [
             background=['#1F1F1F', "#2C2C2F"]
         ),
     ),
+    Screen(
+        bottom=bar.Bar(
+            [
+                widget.GroupBox(**group_box_settings),
+                widget.Prompt(),
+                widget.Spacer(),
+                widget.Notify(default_timeout=5),
+                widget.Systray(padding=10),
+                widget.Clock(format='%A %B %d, %Y -- %H:%M:%S'),
+            ],
+            30,
+            background=['#1F1F1F', "#2C2C2F"]
+        )
+    ),
 ]
 
-subprocess.Popen(['hsetroot', '-fill',
-                  '/home/antoine/pictures/wallpapers/frima_wallpaper.jpg'])
+subprocess.Popen(['hsetroot', '-center',
+                  '/home/antoine/Pictures/Wallpaper/cosmic-exploration.png'])
 
 subprocess.Popen(['pasystray'])
 

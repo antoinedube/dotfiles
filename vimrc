@@ -2,7 +2,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
     Plug 'benjie/neomake-local-eslint.vim'
     Plug 'carlitux/deoplete-ternjs'
-    Plug 'freeo/vim-kalisi'
     Plug 'jiangmiao/auto-pairs'
     Plug 'morhetz/gruvbox'
     Plug 'mxw/vim-jsx'

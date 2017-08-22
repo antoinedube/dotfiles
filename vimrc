@@ -25,6 +25,7 @@ set fileencodings=utf-8
 set formatoptions=c,q,r,t
 set hlsearch
 set incsearch
+set linebreak
 set nobackup
 set noshowmode
 set noswapfile
@@ -49,6 +50,7 @@ set textwidth=230
 set timeoutlen=50
 set wildignorecase
 set wildmenu
+set wrap
 
 map <F9> :tabp <CR>
 map <F10> :tabn <CR>
@@ -88,6 +90,7 @@ let g:tern#filetypes=['js', 'jsx']
 let g:neomake_python_enabled_makers=['flake8']
 let g:neomake_javascript_enabled_makers=['eslint']
 let g:neomake_c_enabled_makers=['gcc']
+let g:neomake_cpp_enabled_makers=['gcc']
 let g:neomake_json_enabled_makers=['jsonlint']
 
 let g:neomake_c_gcc_maker={
@@ -102,4 +105,14 @@ let g:neomake_c_gcc_maker={
             \ ],
     \ }
 
-
+let g:neomake_cpp_gcc_maker={
+            \'exe': 'g++',
+            \'args': [
+            \ '-fsyntax-only',
+            \ '-std=c++11',
+            \ '-Wall',
+            \ '-Wextra',
+            \ '-pedantic',
+            \ '-I.',
+            \ ],
+    \ }

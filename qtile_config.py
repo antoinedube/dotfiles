@@ -68,6 +68,7 @@ screens = [
                 widget.Prompt(),
                 widget.Spacer(),
                 widget.Notify(default_timeout=5),
+                widget.Battery(),
                 widget.Systray(padding=10),
                 widget.Clock(format='%A %B %d, %Y -- %H:%M:%S'),
             ],
@@ -91,10 +92,11 @@ screens = [
     ),
 ]
 
-subprocess.Popen(['hsetroot', '-fill',
-                  '/home/antoine/pictures/wallpapers/frima_wallpaper.jpg'])
+image_url = '/home/antoine/wallpapers/' \
+            + 'System76-Fractal_Mountains-by_Kate_Hazen_of_System76.png'
+subprocess.Popen(['hsetroot', '-fill', image_url])
 
-subprocess.Popen(['pasystray'])
+# subprocess.Popen(['pasystray'])
 
 dgroups_key_binder = None
 dgroups_app_rules = []

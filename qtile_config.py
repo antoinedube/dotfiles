@@ -54,10 +54,14 @@ widget_defaults = dict(
 )
 
 group_box_settings = dict(
-    borderwidth=2,
+    borderwidth=0,
     disable_drag=True,
     center_aligned=True,
-    fontsize=12
+    fontsize=12,
+    highlight_method='block',
+    rounded=False,
+    padding=10,
+    spacing=2
 )
 
 screens = [

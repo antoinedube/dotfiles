@@ -24,6 +24,8 @@ setopt extendedGlob
 setopt HIST_IGNORE_DUPS
 setopt prompt_subst
 setopt menu_complete
+setopt RM_STAR_WAIT
+setopt CORRECT
 
 HISTSIZE=10000
 if (( ! EUID )); then

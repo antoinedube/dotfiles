@@ -46,11 +46,12 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set t_Co=256
 set tabpagemax=50
 set tabstop=4
-set textwidth=230
+set textwidth=0
 set timeoutlen=50
 set wildignorecase
 set wildmenu
 set wrap
+set wrapmargin=0
 
 map <F9> :tabp <CR>
 map <F10> :tabn <CR>

@@ -20,10 +20,7 @@ keys = [
     Key([mod, "shift"], "h", lazy.layout.shuffle_down()),
     Key([mod], "1", lazy.to_screen(1)),
     Key([mod], "2", lazy.to_screen(0)),
-    Key(["control", "mod1"], "l", lazy.spawn(current_directory + "/lock_screen.sh")),
-    Key(["control", "mod1", "shift"], "g", lazy.spawn(current_directory + "/remote-genevieve.sh")),
-    Key(["control", "mod1", "shift"], "c", lazy.spawn(current_directory + "/remote-chronosvm.sh")),
-    Key(["control", "mod1", "shift"], "o", lazy.spawn(current_directory + "/remote-outils-internes.sh"))
+    Key(["control", "mod1"], "l", lazy.spawn(current_directory + "/lock_screen.sh"))
 ]
 
 groups = [Group(i) for i in "uiojklbnm"]
@@ -72,8 +69,8 @@ screens = [
                 widget.Prompt(),
                 widget.Spacer(),
                 widget.Notify(default_timeout=5),
-                widget.Battery(),
                 widget.Systray(padding=10),
+                widget.Battery(),
                 widget.Clock(format='%A %B %d, %Y -- %H:%M:%S'),
             ],
             30,
@@ -99,8 +96,7 @@ screens = [
 image_url = '/home/antoine/wallpapers/' \
             + 'System76-Fractal_Mountains-by_Kate_Hazen_of_System76.png'
 subprocess.Popen(['hsetroot', '-fill', image_url])
-
-# subprocess.Popen(['pasystray'])
+subprocess.Popen(['pasystray'])
 
 dgroups_key_binder = None
 dgroups_app_rules = []

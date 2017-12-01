@@ -67,6 +67,10 @@ screens = [
             [
                 widget.GroupBox(**group_box_settings),
                 widget.Spacer(),
+                widget.Notify(default_timeout=5),
+                widget.Systray(padding=10),
+                widget.Battery(),
+                widget.Clock(format='%A %B %d, %Y -- %H:%M:%S'),
                 widget.DebugInfo(),
                 widget.CPUGraph(),
                 widget.MemoryGraph(),
@@ -92,9 +96,9 @@ screens = [
     ),
 ]
 
-subprocess.Popen(['hsetroot', '-center',
-                  '/home/antoine/Pictures/Wallpaper/cosmic-exploration.png'])
-
+image_url = '/home/antoine/wallpapers/' \
+            + 'System76-Fractal_Mountains-by_Kate_Hazen_of_System76.png'
+subprocess.Popen(['hsetroot', '-fill', image_url])
 subprocess.Popen(['pasystray'])
 
 dgroups_key_binder = None

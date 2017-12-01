@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline-themes'
     Plug 'zchee/deoplete-clang'
     Plug 'zchee/deoplete-jedi'
+    Plug 'lazywei/vim-matlab'
 call plug#end()
 
 set autoindent

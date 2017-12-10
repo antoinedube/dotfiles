@@ -1,5 +1,5 @@
 export EDITOR="nvim"
-#export TERM="rxvt-unicode-256color"
+export TERM="screen-256color"
 export BROWSER="vivaldi-stable"
 export HISTCONTROL=ignoreboth
 
@@ -9,7 +9,7 @@ export LS_COLORS
 
 alias l='ls -lh --group-directories-first --color=auto'
 alias valgrind='valgrind --leak-check=full --show-reachable=yes --track-origins=yes'
-alias grep='grep -n --color=auto'
+alias grep='grep --color=auto'
 alias lock='i3lock'
 alias vim='nvim -p'
 alias nvim='nvim -p'
@@ -152,3 +152,5 @@ custom_prompt_setup "$@"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+if [ "$TMUX" = ""]; then tmux; fi

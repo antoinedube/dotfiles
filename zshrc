@@ -1,6 +1,6 @@
 export EDITOR="nvim"
 export TERM="screen-256color"
-export BROWSER="vivaldi-stable"
+export BROWSER="firefox"
 export HISTCONTROL=ignoreboth
 
 # LS_COLORS=$LS_COLORS:'di=0;37;104';
@@ -153,6 +153,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+
+# Check also for console vs terminal
 if [ -z "$TMUX" ];
 then
     tmux

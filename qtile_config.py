@@ -1,17 +1,108 @@
+#!/usr/bin/env python
+
 import os
+import socket
 import subprocess
 
 from libqtile import layout, bar, widget
 from libqtile.command import lazy
 from libqtile.config import Key, Screen, Group
 
-mod = "mod4"
+group_box_settings = dict(
+    borderwidth=0,
+    disable_drag=True,
+    center_aligned=True,
+    fontsize=12,
+    highlight_method='block',
+    rounded=False,
+    padding=10,
+    spacing=2
+)
 
+single_screen_with_battery = [
+    Screen(
+        bottom=bar.Bar(
+            [
+                widget.GroupBox(**group_box_settings),
+                widget.Prompt(),
+                widget.Spacer(),
+                widget.Notify(default_timeout=5),
+                widget.Battery(charge_char='+', discharge_char='-'),
+                widget.Systray(padding=10),
+                widget.Clock(format='%A %B %d, %Y -- %H:%M:%S'),
+            ],
+            30,
+            background=['#1F1F1F', "#2C2C2F"]
+        )
+    )
+]
+
+single_screen = [
+    Screen(
+        bottom=bar.Bar(
+            [
+                widget.GroupBox(**group_box_settings),
+                widget.Prompt(),
+                widget.Spacer(),
+                widget.Notify(default_timeout=5),
+                widget.Systray(padding=10),
+                widget.Clock(format='%A %B %d, %Y -- %H:%M:%S'),
+            ],
+            30,
+            background=['#1F1F1F', "#2C2C2F"]
+        )
+    )
+]
+
+dual_screen = [
+    Screen(
+        bottom=bar.Bar(
+            [
+                widget.GroupBox(**group_box_settings),
+                widget.Spacer(),
+                widget.Notify(default_timeout=5),
+                widget.DebugInfo(),
+                widget.CPUGraph(),
+                widget.MemoryGraph(),
+                widget.NetGraph()
+            ],
+            30,
+            background=['#1F1F1F', "#2C2C2F"]
+        ),
+    ),
+    Screen(
+        bottom=bar.Bar(
+            [
+                widget.GroupBox(**group_box_settings),
+                widget.Prompt(),
+                widget.Spacer(),
+                widget.Notify(default_timeout=5),
+                widget.Systray(padding=10),
+                widget.Clock(format='%A %B %d, %Y -- %H:%M:%S'),
+            ],
+            30,
+            background=['#1F1F1F', "#2C2C2F"]
+        )
+    )
+]
+
+
+class Home:
+    wallpaper_filename = '/home/antoine/Pictures/Wallpaper/mathematics.jpg'
+    screen_setup = dual_screen
+
+
+class Laptop:
+    wallpaper_filename = '/home/antoine/Pictures/Wallpaper/mathematics.jpg'
+    screen_setup = single_screen_with_battery
+
+
+mod = "mod4"
 current_directory = os.path.dirname(os.path.realpath(__file__))
 
 keys = [
     Key([mod], "space", lazy.layout.next()),
-    Key([mod], "Return", lazy.spawn("urxvt")),
+    Key([mod], "Return", lazy.spawn("urxvt -e bash -c 'tmux'")),
     Key([mod], "r", lazy.spawncmd()),
     Key([mod, "shift"], "r", lazy.restart()),
     Key([mod], "Tab", lazy.next_layout()),
@@ -50,54 +141,17 @@ widget_defaults = dict(
     padding=4,
 )
 
-group_box_settings = dict(
-    borderwidth=0,
-    disable_drag=True,
-    center_aligned=True,
-    fontsize=12,
-    highlight_method='block',
-    rounded=False,
-    padding=10,
-    spacing=2
-)
+if socket.gethostname() == 'Emilie':  # Home computer
+    screen_setup = Home.screen_setup
+    wallpaper_filename = Home.wallpaper_filename
+elif socket.gethostname() == 'antoine76':  # Laptop
+    screen_setup = Laptop.screen_setup
+    wallpaper_filename = Laptop.wallpaper_filename
+else:
+    pass
 
-screens = [
-    Screen(
-        bottom=bar.Bar(
-            [
-                widget.GroupBox(**group_box_settings),
-                widget.Spacer(),
-                widget.Notify(default_timeout=5),
-                widget.Systray(padding=10),
-                widget.Battery(),
-                widget.Clock(format='%A %B %d, %Y -- %H:%M:%S'),
-                widget.DebugInfo(),
-                widget.CPUGraph(),
-                widget.MemoryGraph(),
-                widget.NetGraph()
-            ],
-            30,
-            background=['#1F1F1F', "#2C2C2F"]
-        ),
-    ),
-    Screen(
-        bottom=bar.Bar(
-            [
-                widget.GroupBox(**group_box_settings),
-                widget.Prompt(),
-                widget.Spacer(),
-                widget.Notify(default_timeout=5),
-                widget.Systray(padding=10),
-                widget.Clock(format='%A %B %d, %Y -- %H:%M:%S'),
-            ],
-            30,
-            background=['#1F1F1F', "#2C2C2F"]
-        )
-    ),
-]
-
-image_url = '/home/antoine/wallpapers/' \
-            + 'System76-Fractal_Mountains-by_Kate_Hazen_of_System76.png'
+screens = screen_setup
+image_url = wallpaper_filename
 subprocess.Popen(['hsetroot', '-fill', image_url])
 subprocess.Popen(['pasystray'])
 

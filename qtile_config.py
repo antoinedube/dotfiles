@@ -27,7 +27,7 @@ single_screen_with_battery = [
                 widget.Prompt(),
                 widget.Spacer(),
                 widget.Notify(default_timeout=5),
-                widget.Battery(charge_char='+', discharge_char='-'),
+                widget.Battery(charge_char='++', discharge_char='--'),
                 widget.Systray(padding=10),
                 widget.Clock(format='%A %B %d, %Y -- %H:%M:%S'),
             ],
@@ -93,7 +93,7 @@ class Home:
 
 
 class Laptop:
-    wallpaper_filename = '/home/antoine/Pictures/Wallpaper/mathematics.jpg'
+    wallpaper_filename = '/home/antoine/wallpapers/System76-Geometric-adapted_by_Kate_Hazen_of_System76.png'
     screen_setup = single_screen_with_battery
 
 
@@ -109,8 +109,8 @@ keys = [
     Key([mod], "y", lazy.widget['notify'].toggle()),
     Key([mod, "shift"], "g", lazy.layout.shuffle_up()),
     Key([mod, "shift"], "h", lazy.layout.shuffle_down()),
-    Key([mod], "1", lazy.to_screen(1)),
-    Key([mod], "2", lazy.to_screen(0)),
+#     Key([mod], "1", lazy.to_screen(1)),
+#     Key([mod], "2", lazy.to_screen(0)),
     Key(["control", "mod1"], "l", lazy.spawn(current_directory + "/lock_screen.sh"))
 ]
 

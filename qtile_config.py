@@ -109,8 +109,8 @@ keys = [
     Key([mod], "y", lazy.widget['notify'].toggle()),
     Key([mod, "shift"], "g", lazy.layout.shuffle_up()),
     Key([mod, "shift"], "h", lazy.layout.shuffle_down()),
-#     Key([mod], "1", lazy.to_screen(1)),
-#     Key([mod], "2", lazy.to_screen(0)),
+    Key([mod], "1", lazy.to_screen(1)),
+    Key([mod], "2", lazy.to_screen(0)),
     Key(["control", "mod1"], "l", lazy.spawn(current_directory + "/lock_screen.sh"))
 ]
 

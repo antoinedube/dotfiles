@@ -7,6 +7,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'mxw/vim-jsx'
     Plug 'neomake/neomake'
     Plug 'saltstack/salt-vim'
+    Plug 'stephpy/vim-yaml'
     Plug 'tpope/vim-fugitive'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -40,8 +41,8 @@ set smartcase
 set smarttab
 set softtabstop=4
 set statusline+=%#warningmsg#
-set statusline+=%*
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" set statusline+=%{SyntasticStatuslineFlag()}
 set t_Co=256
 set tabpagemax=50
 set tabstop=4

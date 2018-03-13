@@ -36,3 +36,6 @@
 
 [difftool "icdiff"]
     cmd = /usr/bin/icdiff --line-numbers $LOCAL $REMOTE
+
+[branch]
+	autosetuprebase = always

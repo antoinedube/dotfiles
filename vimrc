@@ -17,6 +17,8 @@ call plug#end()
 set autoindent
 set background=dark
 set backspace=2
+set clipboard+=unnamedplus
+"  https://www.reddit.com/r/neovim/comments/3fricd/easiest_way_to_copy_from_neovim_to_system/
 set complete=.,w,b,u,U,t,i,d
 set completeopt=menu
 set cursorline
@@ -52,6 +54,18 @@ set wildignorecase
 set wildmenu
 set wrap
 set wrapmargin=0
+
+" " Copy to clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+nnoremap  <leader>yy  "+yy
+
+" " Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
 
 map <F9> :tabp <CR>
 map <F10> :tabn <CR>

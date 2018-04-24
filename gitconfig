@@ -3,8 +3,8 @@
     email = antoine.dube@gmail.com
 
 [core]
-    editor = nvim
-    deltaBaseCacheLimit = 1G
+    editor = vim
+    deltaBaseCacheLimit = 512M
 
 [color]
     ui = auto
@@ -17,7 +17,7 @@
 
 [merge]
     conflictStyle = diff3
-	ff = no
+    ff = no
 
 [status]
     showUntrackedFiles = all
@@ -26,7 +26,7 @@
     fsckobjects = true
 
 [alias]
-    ll = log -n 25 --graph --oneline --decorate
+    ll = log -n 50 --graph --oneline --decorate
     dt = difftool
 
 [diff]
@@ -38,5 +38,5 @@
 [difftool "icdiff"]
     cmd = /usr/bin/icdiff --line-numbers $LOCAL $REMOTE
 
-[branch]
-	autosetuprebase = always
+[pull]
+    rebase = true

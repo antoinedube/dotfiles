@@ -11,7 +11,7 @@ alias l='ls -lh --group-directories-first --color=auto'
 alias valgrind='valgrind --leak-check=full --show-reachable=yes --track-origins=yes'
 alias grep='grep --color=auto'
 alias lock='i3lock'
-alias vim='nvim -p'
+alias vim='vim -p'
 alias nvim='nvim -p'
 
 plugins+=(zsh-completions)

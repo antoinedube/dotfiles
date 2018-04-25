@@ -150,6 +150,7 @@ custom_prompt_setup "$@"
 export NVM_DIR="$HOME/.nvm"
 export NVM_SOURCE="/usr/share/nvm"
 [ -s "$NVM_SOURCE/nvm.sh" ] && . "$NVM_SOURCE/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 source /opt/google-cloud-sdk/completion.zsh.inc
 source /opt/google-cloud-sdk/path.zsh.inc

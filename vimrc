@@ -3,20 +3,19 @@ call plug#begin('~/.vim/plugged')
     Plug 'honza/vim-snippets'
     Plug 'jiangmiao/auto-pairs'
     Plug 'maralla/completor.vim'
-    Plug 'morhetz/gruvbox'
+    Plug 'jacoborus/tender.vim'
     Plug 'mxw/vim-jsx'
     Plug 'saltstack/salt-vim'
     Plug 'stephpy/vim-yaml'
     Plug 'tpope/vim-fugitive'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 set autoindent
 set background=dark
 set backspace=2
-set clipboard+=unnamedplus
-"  https://www.reddit.com/r/neovim/comments/3fricd/easiest_way_to_copy_from_neovim_to_system/
 set complete=.,w,b,u,U,t,i,d
 set completeopt=menu
 set cursorline
@@ -43,8 +42,8 @@ set smartcase
 set smarttab
 set softtabstop=4
 set statusline+=%#warningmsg#
-" set statusline+=%*
-" set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+set statusline+=%{SyntasticStatuslineFlag()}
 set t_Co=256
 set tabpagemax=50
 set tabstop=4
@@ -76,18 +75,15 @@ map <F12> :cn <CR>
 filetype plugin indent on
 filetype plugin on
 
-set conceallevel=0
-au FileType * setl conceallevel=0
-
 autocmd BufWritePre * :%s/\s\+$//e
 
-syntax on
+syntax enable
 
-colorscheme gruvbox
+colorscheme tender
 
 let g:jsx_ext_required=0
 
-let g:airline_theme='gruvbox'
+let g:airline_theme = 'tender'
 let g:airline_powerline_fonts=1
 
 let g:jedi#show_call_signatures = "0"
@@ -95,6 +91,12 @@ let g:jedi#show_call_signatures = "0"
 let g:completor_python_binary = '/usr/bin/python'
 let g:completor_node_binary = '/usr/bin/node'
 let g:completor_clang_binary = '/usr/bin/clang'
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_w = 1
+let g:syntastic_auto_jump = 0
 
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'

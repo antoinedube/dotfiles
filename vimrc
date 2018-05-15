@@ -3,7 +3,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'honza/vim-snippets'
     Plug 'jiangmiao/auto-pairs'
     Plug 'maralla/completor.vim'
-    Plug 'jacoborus/tender.vim'
+    Plug 'antoinedube/harlequin'
     Plug 'mxw/vim-jsx'
     Plug 'saltstack/salt-vim'
     Plug 'stephpy/vim-yaml'
@@ -79,11 +79,11 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 syntax enable
 
-colorscheme tender
+colorscheme harlequin
 
 let g:jsx_ext_required=0
 
-let g:airline_theme = 'tender'
+let g:airline_theme = 'molokai'
 let g:airline_powerline_fonts=1
 
 let g:jedi#show_call_signatures = "0"

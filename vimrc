@@ -1,9 +1,9 @@
 call plug#begin('~/.vim/plugged')
     Plug 'SirVer/ultisnips'
+    Plug 'antoinedube/harlequin'
     Plug 'antoinedube/vim-snippets'
     Plug 'jiangmiao/auto-pairs'
     Plug 'maralla/completor.vim'
-    Plug 'antoinedube/harlequin'
     Plug 'mxw/vim-jsx'
     Plug 'saltstack/salt-vim'
     Plug 'stephpy/vim-yaml'

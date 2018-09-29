@@ -1,4 +1,4 @@
-export EDITOR="nvim"
+export EDITOR="vim"
 export TERM="screen-256color"
 export BROWSER="firefox"
 export HISTCONTROL=ignoreboth

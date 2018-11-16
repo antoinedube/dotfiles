@@ -21,6 +21,7 @@ set background=dark
 set backspace=2
 set complete=.,w,b,u,U,t,i,d
 set completeopt=menu
+set cursorcolumn
 set cursorline
 set expandtab
 set fileencodings=utf-8

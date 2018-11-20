@@ -144,6 +144,7 @@ widget_defaults = dict(
 if socket.gethostname() == 'Emilie':  # Home computer
     screen_setup = Home.screen_setup
     wallpaper_filename = Home.wallpaper_filename
+    subprocess.Popen(['nm-applet', '--no-agent', '2>&1', '>>', '/home/antoine/.log/nm-applet.log'])
 elif socket.gethostname() == 'antoine76':  # Laptop
     screen_setup = Laptop.screen_setup
     wallpaper_filename = Laptop.wallpaper_filename

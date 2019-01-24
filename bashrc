@@ -1,5 +1,30 @@
 export ESC=$( printf '\033' )
 
+[ -z "$PS1" ] && return
+
+export EDITOR="vim"
+export TERM="rxvt"
+export BROWSER="chromium"
+
+SEGMENT_SEPARATOR="\ue0b0"
+PLUSMINUS="\u00b1"
+BRANCH="\ue0a0"
+DETACHED="\u27a6"
+LIGHTNING="\u26a1"
+GEAR="\u2699"
+
+export HISTCONTROL=ignoreboth
+LS_COLORS=$LS_COLORS:'di=0;37;104' ; export LS_COLORS
+
+alias l='ls -lh --group-directories-first --color=auto'
+alias valgrind='valgrind --leak-check=full --show-reachable=yes --track-origins=yes'
+alias aria-bt='aria2c --bt-min-crypto-level=arc4 --bt-require-crypto=true'
+alias grep='grep -n --color=auto'
+alias qemu64='qemu-system-x86_64 -enable-kvm'
+alias vim='nvim -p'
+alias lock='i3lock'
+
+
 function find_git_branch() {
   # Get git branch modified status
   local status=$( git status --porcelain 2> /dev/null )
@@ -28,23 +53,6 @@ function find_git_branch() {
   fi
 
 }
-
-[ -z "$PS1" ] && return
-
-export EDITOR="vim"
-export TERM="rxvt"
-export BROWSER="chromium"
-
-export HISTCONTROL=ignoreboth
-LS_COLORS=$LS_COLORS:'di=0;37;104' ; export LS_COLORS
-
-alias l='ls -lh --group-directories-first --color=auto'
-alias valgrind='valgrind --leak-check=full --show-reachable=yes --track-origins=yes'
-alias aria-bt='aria2c --bt-min-crypto-level=arc4 --bt-require-crypto=true'
-alias grep='grep -n --color=auto'
-alias qemu64='qemu-system-x86_64 -enable-kvm'
-alias vim='nvim -p'
-alias lock='i3lock'
 
 shopt -s autocd
 shopt -s checkwinsize

@@ -35,7 +35,7 @@ else
 fi
 SAVEHIST=10000
 
-bindkey -v
+# bindkey -v
 bindkey '^R' history-incremental-search-backward
 
 SEGMENT_SEPARATOR="\ue0b0"

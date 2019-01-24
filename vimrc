@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'SirVer/ultisnips'
     Plug 'antoinedube/harlequin'
     Plug 'antoinedube/vim-snippets'
+    Plug 'fatih/vim-go'
     Plug 'jiangmiao/auto-pairs'
     Plug 'leafgarland/typescript-vim'
     Plug 'maralla/completor.vim'

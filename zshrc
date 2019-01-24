@@ -147,6 +147,6 @@ custom_prompt_setup() {
 custom_prompt_setup "$@"
 
 export NVM_DIR="$HOME/.nvm"
-export NVM_SOURCE="/usr/share/nvm"
+export NVM_SOURCE="$HOME/.nvm"
 [ -s "$NVM_SOURCE/nvm.sh" ] && . "$NVM_SOURCE/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

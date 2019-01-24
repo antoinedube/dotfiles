@@ -80,6 +80,7 @@ filetype plugin indent on
 filetype plugin on
 
 autocmd BufWritePre * :%s/\s\+$//e
+autocmd Filetype go setlocal ai ts=4 sw=4 noet
 
 syntax enable
 

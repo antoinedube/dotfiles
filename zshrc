@@ -12,7 +12,6 @@ alias valgrind='valgrind --leak-check=full --show-reachable=yes --track-origins=
 alias grep='grep --color=auto'
 alias lock='i3lock'
 alias vim='vim -p'
-alias nvim='nvim -p'
 
 plugins+=(zsh-completions)
 autoload -Uz colors compinit promptinit
@@ -118,7 +117,7 @@ prompt_git() {
       color=70
     fi
     local commit_hash="$( git rev-parse HEAD | cut -c1-6 )"
-    prompt_segment 237 $color " $BRANCH  $commit_hash "
+    prompt_segment 237 $color " $commit_hash "
     prompt_segment $color 235 " $ref "
     # prompt_end
   fi
@@ -151,6 +150,3 @@ export NVM_DIR="$HOME/.nvm"
 export NVM_SOURCE="/usr/share/nvm"
 [ -s "$NVM_SOURCE/nvm.sh" ] && . "$NVM_SOURCE/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-source /opt/google-cloud-sdk/completion.zsh.inc
-source /opt/google-cloud-sdk/path.zsh.inc

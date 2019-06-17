@@ -102,7 +102,7 @@ current_directory = os.path.dirname(os.path.realpath(__file__))
 
 keys = [
     Key([mod], "space", lazy.layout.next()),
-    Key([mod], "Return", lazy.spawn("urxvt -e bash")),
+    Key([mod], "Return", lazy.spawn("kitty")),
     Key([mod], "r", lazy.spawncmd()),
     Key([mod, "shift"], "r", lazy.restart()),
     Key([mod], "Tab", lazy.next_layout()),

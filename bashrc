@@ -21,7 +21,7 @@ alias valgrind='valgrind --leak-check=full --show-reachable=yes --track-origins=
 alias aria-bt='aria2c --bt-min-crypto-level=arc4 --bt-require-crypto=true'
 alias grep='grep -n --color=auto'
 alias qemu64='qemu-system-x86_64 -enable-kvm'
-alias vim='nvim -p'
+# alias vim='nvim -p'
 alias lock='i3lock'
 
 

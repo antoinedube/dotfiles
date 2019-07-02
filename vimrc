@@ -28,7 +28,7 @@ set fileencodings=utf-8
 set formatoptions=c,q,r,t
 set hlsearch
 set incsearch
-set listchars=space:·,trail:~,tab:>- " eol character is disabled
+set listchars=trail:~,tab:>- " eol character is disabled
 set list
 set linebreak
 set nobackup

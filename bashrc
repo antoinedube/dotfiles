@@ -58,13 +58,10 @@ shopt -s autocd
 shopt -s checkwinsize
 shopt -s globstar
 
-source /usr/share/git/completion/git-completion.bash
-
 cd ~
 
 PROMPT_COMMAND="find_git_branch;"
 PS1='\[${ESC}[38;5;34m\]\u\[${ESC}[0m\]\[${ESC}[38;5;22m\]@\[${ESC}[0m\]\[${ESC}[38;5;34m\]\h\[${ESC}[0m\]\[${ESC}[38;5;27m\] \w \[${ESC}[0m\]\[$git_branch\]\n\[${ESC}[0m\]\[${ESC}[38;5;10m\]==> \[${ESC}[0m\]'
-
 
 export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

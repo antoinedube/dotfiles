@@ -1,19 +1,10 @@
 call plug#begin('~/.vim/plugged')
-    Plug 'SirVer/ultisnips'
     Plug 'antoinedube/harlequin'
-    Plug 'antoinedube/vim-snippets'
-    Plug 'fatih/vim-go'
     Plug 'jiangmiao/auto-pairs'
-    Plug 'leafgarland/typescript-vim'
-    Plug 'maralla/completor.vim'
-    Plug 'mxw/vim-jsx'
-    Plug 'saltstack/salt-vim'
     Plug 'stephpy/vim-yaml'
-    Plug 'tpope/vim-fugitive'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'vim-syntastic/syntastic'
-    Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 call plug#end()
 
 set autoindent
@@ -86,25 +77,11 @@ syntax enable
 
 colorscheme harlequin
 
-let g:jsx_ext_required=0
-
 let g:airline_theme = 'molokai'
 let g:airline_powerline_fonts=1
-
-let g:jedi#show_call_signatures = "0"
-
-let g:completor_python_binary = '/usr/bin/python'
-let g:completor_node_binary = '/usr/bin/node'
-let g:completor_clang_binary = '/usr/bin/clang'
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_w = 1
 let g:syntastic_auto_jump = 0
-
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<tab>'
-
-let g:UltiSnipsSnippetDirectories = ['/home/antoine/.vim/UltiSnips', '/home/antoine/.vim/plugged/vim-snippets/UltiSnips']

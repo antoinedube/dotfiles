@@ -155,7 +155,6 @@ else:
 screens = screen_setup
 image_url = wallpaper_filename
 subprocess.Popen(['hsetroot', '-fill', image_url])
-subprocess.Popen(['pasystray'])
 
 dgroups_key_binder = None
 dgroups_app_rules = []

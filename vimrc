@@ -4,7 +4,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'stephpy/vim-yaml'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 set autoindent
@@ -79,9 +78,3 @@ colorscheme harlequin
 
 let g:airline_theme = 'molokai'
 let g:airline_powerline_fonts=1
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_w = 1
-let g:syntastic_auto_jump = 0

@@ -1,4 +1,5 @@
 call plug#begin('~/.nvim/plugged')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'jiangmiao/auto-pairs'
     Plug 'morhetz/gruvbox'
     Plug 'neomake/neomake'
@@ -7,15 +8,11 @@ call plug#begin('~/.nvim/plugged')
     Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
-" When writing a buffer (no delay).
-call neomake#configure#automake('w')
-
 set autoindent
 set background=dark
 set backspace=2
 set complete=.,w,b,u,U,t,i,d
 set completeopt=menu
-set cursorcolumn
 set cursorline
 set expandtab
 set fileencodings=utf-8
@@ -83,3 +80,8 @@ colorscheme gruvbox
 let g:airline_theme = 'gruvbox'
 let g:airline_powerline_fonts=1
 let g:gruvbox_contrast_dark = 'medium'
+
+" When writing a buffer (no delay).
+call neomake#configure#automake('nrwi', 500)
+
+let g:deoplete#enable_at_startup = 1

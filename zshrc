@@ -12,6 +12,7 @@ alias l='ls -lh --group-directories-first --color=auto'
 alias grep='grep --color=auto'
 alias lock='i3lock'
 alias vim='vim -p'
+alias nvim='nvim -p'
 
 plugins+=(zsh-completions)
 autoload -Uz colors compinit promptinit

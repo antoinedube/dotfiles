@@ -1,6 +1,6 @@
 call plug#begin('~/.nvim/plugged')
-    Plug 'antoinedube/harlequin'
     Plug 'jiangmiao/auto-pairs'
+    Plug 'morhetz/gruvbox'
     Plug 'neomake/neomake'
     Plug 'stephpy/vim-yaml'
     Plug 'vim-airline/vim-airline'
@@ -78,7 +78,8 @@ autocmd Filetype go setlocal ai ts=4 sw=4 noet
 
 syntax enable
 
-colorscheme harlequin
+colorscheme gruvbox
 
-let g:airline_theme = 'molokai'
+let g:airline_theme = 'gruvbox'
 let g:airline_powerline_fonts=1
+let g:gruvbox_contrast_dark = 'medium'

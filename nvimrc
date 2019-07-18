@@ -1,4 +1,5 @@
 call plug#begin('~/.nvim/plugged')
+    Plug 'cloudhead/neovim-fuzzy'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'jiangmiao/auto-pairs'
     Plug 'morhetz/gruvbox'
@@ -60,6 +61,9 @@ nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
+
+" Open fuzzy finder
+nnoremap <C-p> :FuzzyOpen <CR>
 
 map <F9> :tabp <CR>
 map <F10> :tabn <CR>

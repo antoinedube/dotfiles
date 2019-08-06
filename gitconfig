@@ -3,7 +3,7 @@
     email = antoine.dube@dti.ulaval.ca
 
 [core]
-    editor = vim
+    editor = nvim
     deltaBaseCacheLimit = 512M
 
 [color]

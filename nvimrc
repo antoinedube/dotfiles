@@ -1,6 +1,6 @@
 call plug#begin('~/.nvim/plugged')
-    Plug 'cloudhead/neovim-fuzzy'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'cloudhead/neovim-fuzzy'
     Plug 'jiangmiao/auto-pairs'
     Plug 'morhetz/gruvbox'
     Plug 'neomake/neomake'
@@ -37,9 +37,6 @@ set showmatch
 set smartcase
 set smarttab
 set softtabstop=4
-" set statusline+=%#warningmsg#
-" set statusline+=%*
-" set statusline+=%{SyntasticStatuslineFlag()}
 set t_Co=256
 set tabpagemax=50
 set tabstop=4
@@ -89,3 +86,6 @@ let g:gruvbox_contrast_dark = 'medium'
 call neomake#configure#automake('nrwi', 500)
 
 let g:deoplete#enable_at_startup = 1
+let g:neomake_python_enabled_makers = ['flake8']
+let g:neomake_javascript_enabled_makers = ['eslint']
+

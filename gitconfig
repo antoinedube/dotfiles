@@ -12,8 +12,12 @@
     diff = auto
     status = auto
 
+[pull]
+    rebase = true
+
 [push]
     default = simple
+    followTags = true
 
 [merge]
     conflictStyle = diff3
@@ -26,7 +30,7 @@
     fsckobjects = true
 
 [alias]
-    ll = log -n 50 --graph --oneline --decorate
+    ll = log -n 25 --graph --oneline --decorate
     dt = difftool
 
 [diff]
@@ -37,6 +41,3 @@
 
 [difftool "icdiff"]
     cmd = /usr/bin/icdiff --line-numbers $LOCAL $REMOTE
-
-[pull]
-    rebase = true

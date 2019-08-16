@@ -102,7 +102,8 @@ current_directory = os.path.dirname(os.path.realpath(__file__))
 
 keys = [
     Key([mod], "space", lazy.layout.next()),
-    Key([mod], "Return", lazy.spawn("/usr/bin/kitty --title kitty --directory /home/antoine/")),
+    Key([mod], "Return",
+        lazy.spawn("/usr/bin/kitty --title kitty --directory /home/antoine/")),
     Key([mod], "r", lazy.spawncmd()),
     Key([mod, "shift"], "r", lazy.restart()),
     Key([mod], "Tab", lazy.next_layout()),
@@ -111,7 +112,8 @@ keys = [
     Key([mod, "shift"], "h", lazy.layout.shuffle_down()),
     Key([mod], "1", lazy.to_screen(1)),
     Key([mod], "2", lazy.to_screen(0)),
-    Key(["control", "mod1"], "l", lazy.spawn(current_directory + "/lock_screen.sh"))
+    Key(["control", "mod1"], "l",
+        lazy.spawn(current_directory + "/lock_screen.sh"))
 ]
 
 groups = [Group(i) for i in "uiojklbnm"]
@@ -144,11 +146,13 @@ widget_defaults = dict(
 if socket.gethostname() == 'Emilie':  # Home computer
     screen_setup = Home.screen_setup
     wallpaper_filename = Home.wallpaper_filename
-    subprocess.Popen(['nm-applet', '--no-agent', '2>&1', '>>', '/home/antoine/.log/nm-applet.log'])
+    subprocess.Popen(['nm-applet', '--no-agent', '2>&1',
+                      '>>', '/home/antoine/.log/nm-applet.log'])
 elif socket.gethostname() == 'antoine76':  # Laptop
     screen_setup = Laptop.screen_setup
     wallpaper_filename = Laptop.wallpaper_filename
-    subprocess.Popen(['nm-applet', '--no-agent', '2>&1', '>>', '/home/antoine/.log/nm-applet.log'])
+    subprocess.Popen(['nm-applet', '--no-agent', '2>&1',
+                      '>>', '/home/antoine/.log/nm-applet.log'])
 else:
     pass
 

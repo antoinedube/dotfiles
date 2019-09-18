@@ -30,7 +30,7 @@
     fsckobjects = true
 
 [alias]
-    ll = log -n 25 --graph --oneline --decorate
+    ll = log -n 100 --graph --oneline --decorate
     dt = difftool
 
 [diff]

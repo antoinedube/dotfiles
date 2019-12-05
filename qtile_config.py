@@ -88,7 +88,7 @@ dual_screen = [
 
 
 class Home:
-    wallpaper_filename = '/home/antoine/Pictures/Wallpaper/mathematics.jpg'
+    wallpaper_filename = '/home/antoine/Pictures/Wallpaper/blackpattern.jpg'
     screen_setup = dual_screen
 
 

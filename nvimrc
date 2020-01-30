@@ -13,7 +13,7 @@ set autoindent
 set background=dark
 set backspace=2
 set complete=.,w,b,u,U,t,i,d
-set completeopt=menu
+set completeopt=menu,noinsert
 set cursorline
 set expandtab
 set fileencodings=utf-8
@@ -88,4 +88,5 @@ call neomake#configure#automake('nrwi', 500)
 let g:deoplete#enable_at_startup = 1
 let g:neomake_python_enabled_makers = ['flake8']
 let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_c_enabled_makers = ['gcc']
 

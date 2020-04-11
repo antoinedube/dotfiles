@@ -142,8 +142,10 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 mode "multiscreen" {
-    bindsym 1 move workspace to output primary
-    bindsym 2 move workspace to output primary
+    bindsym 1 move workspace to output eDP1
+    bindsym 2 move workspace to output HDMI2
+    bindsym 3 move workspace to output DP1
+    bindsym 4 move workspace to output HDMI1
 
     # back to normal
     bindsym Escape mode "default"
@@ -155,7 +157,7 @@ bindsym $mod+x mode "multiscreen"
 bar {
     strip_workspace_numbers yes
     workspace_min_width 40
-    tray_output primary
+    tray_output eDP1
     status_command i3status --config /home/antoine/.config/i3/i3status
 
     font pango:monospace 10

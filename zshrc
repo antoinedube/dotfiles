@@ -2,13 +2,14 @@ export EDITOR="nvim"
 export TERM="screen-256color"
 export BROWSER="firefox"
 export HISTCONTROL=ignoreboth
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 # LS_COLORS=$LS_COLORS:'di=0;37;104';
 LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:';
 export LS_COLORS
 
 alias l='ls -lh --group-directories-first --color=auto'
-# alias valgrind='valgrind --leak-check=full --show-reachable=yes --track-origins=yes'
+alias valgrind='valgrind --leak-check=full --show-reachable=yes --track-origins=yes'
 alias grep='grep --color=auto'
 alias lock='i3lock'
 alias vim='vim -p'
@@ -26,6 +27,7 @@ setopt prompt_subst
 setopt menu_complete
 setopt RM_STAR_WAIT
 setopt CORRECT
+setopt COMPLETE_ALIASES
 
 HISTSIZE=10000
 if (( ! EUID )); then
@@ -147,7 +149,7 @@ custom_prompt_setup() {
 
 custom_prompt_setup "$@"
 
-export NVM_DIR="$HOME/.nvm"
-export NVM_SOURCE="$HOME/.nvm"
+export NVM_DIR="/usr/share/nvm"
+export NVM_SOURCE="/usr/share/nvm"
 [ -s "$NVM_SOURCE/nvm.sh" ] && . "$NVM_SOURCE/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

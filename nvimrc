@@ -7,6 +7,7 @@ call plug#begin('~/.nvim/plugged')
     Plug 'stephpy/vim-yaml'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'preservim/nerdtree'
 call plug#end()
 
 set autoindent
@@ -62,17 +63,19 @@ vnoremap <leader>P "+P
 " Open fuzzy finder
 nnoremap <C-p> :FuzzyOpen <CR>
 
+" Toggle NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
+" previous/next tab
 map <F9> :tabp <CR>
 map <F10> :tabn <CR>
-
-map <F11> :cp <CR>
-map <F12> :cn <CR>
 
 filetype plugin indent on
 filetype plugin on
 
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd Filetype go setlocal ai ts=4 sw=4 noet
+autocmd BufWinEnter,BufWritePost *.c :Neomake gcc
 
 syntax enable
 
@@ -85,8 +88,20 @@ let g:gruvbox_contrast_dark = 'medium'
 " When writing a buffer (no delay).
 call neomake#configure#automake('nrwi', 500)
 
+let g:c_syntax_for_h=1
+
 let g:deoplete#enable_at_startup = 1
 let g:neomake_python_enabled_makers = ['flake8']
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_c_enabled_makers = ['gcc']
+let g:neomake_cpp_enabled_makers = ['gcc']
+
+let g:neomake_gcc_args=[
+    \ '-fsyntax-only',
+    \ '-std=c11',
+    \ '-Wall',
+    \ '-Wextra',
+    \ '-I.',
+    \ '-I./src',
+    \ ]
 

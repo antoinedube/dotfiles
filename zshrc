@@ -1,5 +1,5 @@
 export EDITOR="nvim"
-export TERM="screen-256color"
+export TERMINAL="kitty"
 export BROWSER="firefox"
 export HISTCONTROL=ignoreboth
 export _JAVA_AWT_WM_NONREPARENTING=1

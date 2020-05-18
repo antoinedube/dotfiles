@@ -33,10 +33,10 @@
     date = relative
 
 [format]
-    pretty = format:%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s
+    pretty = format:%C(auto,yellow)%h%C(auto,magenta)% G? %C(auto,blue)%>(14,trunc)%ad %C(auto,green)%<(13,trunc)%aN%C(auto,red)%gD% D %C(auto,reset)%s
 
 [alias]
-    ll = log --graph
+    ll = log --graph -n 35
     dt = difftool
 
 [diff]

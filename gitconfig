@@ -29,8 +29,14 @@
 [transfer]
     fsckobjects = true
 
+[log]
+    date = relative
+
+[format]
+    pretty = format:%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s
+
 [alias]
-    ll = log -n 100 --graph --oneline --decorate
+    ll = log --graph
     dt = difftool
 
 [diff]

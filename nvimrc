@@ -103,5 +103,6 @@ let g:neomake_gcc_args=[
     \ '-Wextra',
     \ '-I.',
     \ '-I./src',
+    \ '-I./googletest/googletest/include',
     \ ]
 

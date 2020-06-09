@@ -1,5 +1,5 @@
 export EDITOR="nvim"
-export TERMINAL="kitty"
+export TERMINAL="alacritty"
 export BROWSER="firefox"
 export HISTCONTROL=ignoreboth
 export _JAVA_AWT_WM_NONREPARENTING=1

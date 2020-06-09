@@ -8,6 +8,8 @@ call plug#begin('~/.nvim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'preservim/nerdtree'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
 call plug#end()
 
 set autoindent
@@ -60,6 +62,9 @@ nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
+" Open new tab
+nnoremap <C-t> :tabnew <CR>
+
 " Open fuzzy finder
 nnoremap <C-p> :FuzzyOpen <CR>
 
@@ -82,8 +87,8 @@ syntax enable
 colorscheme gruvbox
 
 let g:airline_theme = 'gruvbox'
-let g:airline_powerline_fonts=1
-let g:gruvbox_contrast_dark = 'medium'
+let g:airline_powerline_fonts = 1
+let g:gruvbox_contrast_dark = 'hard'
 
 " When writing a buffer (no delay).
 call neomake#configure#automake('nrwi', 500)

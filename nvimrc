@@ -1,5 +1,6 @@
 call plug#begin('~/.nvim/plugged')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'deoplete-plugins/deoplete-clang'
     Plug 'cloudhead/neovim-fuzzy'
     Plug 'jiangmiao/auto-pairs'
     Plug 'morhetz/gruvbox'

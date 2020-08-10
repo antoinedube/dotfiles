@@ -9,7 +9,6 @@ LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;3
 export LS_COLORS
 
 alias l='ls -lh --group-directories-first --color=auto'
-alias valgrind='valgrind --leak-check=full --show-reachable=yes --track-origins=yes --show-leak-kinds=all'
 alias grep='grep --color=auto'
 alias lock='i3lock'
 alias vim='vim -p'

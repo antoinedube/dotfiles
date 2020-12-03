@@ -38,6 +38,7 @@
 [alias]
     ll = log --graph -n 35
     dt = difftool
+    co = checkout
 
 [diff]
     tool = icdiff

@@ -1,6 +1,6 @@
 [user]
-    name = Antoine Dubé
-    email = antoine.dube@gmail.com
+		name = Antoine Dubé
+		email = antoine.dube@gmail.com
 
 [core]
     editor = nvim
@@ -48,4 +48,3 @@
 
 [difftool "icdiff"]
     cmd = /usr/bin/icdiff --line-numbers $LOCAL $REMOTE
-

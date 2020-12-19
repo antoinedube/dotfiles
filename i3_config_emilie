@@ -167,26 +167,9 @@ mode "multiscreen" {
 
 bindsym $mod+x mode "multiscreen"
 
-# Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
-bar {
-    status_command i3status --config /home/antoine/.config/i3/i3status
+exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desktop-main
+exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desktop-secondary
 
-    strip_workspace_numbers yes
-    workspace_min_width 40
-
-    tray_output HDMI-0
-    tray_padding 25
-
-    font pango:monospace 11
-    height 30
-
-    separator_symbol ":|:"
-}
-
-# default_border none
-
-for_window [class=".*"] border pixel 0
+default_border none
 gaps inner 2
-gaps outer 0
 smart_gaps on
-

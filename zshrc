@@ -85,8 +85,11 @@ prompt_virtualenv() {
 }
 
 prompt_context() {
+  local user=`whoami`
   local hostname=`hostname`
-  prompt_segment 237 33 "$hostname "
+  prompt_segment 237 33 " $user"
+  prompt_segment 237 245 "@"
+  prompt_segment 237 197 "$hostname "
 }
 
 prompt_dir() {

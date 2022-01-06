@@ -1,0 +1,222 @@
+[bar/laptop]
+modules-left = i3
+modules-right = wireless-network cpu memory battery date
+; override-redirect = true
+; wm-restack = i3
+
+; position
+bottom = true
+
+; dimensions
+width = 100%
+height = 40
+padding-left = 0
+padding-right = 0
+module-margin-left = 3
+module-margin-right = 3
+separator = |
+dpi = 90
+border-top-size = 0
+border-bottom-size = -5
+
+; colors
+background = #1f1f1f
+foreground = #eee
+
+; fonts
+font-0 = Terminus:size=12;0
+
+; system tray
+tray-position = right
+tray-scale = 0.9
+; tray-maxsize = 10
+; tray-offset-y = 3
+
+; overline-size = 10
+; underline-size = 2
+
+[bar/desktop-main]
+monitor = HDMI-0
+
+modules-left = i3
+modules-right = cpu memory date
+; override-redirect = true
+; wm-restack = i3
+
+; position
+bottom = true
+
+; dimensions
+width = 100%
+height = 40
+padding-left = 0
+padding-right = 0
+module-margin-left = 3
+module-margin-right = 3
+separator = |
+dpi = 90
+border-top-size = 0
+border-bottom-size = -5
+
+; colors
+background = #1f1f1f
+foreground = #eee
+
+; fonts
+font-0 = Terminus:size=12;0
+
+; system tray
+tray-position = right
+tray-scale = 0.9
+; tray-maxsize = 10
+; tray-offset-y = 3
+
+; overline-size = 10
+; underline-size = 2
+
+[bar/desktop-secondary]
+monitor = DVI-I-1
+
+modules-left = i3
+; modules-right = cpu memory date
+; override-redirect = true
+; wm-restack = i3
+
+; position
+bottom = true
+
+; dimensions
+width = 100%
+height = 40
+padding-left = 0
+padding-right = 0
+module-margin-left = 3
+module-margin-right = 3
+separator = |
+dpi = 90
+border-top-size = 0
+border-bottom-size = -5
+
+; colors
+background = #1f1f1f
+foreground = #eee
+
+; fonts
+font-0 = Terminus:size=12;0
+
+[module/date]
+type = internal/date
+date = "%A %B %d, %Y -- %H:%M:%S"
+
+[module/i3]
+type = internal/i3
+
+pin-workspaces = true
+strip-wsnumbers = true
+; index-sort = true
+
+format = <label-state> <label-mode>
+
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-background = #e60053
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-focused =  %name%
+label-focused-foreground = #ffffff
+label-focused-background = #3f3f3f
+label-focused-underline = #fba922
+label-focused-padding = 2
+
+label-unfocused = %name%
+label-unfocused-padding = 2
+
+label-visible = %name%
+label-visible-underline = #555555
+label-visible-padding = 2
+
+label-urgent = %name%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 2
+
+; Separator in between workspaces
+label-separator = |
+label-separator-padding = 0
+label-separator-foreground = #ffb52a
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+format = <ramp-coreload>
+ramp-coreload-0 = ▁
+ramp-coreload-0-font = 0
+ramp-coreload-0-foreground = #aaff77
+ramp-coreload-1 = ▂
+ramp-coreload-1-font = 0
+ramp-coreload-1-foreground = #aaff77
+ramp-coreload-2 = ▃
+ramp-coreload-2-font = 0
+ramp-coreload-2-foreground = #aaff77
+ramp-coreload-3 = ▄
+ramp-coreload-3-font = 0
+ramp-coreload-3-foreground = #aaff77
+ramp-coreload-4 = ▅
+ramp-coreload-4-font = 0
+ramp-coreload-4-foreground = #fba922
+ramp-coreload-5 = ▆
+ramp-coreload-5-font = 0
+ramp-coreload-5-foreground = #fba922
+ramp-coreload-6 = ▇
+ramp-coreload-6-font = 0
+ramp-coreload-6-foreground = #ff5555
+ramp-coreload-7 = █
+ramp-coreload-7-font = -
+ramp-coreload-7-foreground = #ff5555
+
+[module/memory]
+type = internal/memory
+format = <bar-used>
+
+bar-used-width = 10
+bar-used-foreground-0 = #aaff77
+bar-used-foreground-1 = #aaff77
+bar-used-foreground-2 = #fba922
+bar-used-foreground-3 = #ff5555
+bar-used-indicator = |
+bar-used-indicator-font = 6
+bar-used-indicator-foreground = #ff
+bar-used-fill = ─
+bar-used-fill-font = 6
+bar-used-empty = ─
+bar-used-empty-font = 6
+bar-used-empty-foreground = #444444
+
+[module/wireless-network]
+type = internal/network
+interface = wlp59s0
+interval = 1.0
+ping-interval = 10
+
+; format-connected = <ramp-signal> <label-connected>
+format-connected = <label-connected>
+label-connected = %downspeed% - %upspeed%
+label-disconnected = not connected
+label-disconnected-foreground = #66
+
+[module/battery]
+type = internal/battery
+full-at = 98
+
+format-charging = <label-charging>
+format-discharging = <label-discharging>
+format-full = <label-full>
+
+label-charging = %percentage%% %time%h
+label-discharging = %percentage%% %time%h
+

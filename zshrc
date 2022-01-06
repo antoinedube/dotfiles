@@ -89,7 +89,7 @@ prompt_context() {
   local hostname=`hostname`
   prompt_segment 237 33 " $user"
   prompt_segment 237 245 "@"
-  prompt_segment 237 197 "$hostname "
+  prompt_segment 237 33 "$hostname "
 }
 
 prompt_dir() {
@@ -155,3 +155,8 @@ export NVM_DIR="/usr/share/nvm"
 export NVM_SOURCE="/usr/share/nvm"
 [ -s "$NVM_SOURCE/nvm.sh" ] && . "$NVM_SOURCE/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+source /usr/share/doc/mcfly/mcfly.zsh
+export MCFLY_KEY_SCHEME=vim
+export MCFLY_FUZZY=2
+

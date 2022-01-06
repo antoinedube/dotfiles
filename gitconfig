@@ -1,6 +1,7 @@
 [user]
-	name = Antoine Dubé
-	email = antoine.dube@gmail.com
+    name = Antoine Dubé
+    email = antoine.dube@gmail.com
+    signingkey = 1ED08732203DF3CB
 
 [core]
     editor = nvim

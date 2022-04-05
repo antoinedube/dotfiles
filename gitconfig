@@ -48,4 +48,4 @@
     prompt = false
 
 [difftool "difft"]
-    cmd = /usr/bin/difft --color always --skip-unchanged $LOCAL $REMOTE
+    cmd = /usr/bin/difft --color=always --skip-unchanged $LOCAL $REMOTE

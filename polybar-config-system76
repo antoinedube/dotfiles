@@ -24,7 +24,11 @@ background = #1f1f1f
 foreground = #eee
 
 ; fonts
-font-0 = Terminus:size=10;0
+; font-0 = terminus:size=10;0
+; font-0 = "Noto Sans:size=11;0"
+; font-0 = "Roboto:size=11;2"
+font-0 = "DejaVu Sans Mono:size=12;0"
+
 
 ; system tray
 tray-position = right

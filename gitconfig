@@ -37,15 +37,15 @@
     pretty = format:%C(auto,yellow)%h%C(auto,magenta)% G? %C(auto,blue)%>(14,trunc)%ad %C(auto,green)%<(13,trunc)%aN%C(auto,red)%gD% D %C(auto,reset)%s
 
 [alias]
-    ll = log --graph -n 35
+    ll = log --graph -n 50
     dt = difftool
     co = checkout
 
 [diff]
-    tool = icdiff
+    tool = difft
 
 [difftool]
     prompt = false
 
-[difftool "icdiff"]
-    cmd = /usr/bin/icdiff --line-numbers $LOCAL $REMOTE
+[difftool "difft"]
+    cmd = /usr/bin/difft --color always --skip-unchanged $LOCAL $REMOTE

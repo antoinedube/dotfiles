@@ -3,6 +3,10 @@ export TERMINAL="alacritty"
 export BROWSER="firefox"
 export HISTCONTROL=ignoreboth
 export _JAVA_AWT_WM_NONREPARENTING=1
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
+# https://github.com/pypa/pip/issues/7883
+export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 
 # LS_COLORS=$LS_COLORS:'di=0;37;104';
 LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:';

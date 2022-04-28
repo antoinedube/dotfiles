@@ -18,6 +18,9 @@ alias lock='i3lock'
 alias vim='vim -p'
 alias nvim='nvim -p'
 
+# bindkey '^[[1;5C' forward-word
+# bindkey '^[[1;5D' backward-word
+
 plugins+=(zsh-completions)
 autoload -Uz colors compinit promptinit
 colors
@@ -39,9 +42,6 @@ else
   HISTFILE=~/.history
 fi
 SAVEHIST=10000
-
-# bindkey -v
-bindkey '^R' history-incremental-search-backward
 
 SEGMENT_SEPARATOR="\ue0b0"
 PLUSMINUS="\u00b1"
@@ -177,4 +177,6 @@ unset __conda_setup
 
 source /usr/share/doc/mcfly/mcfly.zsh
 export MCFLY_KEY_SCHEME=vim
-export MCFLY_FUZZY=2
+export MCFLY_FUZZY=3
+export MCFLY_RESULTS_SORT=LAST_RUN
+export MCFLY_RESULTS=25

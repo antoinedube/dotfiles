@@ -173,8 +173,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 mode "multiscreen" {
-    bindsym 1 move workspace to output HDMI-0
-    bindsym 2 move workspace to output DVI-I-1
+    bindsym 1 move workspace to output HDMI-0, mode "default"
+    bindsym 2 move workspace to output DVI-I-1, mode "default"
 
     # back to normal
     bindsym Escape mode "default"

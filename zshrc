@@ -17,6 +17,8 @@ alias grep='grep --color=auto'
 alias lock='i3lock'
 alias vim='vim -p'
 alias nvim='nvim -p'
+alias activate='source venv/bin/activate'
+alias cargo='nice -n 19 cargo'
 
 # bindkey '^[[1;5C' forward-word
 # bindkey '^[[1;5D' backward-word
@@ -176,7 +178,9 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 source /usr/share/doc/mcfly/mcfly.zsh
+export MCFLY_LIGHT=true
 export MCFLY_KEY_SCHEME=vim
-export MCFLY_FUZZY=3
+export MCFLY_FUZZY=2
+export MCFLY_RESULTS=10
+export MCFLY_DISABLE_MENU=TRUE
 export MCFLY_RESULTS_SORT=LAST_RUN
-export MCFLY_RESULTS=25

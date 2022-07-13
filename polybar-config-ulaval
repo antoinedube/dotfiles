@@ -39,7 +39,7 @@ tray-scale = 0.9
 monitor = eDP-1
 
 modules-left = i3
-modules-right = wireless-network cpu memory date
+modules-right = wireless-network battery cpu memory date
 ; override-redirect = true
 ; wm-restack = i3
 
@@ -230,6 +230,7 @@ bar-used-empty-foreground = #444444
 type = internal/network
 ; interface = wlp59s0
 interface = wlp3s0
+; interface = enp0s31f6
 interval = 1.0
 ping-interval = 10
 
@@ -249,3 +250,6 @@ format-full = <label-full>
 
 label-charging = %percentage%% %time%h
 label-discharging = %percentage%% %time%h
+
+[settings]
+screenchange-reload = true

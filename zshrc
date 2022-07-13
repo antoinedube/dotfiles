@@ -7,6 +7,7 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 
 # https://github.com/pypa/pip/issues/7883
 export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
+export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 
 # LS_COLORS=$LS_COLORS:'di=0;37;104';
 LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:';
@@ -181,6 +182,10 @@ source /usr/share/doc/mcfly/mcfly.zsh
 export MCFLY_LIGHT=true
 export MCFLY_KEY_SCHEME=vim
 export MCFLY_FUZZY=2
-export MCFLY_RESULTS=10
-export MCFLY_DISABLE_MENU=TRUE
 export MCFLY_RESULTS_SORT=LAST_RUN
+export MCFLY_DISABLE_MENU=TRUE
+export MCFLY_INTERFACE_VIEW=TOP
+export MCFLY_RESULTS=10
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

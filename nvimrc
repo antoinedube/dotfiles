@@ -11,6 +11,7 @@ call plug#begin('~/.nvim/plugged')
     Plug 'preservim/nerdtree'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    Plug 'danilo-augusto/vim-afterglow'
 call plug#end()
 
 set autoindent
@@ -85,7 +86,8 @@ autocmd BufWinEnter,BufWritePost *.c :Neomake gcc
 
 syntax enable
 
-colorscheme gruvbox
+" colorscheme gruvbox
+colorscheme afterglow
 
 let g:airline_theme = 'gruvbox'
 let g:airline_powerline_fonts = 1

@@ -49,3 +49,6 @@
 
 [difftool "difft"]
     cmd = /usr/bin/difft --color=always --skip-unchanged $LOCAL $REMOTE
+
+[init]
+    defaultBranch = main

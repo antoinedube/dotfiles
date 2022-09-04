@@ -1,6 +1,6 @@
 [bar/laptop]
 modules-left = i3
-modules-right = network cpu memory battery date
+modules-right = network cpu memory battery keyboard date
 ; override-redirect = true
 ; wm-restack = i3
 
@@ -39,9 +39,41 @@ tray-scale = 0.9
 ; overline-size = 10
 ; underline-size = 2
 
+[module/keyboard]
+type = internal/xkeyboard
+
+; List of indicators to ignore
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+
+; Available tags:
+;   <label-layout> (default)
+;   <label-indicator> (default)
+format = <label-layout>
+format-spacing = 0
+
+; Available tokens:
+;   %layout%
+;   %name%
+;   %number%
+; Default: %layout%
+label-layout = %layout%
+label-layout-padding = 0
+label-layout-background = #1f1f1f
+label-layout-foreground = #eee
+
+; Available tokens:
+;   %name%
+; Default: %name%
+label-indicator = %name%
+label-indicator-padding = 2
+label-indicator-background = #1f1f1f
+label-indicator-foreground = #eee
+
 [module/date]
 type = internal/date
-date = "%A %B %d, %Y -- %H:%M:%S"
+; date = "%A %B %d, %Y -- %H:%M:%S"
+date = "%Y-%m-%d %H:%M:%S"
 
 [module/i3]
 type = internal/i3
@@ -152,6 +184,6 @@ format-charging = <label-charging>
 format-discharging = <label-discharging>
 format-full = <label-full>
 
-label-charging = ↑ %percentage%% %time%h
-label-discharging = ↓ %percentage%% %time%h
+label-charging = ↑ %percentage%%
+label-discharging = ↓ %percentage%%
 

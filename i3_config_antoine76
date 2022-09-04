@@ -186,6 +186,8 @@ mode "multiscreen" {
 
 bindsym $mod+x mode "multiscreen"
 
+for_window [title="splash"] floating enable
+
 exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config laptop
 
 default_border none

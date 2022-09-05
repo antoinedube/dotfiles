@@ -179,9 +179,11 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 source /usr/share/doc/mcfly/mcfly.zsh
-export MCFLY_LIGHT=true
+export MCFLY_LIGHT=false
 export MCFLY_KEY_SCHEME=vim
 export MCFLY_FUZZY=2
+export MCFLY_RESULTS=10
+export MCFLY_DISABLE_MENU=FALSE
 export MCFLY_RESULTS_SORT=LAST_RUN
 export MCFLY_DISABLE_MENU=TRUE
 export MCFLY_INTERFACE_VIEW=TOP

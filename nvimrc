@@ -112,9 +112,9 @@ colorscheme onedark
 " colorscheme gruvbox
 " colorscheme afterglow
 
-let g:airline_theme = 'gruvbox'
+let g:airline_theme = 'molokai'
 let g:airline_powerline_fonts = 1
-let g:gruvbox_contrast_dark = 'hard'
+" let g:gruvbox_contrast_dark = 'hard'
 
 let g:deoplete#enable_at_startup = 1
 let g:neomake_python_enabled_makers = ['flake8']

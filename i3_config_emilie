@@ -190,12 +190,9 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [title="splash"] floating enable
 
-assign [class="vscodium"] "1:u"
 assign [class="firefox"] "6:m"
 
 exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desktop-main
 exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desktop-secondary
 
-exec /usr/bin/vscodium
 exec /usr/bin/firefox
-

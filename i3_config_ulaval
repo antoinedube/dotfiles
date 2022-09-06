@@ -183,9 +183,14 @@ mode "multiscreen" {
 
 bindsym $mod+x mode "multiscreen"
 
+for_window [title="splash"] floating enable
+
 exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desktop-main
 exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desktop-secondary
 exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desktop-ternary
+
+exec_always --no-startup-id /opt/netskope/stagent/stAgentUI
+exec_always --no-startup-id /usr/bin/flameshot
 
 default_border none
 gaps inner 2

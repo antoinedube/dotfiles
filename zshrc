@@ -21,8 +21,8 @@ alias nvim='nvim -p'
 alias activate='source venv/bin/activate'
 alias cargo='nice -n 19 cargo'
 
-# bindkey '^[[1;5C' forward-word
-# bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;5D' backward-word
 
 plugins+=(zsh-completions)
 autoload -Uz colors compinit promptinit

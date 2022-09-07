@@ -35,7 +35,7 @@ set autoindent
 set background=dark
 set backspace=2
 set complete=.,w,b,u,t
-set completeopt=menuone,noinsert,noselect
+set completeopt=menuone,noinsert
 set cursorline
 set expandtab
 set fileencodings=utf-8
@@ -199,6 +199,13 @@ lua <<EOF
         flags = lsp_flags,
         capabilities = capabilities
     }
+
+    lspconfig['pyright'].setup{
+        on_attach = on_attach,
+        flags = lsp_flags,
+        capabilities = capabilities
+    }
+
     lspconfig['rust_analyzer'].setup{
         on_attach = on_attach,
         flags = lsp_flags,
@@ -206,6 +213,20 @@ lua <<EOF
         -- Server-specific settings...
         settings = {
           ["rust-analyzer"] = {}
+        }
+    }
+
+    -- Ref: https://github.com/redhat-developer/yaml-language-server
+    lspconfig['yamlls'].setup{
+        on_attach = on_attach,
+        flags = lsp_flags,
+        capabilities = capabilities,
+        settings = {
+            yaml = {
+                schemas = {
+                    ["https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible.json"] = "playbooks/*.yaml"
+                }
+            }
         }
     }
 

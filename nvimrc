@@ -206,6 +206,14 @@ lua <<EOF
         capabilities = capabilities
     }
 
+    -- Ref: https://github.com/joe-re/sql-language-server
+    lspconfig['sqlls'].setup{
+        on_attach = on_attach,
+        flags = lsp_flags,
+        capabilities = capabilities,
+        root_dir = lspconfig.util.root_pattern '.sqllsrc.json'
+    }
+
     lspconfig['rust_analyzer'].setup{
         on_attach = on_attach,
         flags = lsp_flags,

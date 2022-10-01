@@ -225,14 +225,40 @@ lua <<EOF
     }
 
     -- Ref: https://github.com/redhat-developer/yaml-language-server
-    lspconfig['yamlls'].setup{
+    -- lspconfig['yamlls'].setup{
+    --     on_attach = on_attach,
+    --     flags = lsp_flags,
+    --     capabilities = capabilities,
+    --     settings = {
+    --         yaml = {
+    --             schemas = {
+    --                 ["https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible.json"] = "playbooks/*.yaml"
+    --             }
+    --         }
+    --     }
+    -- }
+
+    lspconfig['ansiblels'].setup{
         on_attach = on_attach,
         flags = lsp_flags,
         capabilities = capabilities,
+        cmd = { 'ansible-language-server', '--stdio' },
+        filetypes = { 'yaml' },
+        root_dir = lspconfig.util.root_pattern 'ansible.cfg',
         settings = {
-            yaml = {
-                schemas = {
-                    ["https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible.json"] = "playbooks/*.yaml"
+            ansible = {
+                ansible = {
+                    path = "ansible"
+                },
+                ansibleLint = {
+                    enabled = true,
+                    path = "ansible-lint"
+                },
+                executionEnvironment = {
+                    enabled = false
+                },
+                python = {
+                    interpreterPath = "python"
                 }
             }
         }

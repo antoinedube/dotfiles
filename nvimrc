@@ -116,8 +116,8 @@ let g:airline_theme = 'molokai'
 let g:airline_powerline_fonts = 1
 " let g:gruvbox_contrast_dark = 'hard'
 
-let g:deoplete#enable_at_startup = 1
-let g:neomake_python_enabled_makers = ['flake8']
+" let g:deoplete#enable_at_startup = 1
+" let g:neomake_python_enabled_makers = ['flake8']
 
 lua <<EOF
     local lspconfig = require 'lspconfig'
@@ -194,7 +194,7 @@ lua <<EOF
     local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
     local lsp_flags = { debounce_text_changes = 150 }
 
-    lspconfig['tsserver'].setup{
+    lspconfig['bashls'].setup{
         on_attach = on_attach,
         flags = lsp_flags,
         capabilities = capabilities
@@ -212,6 +212,20 @@ lua <<EOF
         flags = lsp_flags,
         capabilities = capabilities,
         root_dir = lspconfig.util.root_pattern '.sqllsrc.json'
+    }
+
+    lspconfig['tsserver'].setup{
+        on_attach = on_attach,
+        flags = lsp_flags,
+        capabilities = capabilities,
+        root_dir = lspconfig.util.root_pattern("package.json")
+    }
+
+    lspconfig['denols'].setup{
+        on_attach = on_attach,
+        flags = lsp_flags,
+        capabilities = capabilities,
+        root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc")
     }
 
     lspconfig['rust_analyzer'].setup{
@@ -264,4 +278,10 @@ lua <<EOF
         }
     }
 
+    lspconfig['groovyls'].setup{
+        on_attach = on_attach,
+        flags = lsp_flags,
+        capabilities = capabilities,
+        cmd = { "java", "-jar", "/usr/share/java/groovy-language-server/groovy-language-server-all.jar" }
+    }
 EOF

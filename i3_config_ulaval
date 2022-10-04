@@ -131,18 +131,18 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # some style
 # ref: https://github.com/andreatta/config/blob/master/i3/config
 set $bg     #2f343f
-set $fg     #404552
-set $hi     #fce94f
+# set $fg     #404552
+# set $hi     #fce94f
 set $ac     #4084d6
 set $tx     #2d323d
 set $ia     #9e9e9e
-set $be     #8faf9f
-set $yw     #f8f893
-set $gn     #81c181
-set $rd     #bf9b76
+# set $be     #8faf9f
+# set $yw     #f8f893
+# set $gn     #81c181
+# set $rd     #bf9b76
 set $id     #f9f8ff
-set $ce     #ceecee
-set $sl     #7f7f7f
+# set $ce     #ceecee
+# set $sl     #7f7f7f
 
 # set some nice colors      border  background  text    indicator
 client.focused              $ac     $ac         $tx     $id

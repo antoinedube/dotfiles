@@ -29,6 +29,8 @@ call plug#begin('~/.nvim/plugged')
     Plug 'hrsh7th/vim-vsnip-integ'
 
     " Plug 'simrat39/rust-tools.nvim'
+
+    Plug 'norcalli/nvim-colorizer.lua'
 call plug#end()
 
 set autoindent
@@ -122,8 +124,11 @@ let g:airline_powerline_fonts = 1
 lua <<EOF
     local lspconfig = require 'lspconfig'
     local configs = require 'lspconfig/configs'
+    local colorizer = require 'colorizer'
 
     local cmp = require 'cmp'
+
+    colorizer.setup()
 
     cmp.setup({
         snippet = {
@@ -265,7 +270,7 @@ lua <<EOF
                     path = "ansible"
                 },
                 ansibleLint = {
-                    enabled = true,
+                    enabled = false,
                     path = "ansible-lint"
                 },
                 executionEnvironment = {

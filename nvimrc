@@ -47,6 +47,7 @@ set incsearch
 set listchars=trail:~,tab:>- " eol character is disabled
 set list
 set linebreak
+set mouse=
 set nobackup
 set noshowmode
 set noswapfile
@@ -67,7 +68,7 @@ set tabstop=4
 set textwidth=0
 set timeoutlen=50
 set wildignorecase
-" set wildmenu
+set wildmenu
 set wrap
 set wrapmargin=0
 
@@ -237,6 +238,7 @@ lua <<EOF
         on_attach = on_attach,
         flags = lsp_flags,
         capabilities = capabilities,
+        root_dir = lspconfig.util.root_pattern 'Cargo.toml',
         -- Server-specific settings...
         settings = {
           ["rust-analyzer"] = {}

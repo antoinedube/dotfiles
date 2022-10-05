@@ -262,7 +262,7 @@ lua <<EOF
         flags = lsp_flags,
         capabilities = capabilities,
         cmd = { 'ansible-language-server', '--stdio' },
-        filetypes = { 'yaml' },
+        filetypes = { 'yaml', 'yml' },
         root_dir = lspconfig.util.root_pattern 'ansible.cfg',
         settings = {
             ansible = {
@@ -288,5 +288,15 @@ lua <<EOF
         flags = lsp_flags,
         capabilities = capabilities,
         cmd = { "java", "-jar", "/usr/share/java/groovy-language-server/groovy-language-server-all.jar" }
+    }
+
+    lspconfig['marksman'].setup{
+        on_attach = on_attach,
+        flags = lsp_flags,
+        capabilities = capabilities,
+        cmd = { 'marksman', 'server' },
+        filetypes = { 'markdown' },
+        root_dir = lspconfig.util.root_pattern '.marksman.toml',
+        single_file_support = true
     }
 EOF

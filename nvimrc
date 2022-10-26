@@ -197,7 +197,12 @@ lua <<EOF
 
 
     -- Set up lspconfig.
-    local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+    -- cmp_nvim_lsp.update_capabilities is deprecated, use cmp_nvim_lsp.default_capabilities instead. See :h deprecated
+    -- This function will be removed in cmp-nvim-lsp version 1.0.0
+    -- stack traceback:
+    --     ...ine/.nvim/plugged/cmp-nvim-lsp/lua/cmp_nvim_lsp/init.lua:68: in function 'update_capabilities'
+    --     [string ":lua"]:75: in main chunk
     local lsp_flags = { debounce_text_changes = 150 }
 
     lspconfig['bashls'].setup{
@@ -246,44 +251,53 @@ lua <<EOF
     }
 
     -- Ref: https://github.com/redhat-developer/yaml-language-server
-    -- lspconfig['yamlls'].setup{
-    --     on_attach = on_attach,
-    --     flags = lsp_flags,
-    --     capabilities = capabilities,
-    --     settings = {
-    --         yaml = {
-    --             schemas = {
-    --                 ["https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible.json"] = "playbooks/*.yaml"
-    --             }
-    --         }
-    --     }
-    -- }
-
-    lspconfig['ansiblels'].setup{
+    lspconfig['yamlls'].setup{
         on_attach = on_attach,
         flags = lsp_flags,
         capabilities = capabilities,
-        cmd = { 'ansible-language-server', '--stdio' },
-        filetypes = { 'yaml', 'yml' },
-        root_dir = lspconfig.util.root_pattern 'ansible.cfg',
         settings = {
-            ansible = {
-                ansible = {
-                    path = "ansible"
-                },
-                ansibleLint = {
-                    enabled = false,
-                    path = "ansible-lint"
-                },
-                executionEnvironment = {
-                    enabled = false
-                },
-                python = {
-                    interpreterPath = "python"
+            yaml = {
+                schemas = {
+                    -- ["https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible.json"] = "playbooks/*.yaml",
+                    ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = {"ci/*.yml", ".gitlab-ci.yml"},
+                    ["https://raw.githubusercontent.com/ansible/schemas/main/f/ansible.json"] = "playbooks/*.yaml"
+                    -- Ref: https://www.schemastore.org/json/
+                    -- https://json.schemastore.org/eslintrc.json
+                    -- https://raw.githubusercontent.com/denoland/deno/main/cli/schemas/config-file.v1.json
+                    -- https://json.schemastore.org/github-action.json
+                    -- https://json.schemastore.org/tsconfig.json
+                    -- https://raw.githubusercontent.com/awslabs/goformation/master/schema/cloudformation.schema.json
                 }
             }
         }
     }
+
+    -- lspconfig['ansiblels'].setup{
+    --     on_attach = on_attach,
+    --     flags = lsp_flags,
+    --     capabilities = capabilities,
+    --     cmd = { 'ansible-language-server', '--stdio' },
+    --     filetypes = { 'yaml', 'yml' },
+    --     root_dir = lspconfig.util.root_pattern 'ansible.cfg',
+    --     single_file_support = false,
+    --     settings = {
+    --         ansible = {
+    --             ansible = {
+    --                 path = "ansible"
+    --             },
+    --             ansibleLint = {
+    --                 enabled = false,
+    --                 path = "ansible-lint"
+    --             },
+    --             executionEnvironment = {
+    --                 enabled = false
+    --             },
+    --             python = {
+    --                 interpreterPath = "python"
+    --             }
+    --         }
+    --     }
+    -- }
 
     lspconfig['groovyls'].setup{
         on_attach = on_attach,

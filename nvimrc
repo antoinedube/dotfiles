@@ -272,32 +272,32 @@ lua <<EOF
         }
     }
 
-    -- lspconfig['ansiblels'].setup{
-    --     on_attach = on_attach,
-    --     flags = lsp_flags,
-    --     capabilities = capabilities,
-    --     cmd = { 'ansible-language-server', '--stdio' },
-    --     filetypes = { 'yaml', 'yml' },
-    --     root_dir = lspconfig.util.root_pattern 'ansible.cfg',
-    --     single_file_support = false,
-    --     settings = {
-    --         ansible = {
-    --             ansible = {
-    --                 path = "ansible"
-    --             },
-    --             ansibleLint = {
-    --                 enabled = false,
-    --                 path = "ansible-lint"
-    --             },
-    --             executionEnvironment = {
-    --                 enabled = false
-    --             },
-    --             python = {
-    --                 interpreterPath = "python"
-    --             }
-    --         }
-    --     }
-    -- }
+    lspconfig['ansiblels'].setup{
+        on_attach = on_attach,
+        flags = lsp_flags,
+        capabilities = capabilities,
+        cmd = { 'ansible-language-server', '--stdio' },
+        filetypes = { 'yaml', 'yml' },
+        root_dir = lspconfig.util.root_pattern 'ansible.cfg',
+        single_file_support = false,
+        settings = {
+            ansible = {
+                ansible = {
+                    path = "ansible"
+                },
+                ansibleLint = {
+                    enabled = false,
+                    path = "ansible-lint"
+                },
+                executionEnvironment = {
+                    enabled = false
+                },
+                python = {
+                    interpreterPath = "python"
+                }
+            }
+        }
+    }
 
     lspconfig['groovyls'].setup{
         on_attach = on_attach,

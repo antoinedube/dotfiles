@@ -203,6 +203,28 @@ lua <<EOF
         }
     }
 
+    -- Ref: https://github.com/redhat-developer/yaml-language-server
+    lspconfig['yamlls'].setup{
+        on_attach = on_attach,
+        flags = lsp_flags,
+        capabilities = capabilities,
+        settings = {
+            yaml = {
+                schemas = {
+                    -- ["https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible.json"] = "playbooks/*.yaml",
+                    ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = {"ci/*.yml", ".gitlab-ci.yml"},
+                    ["https://raw.githubusercontent.com/ansible/schemas/main/f/ansible.json"] = {"playbooks/*.yaml", "playbooks/*.yml"}
+                    -- Ref: https://www.schemastore.org/json/
+                    -- https://json.schemastore.org/eslintrc.json
+                    -- https://raw.githubusercontent.com/denoland/deno/main/cli/schemas/config-file.v1.json
+                    -- https://json.schemastore.org/github-action.json
+                    -- https://json.schemastore.org/tsconfig.json
+                    -- https://raw.githubusercontent.com/awslabs/goformation/master/schema/cloudformation.schema.json
+                }
+            }
+        }
+    }
+
     lspconfig['ansiblels'].setup{
         on_attach = on_attach,
         flags = lsp_flags,

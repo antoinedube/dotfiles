@@ -92,8 +92,9 @@ nnoremap <C-t> :tabnew <CR>
 let g:fuzzy_rootcmds = [ ["git", "rev-parse", "--show-toplevel"], ]
 nnoremap <C-p> :FuzzyOpen <CR>
 
-" Toggle NERDTree
+" NERDTree
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 " previous/next tab
 map <F9> :tabp <CR>
@@ -260,14 +261,15 @@ lua <<EOF
                 schemas = {
                     -- ["https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible.json"] = "playbooks/*.yaml",
                     ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = {"ci/*.yml", ".gitlab-ci.yml"},
-                    ["https://raw.githubusercontent.com/ansible/schemas/main/f/ansible.json"] = "playbooks/*.yaml"
+                    ["https://raw.githubusercontent.com/ansible/schemas/main/f/ansible.json"] = "playbooks/*.yaml",
+                    ["https://raw.githubusercontent.com/awslabs/goformation/master/schema/cloudformation.schema.json"] = "*.cloud-formation.yaml"
                     -- Ref: https://www.schemastore.org/json/
                     -- https://json.schemastore.org/eslintrc.json
                     -- https://raw.githubusercontent.com/denoland/deno/main/cli/schemas/config-file.v1.json
                     -- https://json.schemastore.org/github-action.json
                     -- https://json.schemastore.org/tsconfig.json
-                    -- https://raw.githubusercontent.com/awslabs/goformation/master/schema/cloudformation.schema.json
-                }
+                },
+                customTags = { "!Ref" }
             }
         }
     }

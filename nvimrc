@@ -105,7 +105,6 @@ filetype plugin on
 
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd Filetype go setlocal ai ts=4 sw=4 noet
-autocmd BufWinEnter,BufWritePost *.c :Neomake gcc
 
 syntax enable
 
@@ -209,7 +208,9 @@ lua <<EOF
     lspconfig['bashls'].setup{
         on_attach = on_attach,
         flags = lsp_flags,
-        capabilities = capabilities
+        capabilities = capabilities,
+        filetypes = { 'sh', 'bash' },
+        single_file_support = true
     }
 
     lspconfig['pyright'].setup{
@@ -219,17 +220,18 @@ lua <<EOF
     }
 
     -- Ref: https://github.com/joe-re/sql-language-server
-    lspconfig['sqlls'].setup{
-        on_attach = on_attach,
-        flags = lsp_flags,
-        capabilities = capabilities,
-        root_dir = lspconfig.util.root_pattern '.sqllsrc.json'
-    }
+    -- lspconfig['sqlls'].setup{
+    --     on_attach = on_attach,
+    --     flags = lsp_flags,
+    --     capabilities = capabilities,
+    --     root_dir = lspconfig.util.root_pattern '.sqllsrc.json'
+    -- }
 
     lspconfig['tsserver'].setup{
         on_attach = on_attach,
         flags = lsp_flags,
         capabilities = capabilities,
+        single_file_support = false,
         root_dir = lspconfig.util.root_pattern("package.json")
     }
 
@@ -237,6 +239,7 @@ lua <<EOF
         on_attach = on_attach,
         flags = lsp_flags,
         capabilities = capabilities,
+        single_file_support = false,
         root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc")
     }
 
@@ -252,27 +255,27 @@ lua <<EOF
     }
 
     -- Ref: https://github.com/redhat-developer/yaml-language-server
-    lspconfig['yamlls'].setup{
-        on_attach = on_attach,
-        flags = lsp_flags,
-        capabilities = capabilities,
-        settings = {
-            yaml = {
-                schemas = {
-                    -- ["https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible.json"] = "playbooks/*.yaml",
-                    ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = {"ci/*.yml", ".gitlab-ci.yml"},
-                    ["https://raw.githubusercontent.com/ansible/schemas/main/f/ansible.json"] = "playbooks/*.yaml",
-                    ["https://raw.githubusercontent.com/awslabs/goformation/master/schema/cloudformation.schema.json"] = "*.cloud-formation.yaml"
-                    -- Ref: https://www.schemastore.org/json/
-                    -- https://json.schemastore.org/eslintrc.json
-                    -- https://raw.githubusercontent.com/denoland/deno/main/cli/schemas/config-file.v1.json
-                    -- https://json.schemastore.org/github-action.json
-                    -- https://json.schemastore.org/tsconfig.json
-                },
-                customTags = { "!Ref" }
-            }
-        }
-    }
+    -- lspconfig['yamlls'].setup{
+    --     on_attach = on_attach,
+    --     flags = lsp_flags,
+    --     capabilities = capabilities,
+    --     settings = {
+    --         yaml = {
+    --             schemas = {
+    --                 -- ["https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible.json"] = "playbooks/*.yaml",
+    --                 ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = {"ci/*.yml", ".gitlab-ci.yml"},
+    --                 ["https://raw.githubusercontent.com/ansible/schemas/main/f/ansible.json"] = {"playbooks/*.yaml", "roles/*.yaml"},
+    --                 ["https://raw.githubusercontent.com/awslabs/goformation/master/schema/cloudformation.schema.json"] = "*.cloud-formation.yaml"
+    --                 -- Ref: https://www.schemastore.org/json/
+    --                 -- https://json.schemastore.org/eslintrc.json
+    --                 -- https://raw.githubusercontent.com/denoland/deno/main/cli/schemas/config-file.v1.json
+    --                 -- https://json.schemastore.org/github-action.json
+    --                 -- https://json.schemastore.org/tsconfig.json
+    --             },
+    --             customTags = { "!Ref" }
+    --         }
+    --     }
+    -- }
 
     lspconfig['ansiblels'].setup{
         on_attach = on_attach,
@@ -288,14 +291,14 @@ lua <<EOF
                     path = "ansible"
                 },
                 ansibleLint = {
-                    enabled = false,
-                    path = "ansible-lint"
+                    enabled = true,
+                    path = "/usr/bin/ansible-lint"
                 },
                 executionEnvironment = {
                     enabled = false
                 },
                 python = {
-                    interpreterPath = "python"
+                    interpreterPath = "/usr/bin/python"
                 }
             }
         }
@@ -316,5 +319,37 @@ lua <<EOF
         filetypes = { 'markdown' },
         root_dir = lspconfig.util.root_pattern '.marksman.toml',
         single_file_support = true
+    }
+
+    lspconfig['texlab'].setup {
+        cmd = { 'texlab' },
+        filetypes = { "tex", "plaintex", "bib" },
+        root_dir = lspconfig.util.root_pattern '*.tex',
+        single_file_support = false,
+        settings = {
+            texlab = {
+            auxDirectory = ".",
+            bibtexFormatter = "texlab",
+            build = {
+              args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+              executable = "latexmk",
+              forwardSearchAfter = false,
+              onSave = false
+            },
+            chktex = {
+              onEdit = false,
+              onOpenAndSave = false
+            },
+            diagnosticsDelay = 300,
+            formatterLineLength = 80,
+            forwardSearch = {
+              args = {}
+            },
+            latexFormatter = "latexindent",
+            latexindent = {
+              modifyLineBreaks = false
+            }
+          }
+        }
     }
 EOF

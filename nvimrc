@@ -220,12 +220,12 @@ lua <<EOF
     }
 
     -- Ref: https://github.com/joe-re/sql-language-server
-    -- lspconfig['sqlls'].setup{
-    --     on_attach = on_attach,
-    --     flags = lsp_flags,
-    --     capabilities = capabilities,
-    --     root_dir = lspconfig.util.root_pattern '.sqllsrc.json'
-    -- }
+    lspconfig['sqlls'].setup{
+        on_attach = on_attach,
+        flags = lsp_flags,
+        capabilities = capabilities,
+        root_dir = lspconfig.util.root_pattern '.sqllsrc.json'
+    }
 
     lspconfig['tsserver'].setup{
         on_attach = on_attach,

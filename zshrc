@@ -47,99 +47,75 @@ else
 fi
 SAVEHIST=10000
 
-SEGMENT_SEPARATOR="\ue0b0"
-PLUSMINUS="\u00b1"
 BRANCH="\ue0a0"
-DETACHED="\u27a6"
 LIGHTNING="\u26a1"
-GEAR="\u2699"
 
-CURRENT_BG='NONE'
-PRIMARY_FG=black
+# Ref: https://i.imgur.com/okBgrw4.png
+BLUE=33
+GRAY=241
+LIGHT_GRAY=246
+GREEN=70
+ORANGE=214
+RED=166
 
-prompt_segment() {
-  local bg fg
-  [[ -n $1 ]] && bg="%K{$1}" || bg="%k"
-  [[ -n $2 ]] && fg="%F{$2}" || fg="%f"
-  if [[ $CURRENT_BG != 'NONE' && $1 != $CURRENT_BG ]]; then
-    print -n "%{$bg%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{$fg%}"
-  else
-    print -n "%{$bg%}%{$fg%}"
-  fi
-  CURRENT_BG=$1
-  [[ -n $3 ]] && print -n $3
-}
-
+# Ref: man zshmisc
 prompt_end() {
-  if [[ -n $CURRENT_BG ]]; then
-    print -n "%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
-  else
-    print -n "%{%k%}"
-  fi
-  print -n "%{%f%}"
-  CURRENT_BG=''
-}
+    if [ $RET_VAL -eq 0 ]; then
+      color=$LIGHT_GRAY
+      symbol='$'
+    else
+      color=$RED
+      symbol=$LIGHTNING
+    fi
 
-prompt_status() {
-  local symbols
-  symbols=()
-  [[ -n "$symbols" ]] && prompt_segment NONE default " $symbols"
+    print -n " %F{$color}$symbol%f"
 }
 
 prompt_virtualenv() {
     if [ -n "$VIRTUAL_ENV" ]; then
-        prompt_segment 33 235 " [venv] "
+        print -n "%F{$ORANGE} [venv] %f"
     fi
 }
 
 prompt_context() {
-  local user=`whoami`
-  local hostname=`hostname`
-  prompt_segment 237 33 " $user"
-  prompt_segment 237 245 "@"
-  prompt_segment 237 33 "$hostname "
+    local user=`whoami`
+    print -n "%F{$BLUE} $user %f"
 }
 
 prompt_dir() {
-  prompt_segment 33 235 " %~ "
+    print -n "%F{$GRAY}[ %~ %F{$GRAY}]%f"
 }
 
-prompt_main() {
-  CURRENT_BG='NONE'
+prompt_left() {
   prompt_virtualenv
   prompt_context
   prompt_dir
   prompt_end
 }
 
+prompt_git() {
+    is_dirty() { test -n "$(git status --porcelain --ignore-submodules)" }
+    ref="$vcs_info_msg_0_"
+    if [[ -n "$ref" ]]; then
+        if is_dirty; then
+          color=$RED
+        else
+          color=$GREEN
+        fi
+
+        print -n "%F{$color}$BRANCH $ref%f"
+    fi
+}
+
 prompt_right() {
-  RETVAL=$?
-  CURRENT_BG='NONE'
-  prompt_status
   prompt_git
 }
 
-prompt_git() {
-  local color ref
-  is_dirty() { test -n "$(git status --porcelain --ignore-submodules)" }
-  ref="$vcs_info_msg_0_"
-  if [[ -n "$ref" ]]; then
-    if is_dirty; then
-      color=166
-    else
-      color=70
-    fi
-    local commit_hash="$( git rev-parse HEAD | cut -c1-6 )"
-    prompt_segment 237 $color " $commit_hash "
-    prompt_segment $color 235 " $ref "
-    # prompt_end
-  fi
-}
-
 prompt_precmd() {
-  vcs_info
-  PROMPT='%{%f%b%k%}$(prompt_main) '
-  RPROMPT='$(prompt_right)'
+    RET_VAL=$?
+    vcs_info
+    PROMPT='%{%f%b%k%}$(prompt_left) '
+    RPROMPT='$(prompt_right)'
 }
 
 custom_prompt_setup() {

@@ -159,7 +159,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
+# Resize windows
 mode "resize" {
     bindsym j resize shrink width 2 px or 2 ppt
     bindsym k resize grow height 2 px or 2 ppt
@@ -172,6 +172,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Manage windows in multi-screen setup
 mode "multiscreen" {
     bindsym 1 move workspace to output HDMI-0, mode "default"
     bindsym 2 move workspace to output DVI-I-1, mode "default"
@@ -191,8 +192,12 @@ for_window [window_role="task_dialog"] floating enable
 for_window [title="splash"] floating enable
 
 assign [class="firefox"] "6:m"
+assign [class="bitwarden"] "7"
+assign [class="bitburner"] "9"
 
 exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desktop-main
 exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desktop-secondary
 
 exec /usr/bin/firefox
+exec /usr/bin/bitwarden-desktop
+exec /usr/bin/bitburner

@@ -28,8 +28,6 @@ call plug#begin('~/.nvim/plugged')
     Plug 'hrsh7th/vim-vsnip'
     Plug 'hrsh7th/vim-vsnip-integ'
 
-    " Plug 'simrat39/rust-tools.nvim'
-
     Plug 'norcalli/nvim-colorizer.lua'
 call plug#end()
 
@@ -84,9 +82,6 @@ nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
-" Open new tab
-nnoremap <C-t> :tabnew <CR>
-
 " Open fuzzy finder
 " https://github.com/cloudhead/neovim-fuzzy/issues/50
 let g:fuzzy_rootcmds = [ ["git", "rev-parse", "--show-toplevel"], ]
@@ -119,14 +114,10 @@ let g:airline_theme = 'molokai'
 let g:airline_powerline_fonts = 1
 " let g:gruvbox_contrast_dark = 'hard'
 
-" let g:deoplete#enable_at_startup = 1
-" let g:neomake_python_enabled_makers = ['flake8']
-
 lua <<EOF
     local lspconfig = require 'lspconfig'
     local configs = require 'lspconfig/configs'
     local colorizer = require 'colorizer'
-
     local cmp = require 'cmp'
 
     colorizer.setup()
@@ -148,7 +139,7 @@ lua <<EOF
         mapping = cmp.mapping.preset.insert({
             ['<C-Space>'] = cmp.mapping.complete(),
             ['<C-e>'] = cmp.mapping.abort(),
-            ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+            ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         }),
         sources = cmp.config.sources({
             { name = 'nvim_lsp' },

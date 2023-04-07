@@ -83,7 +83,7 @@ prompt_context() {
 }
 
 prompt_dir() {
-    print -n "%F{$GRAY}[ %~ %F{$GRAY}]%f"
+    print -n "%F{$GRAY}[%~%F{$GRAY}]%f"
 }
 
 prompt_left() {

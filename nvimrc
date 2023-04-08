@@ -1,6 +1,5 @@
 call plug#begin('~/.nvim/plugged')
     Plug 'jiangmiao/auto-pairs'
-    Plug 'stephpy/vim-yaml'
     Plug 'preservim/nerdtree'
 
     Plug 'cloudhead/neovim-fuzzy' " Fuzzy file finder
@@ -12,8 +11,6 @@ call plug#begin('~/.nvim/plugged')
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'morhetz/gruvbox'
-    Plug 'danilo-augusto/vim-afterglow'
     Plug 'navarasu/onedark.nvim'
 
     Plug 'onsails/lspkind.nvim'
@@ -21,14 +18,11 @@ call plug#begin('~/.nvim/plugged')
     " https://github.com/neovim/nvim-lspconfig
     " https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 
-    Plug 'hrsh7th/cmp-nvim-lsp'
-    Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/nvim-cmp'
+    Plug 'hrsh7th/cmp-nvim-lsp'
 
     Plug 'hrsh7th/vim-vsnip'
     Plug 'hrsh7th/vim-vsnip-integ'
-
-    Plug 'norcalli/nvim-colorizer.lua'
 call plug#end()
 
 set autoindent
@@ -99,42 +93,31 @@ filetype plugin indent on
 filetype plugin on
 
 autocmd BufWritePre * :%s/\s\+$//e
-autocmd Filetype go setlocal ai ts=4 sw=4 noet
 
 syntax enable
 
-let g:onedark_config = {
-    \ 'style': 'darker',
-\}
 colorscheme onedark
-" colorscheme gruvbox
-" colorscheme afterglow
+let g:onedark_config = {
+    \ 'style': 'warmer',
+\}
 
 let g:airline_theme = 'molokai'
 let g:airline_powerline_fonts = 1
-" let g:gruvbox_contrast_dark = 'hard'
 
 lua <<EOF
     local lspconfig = require 'lspconfig'
-    local configs = require 'lspconfig/configs'
-    local colorizer = require 'colorizer'
     local cmp = require 'cmp'
-
-    colorizer.setup()
 
     cmp.setup({
         snippet = {
             -- REQUIRED - you must specify a snippet engine
             expand = function(args)
                 vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-                -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-                -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-                -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
             end,
         },
         window = {
             completion = cmp.config.window.bordered(),
-            documentation = cmp.config.window.bordered(),
+            -- documentation = cmp.config.window.bordered(),
         },
         mapping = cmp.mapping.preset.insert({
             ['<C-Space>'] = cmp.mapping.complete(),
@@ -144,56 +127,21 @@ lua <<EOF
         sources = cmp.config.sources({
             { name = 'nvim_lsp' },
             { name = 'vsnip' }, -- For vsnip users.
-            -- { name = 'luasnip' }, -- For luasnip users.
-            -- { name = 'ultisnips' }, -- For ultisnips users.
-            -- { name = 'snippy' }, -- For snippy users.
-        }, {
+        },
+        {
             { name = 'buffer' },
         })
     })
 
-    -- Mappings.
-    -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-    local opts = { noremap=true, silent=true }
-    vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
-    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-    vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-    vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
-
     -- Use an on_attach function to only map the following keys
     -- after the language server attaches to the current buffer
     local on_attach = function(client, bufnr)
-        -- Enable completion triggered by <c-x><c-o>
-        vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
         -- Mappings.
-        -- See `:help vim.lsp.*` for documentation on any of the below functions
-        local bufopts = { noremap=true, silent=true, buffer=bufnr }
-        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-        vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-        vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-        vim.keymap.set('n', '<space>wl', function()
-            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-        end, bufopts)
-        vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-        vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-        vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+        -- See `:help vim.lsp.*` for documentation
     end
 
-
     -- Set up lspconfig.
-    local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-    -- cmp_nvim_lsp.update_capabilities is deprecated, use cmp_nvim_lsp.default_capabilities instead. See :h deprecated
-    -- This function will be removed in cmp-nvim-lsp version 1.0.0
-    -- stack traceback:
-    --     ...ine/.nvim/plugged/cmp-nvim-lsp/lua/cmp_nvim_lsp/init.lua:68: in function 'update_capabilities'
-    --     [string ":lua"]:75: in main chunk
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
     local lsp_flags = { debounce_text_changes = 150 }
 
     lspconfig['bashls'].setup{
@@ -245,29 +193,6 @@ lua <<EOF
         }
     }
 
-    -- Ref: https://github.com/redhat-developer/yaml-language-server
-    -- lspconfig['yamlls'].setup{
-    --     on_attach = on_attach,
-    --     flags = lsp_flags,
-    --     capabilities = capabilities,
-    --     settings = {
-    --         yaml = {
-    --             schemas = {
-    --                 -- ["https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible.json"] = "playbooks/*.yaml",
-    --                 ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = {"ci/*.yml", ".gitlab-ci.yml"},
-    --                 ["https://raw.githubusercontent.com/ansible/schemas/main/f/ansible.json"] = {"playbooks/*.yaml", "roles/*.yaml"},
-    --                 ["https://raw.githubusercontent.com/awslabs/goformation/master/schema/cloudformation.schema.json"] = "*.cloud-formation.yaml"
-    --                 -- Ref: https://www.schemastore.org/json/
-    --                 -- https://json.schemastore.org/eslintrc.json
-    --                 -- https://raw.githubusercontent.com/denoland/deno/main/cli/schemas/config-file.v1.json
-    --                 -- https://json.schemastore.org/github-action.json
-    --                 -- https://json.schemastore.org/tsconfig.json
-    --             },
-    --             customTags = { "!Ref" }
-    --         }
-    --     }
-    -- }
-
     lspconfig['ansiblels'].setup{
         on_attach = on_attach,
         flags = lsp_flags,
@@ -295,13 +220,6 @@ lua <<EOF
         }
     }
 
-    lspconfig['groovyls'].setup{
-        on_attach = on_attach,
-        flags = lsp_flags,
-        capabilities = capabilities,
-        cmd = { "java", "-jar", "/usr/share/java/groovy-language-server/groovy-language-server-all.jar" }
-    }
-
     lspconfig['marksman'].setup{
         on_attach = on_attach,
         flags = lsp_flags,
@@ -317,6 +235,7 @@ lua <<EOF
         filetypes = { "tex", "plaintex", "bib" },
         root_dir = lspconfig.util.root_pattern '*.tex',
         single_file_support = false,
+        capabilities = capabilities,
         settings = {
             texlab = {
             auxDirectory = ".",

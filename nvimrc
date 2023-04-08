@@ -11,7 +11,8 @@ call plug#begin('~/.nvim/plugged')
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'navarasu/onedark.nvim'
+    " Plug 'navarasu/onedark.nvim'
+    Plug 'sainnhe/sonokai'
 
     Plug 'onsails/lspkind.nvim'
     Plug 'neovim/nvim-lspconfig'
@@ -96,13 +97,22 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 syntax enable
 
-colorscheme onedark
-let g:onedark_config = {
-    \ 'style': 'warmer',
-\}
+if has('termguicolors')
+  set termguicolors
+endif
 
-let g:airline_theme = 'molokai'
-let g:airline_powerline_fonts = 1
+colorscheme sonokai
+let g:sonokai_style = 'shusia'
+let g:sonokai_better_performance = 1
+
+" colorscheme onedark
+" let g:onedark_config = {
+"     \ 'style': 'warmer',
+" \}
+
+" let g:airline_theme = 'molokai'
+" let g:airline_powerline_fonts = 1
+let g:airline_theme = 'sonokai'
 
 lua <<EOF
     local lspconfig = require 'lspconfig'

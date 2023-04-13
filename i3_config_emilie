@@ -192,12 +192,8 @@ for_window [window_role="task_dialog"] floating enable
 for_window [title="splash"] floating enable
 
 assign [class="firefox"] "6:m"
-assign [class="bitwarden"] "7"
-assign [class="bitburner"] "9"
 
 exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desktop-main
 exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desktop-secondary
 
 exec /usr/bin/firefox
-exec /usr/bin/bitwarden-desktop
-exec /usr/bin/bitburner

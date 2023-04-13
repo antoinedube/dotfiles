@@ -65,7 +65,7 @@ prompt_end() {
       symbol='$'
     else
       color=$RED
-      symbol=$LIGHTNING
+      symbol='!'
     fi
 
     print -n " %F{$color}$symbol%f"
@@ -99,11 +99,13 @@ prompt_git() {
     if [[ -n "$ref" ]]; then
         if is_dirty; then
           color=$RED
+          symbol="$BRANCH $LIGHTNING"
         else
           color=$GREEN
+          symbol=$BRANCH
         fi
 
-        print -n "%F{$color}$BRANCH $ref%f"
+        print -n "%F{$color}$symbol $ref%f"
     fi
 }
 

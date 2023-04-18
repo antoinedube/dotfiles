@@ -73,7 +73,7 @@ prompt_end() {
 
 prompt_virtualenv() {
     if [ -n "$VIRTUAL_ENV" ]; then
-        print -n "%F{$ORANGE} [venv] %f"
+        print -n "%F{$ORANGE} [venv]%f"
     fi
 }
 

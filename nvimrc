@@ -2,18 +2,14 @@ call plug#begin('~/.nvim/plugged')
     Plug 'jiangmiao/auto-pairs'
     Plug 'preservim/nerdtree'
 
-    Plug 'cloudhead/neovim-fuzzy' " Fuzzy file finder
+    Plug 'cloudhead/neovim-fuzzy'
 
-    " Usage: :Ag [pattern]
-    " will search in current directory
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    " Plug 'navarasu/onedark.nvim'
-    " Plug 'sainnhe/sonokai'
-    Plug 'rebelot/kanagawa.nvim'
+    Plug 'sainnhe/sonokai'
 
     Plug 'onsails/lspkind.nvim'
     Plug 'neovim/nvim-lspconfig'
@@ -102,19 +98,12 @@ if has('termguicolors')
   set termguicolors
 endif
 
-colorscheme kanagawa-dragon "https://github.com/rebelot/kanagawa.nvim
-" colorscheme sonokai
-" let g:sonokai_style = 'shusia'
-" let g:sonokai_better_performance = 1
+let g:sonokai_style = 'default' " Available values: 'default', 'atlantis', 'andromeda', 'shusia', 'maia', 'espresso'
+let g:sonokai_better_performance = 1
+let g:sonokai_enable_italic = 1
+colorscheme sonokai
 
-" colorscheme onedark
-" let g:onedark_config = {
-"     \ 'style': 'warmer',
-" \}
-
-let g:airline_theme = 'molokai'
-let g:airline_powerline_fonts = 1
-" let g:airline_theme = 'sonokai'
+let g:airline_theme = 'sonokai'
 
 lua <<EOF
     local lspconfig = require 'lspconfig'
@@ -129,12 +118,11 @@ lua <<EOF
         },
         window = {
             completion = cmp.config.window.bordered(),
-            -- documentation = cmp.config.window.bordered(),
         },
         mapping = cmp.mapping.preset.insert({
             ['<C-Space>'] = cmp.mapping.complete(),
             ['<C-e>'] = cmp.mapping.abort(),
-            ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+            ['<CR>'] = cmp.mapping.confirm({ select = false }),
         }),
         sources = cmp.config.sources({
             { name = 'nvim_lsp' },

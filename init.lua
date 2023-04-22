@@ -11,6 +11,8 @@ local function bootstrap_paq(packages)
     local first_install = clone_paq()
     vim.cmd.packadd("paq-nvim")
     local paq = require("paq")
+
+    -- If not already installed
     if first_install then
         vim.notify("Installing plugins... If prompted, hit Enter to continue.")
     end
@@ -47,7 +49,7 @@ vim.opt.completeopt = { "menuone", "noinsert" }
 vim.opt.cursorline = true
 vim.opt.expandtab = true
 vim.opt.fileencodings = "utf-8"
-vim.opt.formatoptions = { "c", "q", "r", "t" }
+vim.opt.formatoptions = "n2ljp"
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.listchars = { trail = "~", tab = ">-" } -- eol character is disabled

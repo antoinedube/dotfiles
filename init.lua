@@ -2,8 +2,8 @@ local function clone_paq()
     local path = vim.fn.stdpath("data") .. "/site/pack/paqs/start/paq-nvim"
     local is_installed = vim.fn.empty(vim.fn.glob(path)) == 0
     if not is_installed then
-      vim.fn.system { "git", "clone", "--depth=1", "https://github.com/savq/paq-nvim.git", path }
-      return true
+        vim.fn.system { "git", "clone", "--depth=1", "https://github.com/savq/paq-nvim.git", path }
+        return true
     end
 end
 
@@ -12,7 +12,7 @@ local function bootstrap_paq(packages)
     vim.cmd.packadd("paq-nvim")
     local paq = require("paq")
     if first_install then
-      vim.notify("Installing plugins... If prompted, hit Enter to continue.")
+        vim.notify("Installing plugins... If prompted, hit Enter to continue.")
     end
 
     -- Read and install packages
@@ -29,16 +29,13 @@ bootstrap_paq {
     'junegunn/fzf',
     'junegunn/fzf.vim',
     'vim-airline/vim-airline',
-    -- 'vim-airline/vim-airline-themes',
     'sainnhe/sonokai',
     'onsails/lspkind.nvim',
     'neovim/nvim-lspconfig',
-    -- https://github.com/neovim/nvim-lspconfig
-    -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
     'hrsh7th/nvim-cmp',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/vim-vsnip',
-    'hrsh7th/vim-vsnip-integ',
+    'hrsh7th/vim-vsnip-integ'
 }
 
 -- vim options
@@ -50,7 +47,7 @@ vim.opt.completeopt = { "menuone", "noinsert" }
 vim.opt.cursorline = true
 vim.opt.expandtab = true
 vim.opt.fileencodings = "utf-8"
-vim.opt.formatoptions = c,q,r,t
+vim.opt.formatoptions = { "c", "q", "r", "t" }
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.listchars = { trail = "~", tab = ">-" } -- eol character is disabled
@@ -138,17 +135,17 @@ cmp.setup({
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+-- local on_attach = function(client, bufnr)
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation
-end
+-- end
 
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lsp_flags = { debounce_text_changes = 150 }
 
 lspconfig['bashls'].setup{
-    on_attach = on_attach,
+    -- on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities,
     filetypes = { 'sh', 'bash' },
@@ -156,21 +153,21 @@ lspconfig['bashls'].setup{
 }
 
 lspconfig['pyright'].setup{
-    on_attach = on_attach,
+    -- on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities
 }
 
 -- Ref: https://github.com/joe-re/sql-language-server
 lspconfig['sqlls'].setup{
-    on_attach = on_attach,
+    -- on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities,
     root_dir = lspconfig.util.root_pattern '.sqllsrc.json'
 }
 
 lspconfig['tsserver'].setup{
-    on_attach = on_attach,
+    -- on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities,
     single_file_support = false,
@@ -178,7 +175,7 @@ lspconfig['tsserver'].setup{
 }
 
 lspconfig['denols'].setup{
-    on_attach = on_attach,
+    -- on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities,
     single_file_support = false,
@@ -186,7 +183,7 @@ lspconfig['denols'].setup{
 }
 
 lspconfig['rust_analyzer'].setup{
-    on_attach = on_attach,
+    -- on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities,
     root_dir = lspconfig.util.root_pattern 'Cargo.toml',
@@ -198,7 +195,7 @@ lspconfig['rust_analyzer'].setup{
 
 -- Ref: https://github.com/redhat-developer/yaml-language-server
 lspconfig['yamlls'].setup{
-    on_attach = on_attach,
+    -- on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities,
     settings = {
@@ -219,7 +216,7 @@ lspconfig['yamlls'].setup{
 }
 
 lspconfig['ansiblels'].setup{
-    on_attach = on_attach,
+    -- on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities,
     cmd = { 'ansible-language-server', '--stdio' },
@@ -246,7 +243,7 @@ lspconfig['ansiblels'].setup{
 }
 
 lspconfig['marksman'].setup{
-    on_attach = on_attach,
+    -- on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities,
     cmd = { 'marksman', 'server' },
@@ -263,27 +260,54 @@ lspconfig['texlab'].setup {
     capabilities = capabilities,
     settings = {
         texlab = {
-        auxDirectory = ".",
-        bibtexFormatter = "texlab",
-        build = {
-          args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
-          executable = "latexmk",
-          forwardSearchAfter = false,
-          onSave = false
-        },
-        chktex = {
-          onEdit = false,
-          onOpenAndSave = false
-        },
-        diagnosticsDelay = 300,
-        formatterLineLength = 80,
-        forwardSearch = {
-          args = {}
-        },
-        latexFormatter = "latexindent",
-        latexindent = {
-          modifyLineBreaks = false
+            auxDirectory = ".",
+            bibtexFormatter = "texlab",
+            build = {
+                args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+                executable = "latexmk",
+                forwardSearchAfter = false,
+                onSave = false
+            },
+            chktex = {
+                onEdit = false,
+                onOpenAndSave = false
+            },
+            diagnosticsDelay = 300,
+            formatterLineLength = 80,
+            forwardSearch = {
+                args = {}
+            },
+            latexFormatter = "latexindent",
+            latexindent = {
+                modifyLineBreaks = false
+            }
         }
-      }
+    }
+}
+
+lspconfig['lua_ls'].setup {
+    filetypes = { "lua" },
+    -- root_dir = lspconfig.util.root_pattern '*.tex',
+    single_file_support = true,
+    capabilities = capabilities,
+    settings = {
+        Lua = {
+            runtime = {
+                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                version = 'LuaJIT',
+            },
+            diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = {'vim'},
+            },
+            workspace = {
+                -- Make the server aware of Neovim runtime files
+                library = vim.api.nvim_get_runtime_file("", true),
+            },
+            -- Do not send telemetry data containing a randomized but unique identifier
+            telemetry = {
+                enable = false,
+            }
+        }
     }
 }

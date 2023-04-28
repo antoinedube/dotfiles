@@ -62,12 +62,11 @@ RED=166
 prompt_end() {
     if [ $RET_VAL -eq 0 ]; then
       color=$LIGHT_GRAY
-      symbol='$'
     else
       color=$RED
-      symbol='!'
     fi
 
+    symbol='$'
     print -n " %F{$color}$symbol%f"
 }
 

@@ -315,9 +315,9 @@ cursor:
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 shell:
-  program: /bin/zsh
-  args:
-    - --login
+  program: /usr/bin/tmux
+  # args:
+  #   - --login
 
 # Startup directory
 #

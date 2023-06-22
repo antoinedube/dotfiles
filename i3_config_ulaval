@@ -183,16 +183,23 @@ mode "multiscreen" {
 
 bindsym $mod+x mode "multiscreen"
 
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
 for_window [title="splash"] floating enable
-
-exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desktop-main
-exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desktop-secondary
-exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desktop-ternary
-
-exec_always --no-startup-id /opt/netskope/stagent/stAgentUI
-exec_always --no-startup-id /usr/bin/flameshot
 
 default_border none
 gaps inner 2
 smart_gaps on
 
+assign [class="firefox"] "6:m"
+assign [class="brave-browser"] "5:n"
+
+exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desktop-main
+exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desktop-secondary
+exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desktop-ternary
+
+exec_always --no-startup-id /usr/bin/flameshot
+
+exec /usr/bin/firefox
+exec /usr/bin/brave
+exec /usr/bin/keepassx2

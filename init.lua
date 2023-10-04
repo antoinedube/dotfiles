@@ -149,6 +149,8 @@ local lsp_flags = { debounce_text_changes = 150 }
 lspconfig['bashls'].setup{
     -- on_attach = on_attach,
     flags = lsp_flags,
+    cmd = { 'bash-language-server' },
+    args = { 'start' },
     capabilities = capabilities,
     filetypes = { 'sh', 'bash' },
     single_file_support = true

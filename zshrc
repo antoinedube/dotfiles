@@ -23,7 +23,7 @@ alias vim='vim -p'
 alias nvim='nvim -p'
 alias activate='source venv/bin/activate'
 alias cargo='nice -n 19 cargo'
-alias ssh='TERM=xterm-256color ssh'
+alias ssh='TERM=xterm ssh'
 
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word

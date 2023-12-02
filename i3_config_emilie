@@ -198,4 +198,3 @@ exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desk
 exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desktop-secondary
 
 exec /usr/bin/firefox
-exec /usr/bin/discord-canary

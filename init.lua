@@ -102,7 +102,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 
 vim.cmd('syntax enable')
 
-vim.g.sonokai_style = 'default' -- Available values: 'default', 'atlantis', 'andromeda', 'shusia', 'maia', 'espresso'
+vim.g.sonokai_style = 'espresso' -- Available values: 'default', 'atlantis', 'andromeda', 'shusia', 'maia', 'espresso'
 vim.g.sonokai_better_performance = 1
 vim.g.airline_theme = 'sonokai'
 vim.cmd('colorscheme sonokai')

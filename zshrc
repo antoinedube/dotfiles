@@ -140,10 +140,7 @@ custom_prompt_setup() {
 
 custom_prompt_setup "$@"
 
-export NVM_DIR="/usr/share/nvm"
-export NVM_SOURCE="/usr/share/nvm"
-[ -s "$NVM_SOURCE/nvm.sh" ] && . "$NVM_SOURCE/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+source /usr/share/nvm/init-nvm.sh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

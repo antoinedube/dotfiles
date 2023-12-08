@@ -19,25 +19,27 @@ local function bootstrap_paq(packages)
 
     -- Read and install packages
     paq(packages)
+    paq.clean()
+    paq.update()
     paq.install()
 end
 
 -- Call helper function
 bootstrap_paq {
     'savq/paq-nvim',
-    'jiangmiao/auto-pairs',
     'preservim/nerdtree',
     'cloudhead/neovim-fuzzy',
     'junegunn/fzf',
     'junegunn/fzf.vim',
     'vim-airline/vim-airline',
     'sainnhe/sonokai',
+
     'onsails/lspkind.nvim',
     'neovim/nvim-lspconfig',
     'hrsh7th/nvim-cmp',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/vim-vsnip',
-    'hrsh7th/vim-vsnip-integ'
+    'hrsh7th/vim-vsnip-integ',
 }
 
 -- vim options

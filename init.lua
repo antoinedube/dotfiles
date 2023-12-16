@@ -19,9 +19,7 @@ local function bootstrap_paq(packages)
 
     -- Read and install packages
     paq(packages)
-    paq.clean()
-    paq.update()
-    paq.install()
+    paq:sync()
 end
 
 -- Call helper function

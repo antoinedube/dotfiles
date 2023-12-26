@@ -30,7 +30,7 @@ bootstrap_paq {
     'junegunn/fzf',
     'junegunn/fzf.vim',
     'vim-airline/vim-airline',
-    'sainnhe/sonokai',
+    'monsonjeremy/onedark.nvim',
 
     'onsails/lspkind.nvim',
     'neovim/nvim-lspconfig',
@@ -102,10 +102,8 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 
 vim.cmd('syntax enable')
 
-vim.g.sonokai_style = 'espresso' -- Available values: 'default', 'atlantis', 'andromeda', 'shusia', 'maia', 'espresso'
-vim.g.sonokai_better_performance = 1
-vim.g.airline_theme = 'sonokai'
-vim.cmd('colorscheme sonokai')
+-- Colorscheme
+require('onedark').setup()
 
 -- lspconfig
 local lspconfig = require('lspconfig')

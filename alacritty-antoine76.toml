@@ -1,0 +1,50 @@
+working_directory = "/home/antoine/"
+
+[cursor]
+style = "Block"
+
+[font]
+size = 8.0
+
+[font.bold]
+family = "Noto Sans Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "Noto Sans Mono"
+style = "Bold Italic"
+
+[font.italic]
+family = "Noto Sans Mono"
+style = "Italic"
+
+[font.normal]
+family = "Noto Sans Mono"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
+
+[scrolling]
+history = 10000
+
+[selection]
+save_to_clipboard = true
+
+[shell]
+program = "/usr/bin/tmux"
+
+[window]
+decorations = "none"
+startup_mode = "Windowed"
+
+[window.dimensions]
+columns = 0
+lines = 0

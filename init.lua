@@ -30,7 +30,7 @@ bootstrap_paq {
     'junegunn/fzf',
     'junegunn/fzf.vim',
     'vim-airline/vim-airline',
-    'monsonjeremy/onedark.nvim',
+    "folke/tokyonight.nvim",
 
     'onsails/lspkind.nvim',
     'neovim/nvim-lspconfig',
@@ -103,7 +103,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 vim.cmd('syntax enable')
 
 -- Colorscheme
-require('onedark').setup()
+vim.cmd("colorscheme tokyonight-moon") -- for moon theme
 
 -- lspconfig
 local lspconfig = require('lspconfig')

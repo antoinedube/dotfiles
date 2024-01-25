@@ -4,7 +4,7 @@ working_directory = "/home/antoine/"
 style = "Block"
 
 [font]
-size = 12.0
+size = 8.0
 
 [font.bold]
 family = "Noto Sans Mono"

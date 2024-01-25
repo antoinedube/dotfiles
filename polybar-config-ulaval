@@ -24,7 +24,7 @@ background = #1f1f1f
 foreground = #eee
 
 ; fonts
-font-0 = Terminus:size=12;0
+font-0 = Noto Sans Mono:style=Regular
 
 ; system tray
 tray-position = right
@@ -63,7 +63,7 @@ background = #1f1f1f
 foreground = #eee
 
 ; fonts
-font-0 = Terminus:size=14;0
+font-0 = Noto Sans Mono:style=Regular
 
 ; system tray
 tray-position = right
@@ -102,7 +102,7 @@ background = #1f1f1f
 foreground = #eee
 
 ; fonts
-font-0 = Terminus:size=12;0
+font-0 = Noto Sans Mono:style=Regular
 
 [bar/desktop-ternary]
 monitor = DP-2
@@ -132,7 +132,8 @@ background = #1f1f1f
 foreground = #eee
 
 ; fonts
-font-0 = Terminus:size=12;0
+font-0 = Noto Sans Mono:style=Regular
+
 [module/date]
 type = internal/date
 date = "%A %B %d, %Y -- %H:%M:%S"
@@ -228,9 +229,7 @@ bar-used-empty-foreground = #444444
 
 [module/wireless-network]
 type = internal/network
-; interface = wlp59s0
-interface = wlp3s0
-; interface = enp0s31f6
+interface = wlp0s20f3
 interval = 1.0
 ping-interval = 10
 

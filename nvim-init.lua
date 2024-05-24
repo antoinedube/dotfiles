@@ -25,7 +25,12 @@ end
 -- Call helper function
 bootstrap_paq {
     'savq/paq-nvim',
-    'preservim/nerdtree',
+    -- 'preservim/nerdtree',
+    'nvim-neo-tree/neo-tree.nvim',
+    'nvim-lua/plenary.nvim',
+    'nvim-tree/nvim-web-devicons',
+    'MunifTanjim/nui.nvim',
+
     'cloudhead/neovim-fuzzy',
     'junegunn/fzf',
     'junegunn/fzf.vim',
@@ -86,8 +91,11 @@ vim.g.fuzzy_rootcmds = { "git", "rev-parse", "--show-toplevel" }
 vim.keymap.set('n', '<C-p>', ':FuzzyOpen<CR>', { noremap = true })
 
 -- NERDTree
-vim.keymap.set('n', '<C-n>', ':NERDTreeToggle<CR>', { noremap = true })
-vim.NERDTreeShowHidden = 1
+-- vim.keymap.set('n', '<C-n>', ':NERDTreeToggle<CR>', { noremap = true })
+-- vim.NERDTreeShowHidden = 1
+
+-- neo-tree
+vim.keymap.set('n', '<C-n>', ':Neotree action=focus source=filesystem position=left toggle reveal<CR>', { noremap = true })
 
 -- Tab navigation
 vim.keymap.set('n', '<F9>', ':tabp<CR>', { noremap = true })

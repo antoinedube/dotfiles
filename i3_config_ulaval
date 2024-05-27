@@ -175,8 +175,9 @@ bindsym $mod+r mode "resize"
 
 mode "multiscreen" {
     bindsym 1 move workspace to output eDP-1, mode "default"
-    bindsym 2 move workspace to output HDMI-1, mode "default"
-    bindsym 3 move workspace to output DP-2, mode "default"
+    bindsym 2 move workspace to output DP-2-1, mode "default"
+    bindsym 3 move workspace to output DP-2-2, mode "default"
+    bindsym 4 move workspace to output HDMI-1, mode "default"
 
     # back to normal
     bindsym Escape mode "default"
@@ -197,5 +198,6 @@ assign [class="firefox"] "6:m"
 exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desktop-main
 exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desktop-secondary
 exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desktop-ternary
+exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desktop-ternary-hdmi
 
 exec_always --no-startup-id /usr/bin/flameshot

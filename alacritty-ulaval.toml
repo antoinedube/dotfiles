@@ -4,23 +4,27 @@ working_directory = "/home/antoine/"
 style = "Block"
 
 [font]
-size = 12.0
+size = 14.0
 
 [font.bold]
-family = "Noto Sans Mono"
+family = "IosevkaTerm NF"
 style = "Bold"
 
 [font.bold_italic]
-family = "Noto Sans Mono"
+family = "IosevkaTerm NF"
 style = "Bold Italic"
 
 [font.italic]
-family = "Noto Sans Mono"
+family = "IosevkaTerm NF"
 style = "Italic"
 
 [font.normal]
-family = "Noto Sans Mono"
+family = "IosevkaTerm NF"
 style = "Regular"
+
+[font.offset]
+x = 1
+y = 0
 
 [[keyboard.bindings]]
 action = "Paste"

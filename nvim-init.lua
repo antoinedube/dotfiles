@@ -25,7 +25,6 @@ end
 -- Call helper function
 bootstrap_paq {
     'savq/paq-nvim',
-    -- 'preservim/nerdtree',
     'nvim-neo-tree/neo-tree.nvim',
     'nvim-lua/plenary.nvim',
     'nvim-tree/nvim-web-devicons',
@@ -36,7 +35,8 @@ bootstrap_paq {
     'junegunn/fzf.vim',
     'vim-airline/vim-airline',
     -- 'folke/tokyonight.nvim',
-    'navarasu/onedark.nvim',
+    -- 'navarasu/onedark.nvim',
+    'jacoborus/tender.vim',
     'windwp/nvim-autopairs',
 
     'onsails/lspkind.nvim',
@@ -112,14 +112,19 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 
 vim.cmd('syntax enable')
 
--- Colorscheme
--- vim.cmd("colorscheme tokyonight-storm") -- moon, storm, night or day (day: light theme)
-local onedark = require('onedark')
+-- TokyoNight Colorscheme
+-- vim.cmd("colorscheme tokyonight-night") -- moon, storm, night or day (day: light theme)
 
-onedark.setup {
-    style = 'deep'  -- dark, darker, cool, deep, warm or warmer
-}
-onedark.load()
+-- OneDark Colorscheme
+-- local onedark = require('onedark')
+-- onedark.setup {
+--     style = 'deep'  -- dark, darker, cool, deep, warm or warmer
+-- }
+-- onedark.load()
+
+-- Tender ColorScheme
+vim.cmd("colorscheme tender")
+vim.g.airline_theme = 'tender'
 
 -- nvim autopairs
 local nvim_autopairs = require("nvim-autopairs")

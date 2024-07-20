@@ -39,6 +39,7 @@ bootstrap_paq {
     -- 'navarasu/onedark.nvim',
     -- 'jacoborus/tender.vim',
     'catppuccin/nvim',
+
     'windwp/nvim-autopairs',
 
     'onsails/lspkind.nvim',
@@ -130,6 +131,7 @@ vim.cmd('syntax enable')
 
 -- catpuccing colorscheme
 vim.cmd("colorscheme catppuccin-macchiato");
+vim.g.airline_theme = 'catppuccin'
 
 -- nvim autopairs
 local nvim_autopairs = require("nvim-autopairs")

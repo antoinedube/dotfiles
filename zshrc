@@ -52,7 +52,6 @@ fi
 SAVEHIST=10000
 
 BRANCH="\ue0a0"
-LIGHTNING="\u26a1"
 
 # Ref: https://i.imgur.com/okBgrw4.png
 BLUE=33
@@ -100,12 +99,12 @@ prompt_git() {
     is_dirty() { test -n "$(git status --porcelain --ignore-submodules)" }
     ref="$vcs_info_msg_0_"
     if [[ -n "$ref" ]]; then
+        symbol="$BRANCH"
+
         if is_dirty; then
           color=$RED
-          symbol="$BRANCH $LIGHTNING"
         else
           color=$GREEN
-          symbol=$BRANCH
         fi
 
         print -n "%F{$color}$symbol $ref%f"

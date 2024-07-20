@@ -34,9 +34,11 @@ bootstrap_paq {
     'junegunn/fzf',
     'junegunn/fzf.vim',
     'vim-airline/vim-airline',
+
     -- 'folke/tokyonight.nvim',
     -- 'navarasu/onedark.nvim',
-    'jacoborus/tender.vim',
+    -- 'jacoborus/tender.vim',
+    'catppuccin/nvim',
     'windwp/nvim-autopairs',
 
     'onsails/lspkind.nvim',
@@ -123,8 +125,11 @@ vim.cmd('syntax enable')
 -- onedark.load()
 
 -- Tender ColorScheme
-vim.cmd("colorscheme tender")
-vim.g.airline_theme = 'tender'
+-- vim.cmd("colorscheme tender")
+-- vim.g.airline_theme = 'tender'
+
+-- catpuccing colorscheme
+vim.cmd("colorscheme catppuccin-macchiato");
 
 -- nvim autopairs
 local nvim_autopairs = require("nvim-autopairs")

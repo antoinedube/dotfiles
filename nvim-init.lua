@@ -37,8 +37,9 @@ bootstrap_paq {
 
     -- 'folke/tokyonight.nvim',
     -- 'navarasu/onedark.nvim',
+    'joshdick/onedark.vim',
     -- 'jacoborus/tender.vim',
-    'catppuccin/nvim',
+    -- 'catppuccin/nvim',
 
     'windwp/nvim-autopairs',
 
@@ -125,13 +126,17 @@ vim.cmd('syntax enable')
 -- }
 -- onedark.load()
 
+-- joshdick onedark.vim
+vim.cmd('colorscheme onedark')
+vim.g.airline_theme = 'onedark'
+
 -- Tender ColorScheme
 -- vim.cmd("colorscheme tender")
 -- vim.g.airline_theme = 'tender'
 
 -- catpuccing colorscheme
-vim.cmd("colorscheme catppuccin-macchiato");
-vim.g.airline_theme = 'catppuccin'
+-- vim.cmd("colorscheme catppuccin-macchiato");
+-- vim.g.airline_theme = 'catppuccin'
 
 -- nvim autopairs
 local nvim_autopairs = require("nvim-autopairs")
@@ -200,12 +205,14 @@ lspconfig['sqlls'].setup{
     root_dir = lspconfig.util.root_pattern '.sqllsrc.json'
 }
 
-lspconfig['tsserver'].setup{
+lspconfig['ts_ls'].setup{
     -- on_attach = on_attach,
+    cmd = { 'typescript-language-server', '--stdio' },
     flags = lsp_flags,
     capabilities = capabilities,
-    single_file_support = false,
-    root_dir = lspconfig.util.root_pattern("package.json")
+    filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+    single_file_support = true,
+    root_dir = lspconfig.util.root_pattern("tsconfig.json", "jsconfig.json", "package.json", ".git")
 }
 
 lspconfig['denols'].setup{

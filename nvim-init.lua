@@ -52,6 +52,7 @@ bootstrap_paq {
 }
 
 -- vim options
+vim.opt.autoread = true
 vim.opt.autoindent = true
 vim.opt.backspace = "2"
 vim.opt.backup = false

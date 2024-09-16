@@ -99,7 +99,7 @@ prompt_git() {
     is_dirty() { test -n "$(git status --porcelain --ignore-submodules)" }
     ref="$vcs_info_msg_0_"
     if [[ -n "$ref" ]]; then
-        symbol="$BRANCH"
+        symbol=$BRANCH
 
         if is_dirty; then
           color=$RED

@@ -21,8 +21,12 @@
     followTags = true
 
 [merge]
-    conflictStyle = diff3
+    conflictstyle = diff3
     ff = no
+    tool = vimdiff
+
+[mergetool]
+    prompt = false
 
 [status]
     showUntrackedFiles = all

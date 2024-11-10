@@ -1,5 +1,5 @@
 [bar/desktop-main]
-monitor = HDMI-0
+monitor = HDMI-1
 
 modules-left = i3
 modules-right = network cpu memory date

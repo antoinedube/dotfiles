@@ -1,4 +1,4 @@
-working_directory = "/home/antoine/"
+general.working_directory = "/home/antoine/"
 
 [cursor]
 style = "Block"

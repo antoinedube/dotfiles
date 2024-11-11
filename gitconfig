@@ -23,7 +23,7 @@
 [merge]
     conflictstyle = diff3
     ff = no
-    tool = vimdiff
+    tool = nvimdiff
 
 [mergetool]
     prompt = false

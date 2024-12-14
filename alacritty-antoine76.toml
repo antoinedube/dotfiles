@@ -1,3 +1,4 @@
+[general]
 working_directory = "/home/antoine/"
 
 [cursor]
@@ -42,7 +43,7 @@ history = 10000
 [selection]
 save_to_clipboard = true
 
-[shell]
+[terminal.shell]
 program = "/usr/bin/tmux"
 
 [window]

@@ -27,6 +27,8 @@
 
 [mergetool]
     prompt = false
+    tool = nvimdiff2
+    keepBackup = false
 
 [status]
     showUntrackedFiles = all

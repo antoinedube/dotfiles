@@ -25,6 +25,17 @@ alias nvim='nvim -p'
 alias activate='source venv/bin/activate'
 alias cargo='nice -n 19 cargo'
 alias ssh='TERM=xterm ssh'
+# https://www.reddit.com/r/archlinux/comments/1fykml6/some_aliases_ive_found_to_be_useful_for_arch/
+alias ipv4="ip addr show | grep 'inet ' | grep -v '127.0.0.1' | cut -d' ' -f6 | cut -d/ -f1"
+alias ipv6="ip addr show | grep 'inet6 ' | cut -d ' ' -f6 | sed -n '2p'"
+alias autorem='orphans=$(pacman -Qdtq); [ -z "$orphans" ] && echo "There are no orphaned packages" || sudo pacman -Rsc $orphans'
+alias hmmm='sudo pacman -Sy &> /dev/null && sudo pacman -Qu'
+alias meteo='curl wttr.in/quebec | head -n -1'
+alias error-last-boot='journalctl -b -p err'
+alias pkglist='pacman -Qs --color=always | less -R'
+alias pacman-fzf-remote="pacman -Slq | fzf --preview 'pacman -Si {}' --layout=reverse"
+alias yeet='sudo pacman -Rns'
+
 
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word

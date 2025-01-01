@@ -39,8 +39,10 @@ alias yeet='sudo pacman -Rns'
 
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
-plugins+=(zsh-completions)
+plugins+=(zsh-completions zsh-history-substring-searc)
 autoload -Uz colors compinit promptinit
 colors
 compinit
@@ -172,8 +174,9 @@ export MCFLY_DISABLE_MENU=TRUE
 export MCFLY_RESULTS_SORT=LAST_RUN
 eval "$(mcfly init zsh)"
 
-# zsh autocompletion
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source /usr/bin/aws_zsh_completer.sh
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+
 bindkey '^ ' autosuggest-accept

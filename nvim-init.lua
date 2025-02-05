@@ -52,7 +52,6 @@ bootstrap_paq {
 }
 
 -- vim options
-vim.opt.autoread = true
 vim.opt.autoindent = true
 vim.opt.autoread = true
 vim.opt.backspace = "2"
@@ -273,13 +272,13 @@ lspconfig['ansiblels'].setup{
             },
             ansibleLint = {
                 enabled = true,
-                path = "/usr/bin/ansible-lint"
+                path = "ansible-lint"
             },
             executionEnvironment = {
                 enabled = false
             },
             python = {
-                interpreterPath = "/usr/bin/python"
+                interpreterPath = "python"
             }
         }
     }

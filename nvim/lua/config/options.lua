@@ -3,3 +3,5 @@
 -- Add any additional options here
 
 vim.g.lazyvim_rust_diagnostics = "rust-analyzer"
+
+vim.opt.textwidth = 160

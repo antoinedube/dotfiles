@@ -1,53 +1,32 @@
-[user]
-    name = Antoine Dubé
-    email = antoine.dube@gmail.com
-    signingkey = 1ED08732203DF3CB
+[alias]
+    dt = difftool
+    ll = log --graph -n 50
 
-[core]
-    editor = nvim
-    deltaBaseCacheLimit = 512M
+[branch]
+    sort = -committerdate
 
 [color]
-    ui = auto
     branch = auto
     diff = auto
     status = auto
+    ui = auto
 
-[pull]
-    rebase = true
+[column]
+    ui = auto
 
-[push]
-    default = simple
-    followTags = true
+[commit]
+    verbose = true
 
-[merge]
-    conflictstyle = diff3
-    ff = no
-    tool = nvimdiff
-
-[mergetool]
-    prompt = false
-    tool = nvimdiff2
-    keepBackup = false
-
-[status]
-    showUntrackedFiles = all
-
-[transfer]
-    fsckobjects = true
-
-[log]
-    date = relative
-
-[format]
-    pretty = format:%C(auto,yellow)%h%C(auto,magenta)% G? %C(auto,blue)%>(14,trunc)%ad %C(auto,green)%<(13,trunc)%aN%C(auto,red)%gD% D %C(auto,reset)%s
-
-[alias]
-    ll = log --graph -n 50
-    dt = difftool
-    co = checkout
+[core]
+    deltaBaseCacheLimit = 512M
+    editor = nvim
+    excludesfile = ~/.gitignore
 
 [diff]
+    algorithm = histogram
+    colorMoved = plain
+    mnemonicPrefix = true
+    renames = true
     tool = difft
 
 [difftool]
@@ -56,11 +35,63 @@
 [difftool "difft"]
     cmd = /usr/bin/difft --color=always --skip-unchanged $LOCAL $REMOTE
 
-[init]
-    defaultBranch = main
+[fetch]
+    all = true
+    prune = true
+    pruneTags = true
 
 [filter "lfs"]
     clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
+    smudge = git-lfs smudge -- %f
+
+[format]
+    pretty = format:%C(auto,yellow)%h%C(auto,magenta)% G? %C(auto,blue)%>(14,trunc)%ad %C(auto,green)%<(13,trunc)%aN%C(auto,red)%gD% D %C(auto,reset)%s
+
+[help]
+    autocorrect = prompt
+
+[init]
+    defaultBranch = main
+
+[log]
+    date = relative
+
+[merge]
+    conflictstyle = diff3
+    ff = no
+    tool = nvimdiff2
+
+[mergetool]
+    keepBackup = false
+    prompt = false
+    tool = nvimdiff2
+
+[pull]
+    rebase = true
+
+[push]
+    autoSetupRemote = true
+    default = simple
+    followTags = true
+
+[rebase]
+    autoSquash = true
+    autoStash = true
+    updateRefs = true
+
+[status]
+    showUntrackedFiles = all
+
+[tag]
+    sort = version:refname
+
+[transfer]
+    fsckobjects = true
+
+[user]
+    name = Antoine Dubé
+    email = antoine.dube@gmail.com
+    signingkey = 1ED08732203DF3CB
+

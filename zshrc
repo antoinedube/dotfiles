@@ -1,4 +1,5 @@
 export EDITOR="nvim"
+export DIFFPROG="nvim -d"
 export TERMINAL="alacritty"
 export TERM="alacritty"
 export BROWSER="firefox"

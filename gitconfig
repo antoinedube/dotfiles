@@ -12,7 +12,7 @@
     ui = auto
 
 [column]
-    ui = auto
+    ui = plain
 
 [commit]
     verbose = true
@@ -66,7 +66,7 @@
 [mergetool]
     keepBackup = false
     prompt = false
-    tool = nvimdiff2
+    tool = nvimdiff
 
 [pull]
     rebase = true

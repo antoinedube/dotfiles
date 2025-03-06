@@ -166,14 +166,8 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# McFly history search
-export MCFLY_LIGHT=FALSE
-export MCFLY_KEY_SCHEME=vim
-export MCFLY_FUZZY=2
-export MCFLY_RESULTS=25
-export MCFLY_DISABLE_MENU=TRUE
-export MCFLY_RESULTS_SORT=LAST_RUN
-eval "$(mcfly init zsh)"
+# fzf history search
+source <(fzf --zsh)
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

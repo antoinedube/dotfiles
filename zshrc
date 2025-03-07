@@ -168,6 +168,8 @@ unset __conda_setup
 
 # fzf history search
 source <(fzf --zsh)
+export FZF_DEFAULT_COMMAND='rg --files'
+export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

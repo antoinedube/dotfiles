@@ -21,8 +21,6 @@ export LS_COLORS
 alias l='ls -lh --color=auto'
 alias grep='grep --color=auto'
 alias lock='i3lock'
-alias vim='vim -p'
-alias nvim='nvim -p'
 alias activate='source venv/bin/activate'
 alias cargo='nice -n 19 cargo'
 alias ssh='TERM=xterm ssh'

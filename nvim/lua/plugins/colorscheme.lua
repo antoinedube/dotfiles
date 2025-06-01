@@ -1,14 +1,14 @@
 return {
-  {
-    "catppuccin/nvim",
-    lazy = true,
-    name = "catppuccin",
-    opts = { style = "macchiato" },
-  },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "catppuccin",
+    {
+        "catppuccin/nvim",
+        lazy = true,
+        name = "tokyonight",
+        opts = { style = "storm" },
     },
-  },
+    {
+        "LazyVim/LazyVim",
+        opts = {
+            colorscheme = "tokyonight",
+        },
+    },
 }

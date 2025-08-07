@@ -1,10 +1,14 @@
 # Ref: https://spaceship-prompt.sh/sections/
+# Ref for colors: https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
 
 # Spaceship settings (fixed syntax)
 SPACESHIP_PROMPT_ASYNC=true
 SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_RPROMPT_ADD_NEWLINE=true
 SPACESHIP_CHAR_SYMBOL="⚡ "
+
+# dir
+SPACESHIP_DIR_COLOR='#5f87ff'
 
 # exec_time
 SPACESHIP_EXEC_TIME_ELAPSED=10
@@ -16,7 +20,9 @@ SPACESHIP_EXIT_CODE_SHOW=true
 # git
 SPACESHIP_GIT_ORDER=(git_status git_branch)
 SPACESHIP_GIT_COMMIT_SHOW=true
+SPACESHIP_GIT_BRANCH_COLOR='#ffdf00'
 SPACESHIP_GIT_STATUS_SUFFIX="] "
+SPACESHIP_GIT_STATUS_COLOR='#870000'
 
 # Minimal spaceship sections for performance
 SPACESHIP_PROMPT_ORDER=(

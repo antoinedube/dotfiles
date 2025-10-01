@@ -7,5 +7,5 @@ rm $SCREENSHOT
 rm $BLURRED_SCREENSHOT
 
 scrot -m -q 50 $SCREENSHOT
-convert $SCREENSHOT -blur 0x6 -brightness-contrast -10x-10 $BLURRED_SCREENSHOT
+magick $SCREENSHOT -blur 0x6 -brightness-contrast -10x-10 $BLURRED_SCREENSHOT
 i3lock -i $BLURRED_SCREENSHOT

@@ -192,6 +192,8 @@ for_window [title="splash"] floating enable
 
 assign [class="firefox"] "6:m"
 assign [class="discord"] "8"
+assign [class="bitwarden"] "7"
+assign [class="brave-browser"] "5:n"
 
 exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desktop-main
 exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desktop-secondary
@@ -199,3 +201,4 @@ exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desk
 exec /usr/bin/firefox
 exec /usr/bin/brave
 exec /usr/bin/discord-canary
+exec /usr/bin/bitwarden-desktop

@@ -12,3 +12,5 @@ opt.textwidth = 160
 opt.wrap = true
 opt.spelllang = { "en", "fr" }
 opt.swapfile = false
+
+vim.g.autoread = true

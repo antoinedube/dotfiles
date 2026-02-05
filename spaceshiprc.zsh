@@ -16,10 +16,6 @@ SPACESHIP_CHAR_COLOR_FAILURE='#870000'
 # dir
 SPACESHIP_DIR_COLOR='#5f87ff'
 
-# exec_time
-SPACESHIP_EXEC_TIME_ELAPSED=10
-SPACESHIP_EXEC_TIME_PRECISION=2
-
 # exit_code
 SPACESHIP_EXIT_CODE_SHOW=false
 
@@ -35,7 +31,6 @@ SPACESHIP_PROMPT_ORDER=(
   dir
   aws
   venv
-  exec_time
   jobs
   exit_code
   sudo

@@ -9,6 +9,9 @@ export HISTCONTROL=ignoreboth
 export _JAVA_AWT_WM_NONREPARENTING=1
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export PYDEVD_DISABLE_FILE_VALIDATION=1
+export PYTHONDONTWRITEBYTECODE=1
+export LIBVA_DRIVER_NAME=nouveau
+export VDPAU_DRIVER=va_gl
 
 # https://github.com/pypa/pip/issues/7883
 export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
@@ -59,6 +62,9 @@ else
 fi
 SAVEHIST=10000
 
+# hcloud completions
+fpath+=(~/.config/hcloud/completion/zsh)
+
 # plugins
 plugins+=(zsh-completions zsh-history-substring-search zsh-autosuggestions zsh-syntax-highlighting)
 autoload -Uz colors compinit
@@ -94,6 +100,11 @@ function y() {
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#663399,standout"
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE="20"
 ZSH_AUTOSUGGEST_USE_ASYNC=1
+
+# Case insensitive
+# Ref: https://damn.engineer/2022/09/28/zsh-case-insensitive
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' menu select
 
 # Load zsh plugins
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

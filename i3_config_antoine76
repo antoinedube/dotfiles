@@ -24,9 +24,6 @@ bindsym Control+Shift+l exec /usr/bin/lock-screen.sh
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id /usr/bin/nm-applet
 
-# Dunst notification daemon
-exec --no-startup-id /usr/bin/dunst
-
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status

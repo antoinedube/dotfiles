@@ -39,7 +39,8 @@ exec --no-startup-id hsetroot -solid "#2c415e"
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec /usr/bin/kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -92,6 +93,11 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+
+input "type:keyboard" {
+    xkb_layout us,ca
+    xkb_options grp:caps_toggle
+}
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -190,7 +196,9 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [title="splash"] floating enable
 
-exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config laptop
+bar {
+     swaybar_command waybar
+}
 
 default_border none
 gaps inner 2

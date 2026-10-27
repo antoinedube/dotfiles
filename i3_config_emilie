@@ -95,10 +95,10 @@ set $ws3 "3:o"
 set $ws4 "4:b"
 set $ws5 "5:n"
 set $ws6 "6:m"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws7 "7:7"
+set $ws8 "8:8"
+set $ws9 "9:9"
+set $ws10 "10:10"
 
 # switch to workspace
 bindsym $mod+u workspace number $ws1
@@ -188,7 +188,8 @@ for_window [window_role="task_dialog"] floating enable
 for_window [title="splash"] floating enable
 
 assign [class="firefox"] "6:m"
-assign [class="discord"] "8"
+assign [class="Shutter"] "9:9"
+assign [class="discord"] "8:8"
 assign [class="bitwarden"] "7"
 assign [class="brave-browser"] "5:n"
 
@@ -196,4 +197,3 @@ exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desk
 exec_always --no-startup-id polybar -c /home/antoine/.config/polybar/config desktop-secondary
 
 exec /usr/bin/firefox
-exec /usr/bin/discord-canary

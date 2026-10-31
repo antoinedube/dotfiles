@@ -8,7 +8,7 @@ vim.g.lazyvim_rust_diagnostics = "rust-analyzer"
 vim.g.lazyvim_python_lsp = "ruff"
 vim.g.lazyvim_python_ruff = "ruff"
 
-opt.textwidth = 120
+opt.textwidth = 0
 opt.wrap = true
 opt.spelllang = { "en", "fr" }
 opt.swapfile = false

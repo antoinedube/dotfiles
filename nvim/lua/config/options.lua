@@ -9,7 +9,7 @@ vim.g.lazyvim_python_lsp = "ruff"
 vim.g.lazyvim_python_ruff = "ruff"
 
 opt.textwidth = 0
-opt.formatoptions = "" -- https://neovim.io/doc/user/change/#fo-table
+opt.formatoptions = "ro/qnl1jp" -- https://neovim.io/doc/user/change/#fo-table
 
 opt.wrap = true
 opt.spelllang = { "en", "fr" }

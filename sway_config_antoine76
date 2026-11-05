@@ -12,17 +12,11 @@ font pango:monospace 10
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
+# Lock screen
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- /usr/bin/lock-screen.sh --nofork
-bindsym Control+Shift+l exec /usr/bin/lock-screen.sh
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id /usr/bin/nm-applet
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- /usr/bin/lock-screen.sh --nofork
+# bindsym Control+Shift+l exec /usr/bin/lock-screen.sh
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -33,7 +27,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86AudioPlay exec --no-startup-id mpc toggle && $refresh_i3status
 
 # Set background color
-exec --no-startup-id hsetroot -solid "#2c415e"
+# output HDMI-A-1 background #2c415e solid_color
+# output * bg #1e1e2e solid_color
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -45,13 +40,6 @@ bindsym $mod+Return exec /usr/bin/kitty
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-# bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-#
 # rofi launcher
 # https://wiki.archlinux.org/index.php/Rofi
 bindsym $mod+d exec --no-startup-id rofi -show combi
@@ -69,10 +57,10 @@ bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+# bindsym $mod+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+# bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -163,23 +151,13 @@ client.placeholder          $bg     $bg         $bg     $bg
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
-# resize window (you can also use the mouse for that)
-mode "resize" {
-    bindsym j resize shrink width 2 px or 2 ppt
-    bindsym k resize grow height 2 px or 2 ppt
-    bindsym l resize shrink height 2 px or 2 ppt
-    bindsym semicolon resize grow width 2 px or 2 ppt
-
-    # back to normal
-    bindsym Escape mode "default"
-}
-
-bindsym $mod+r mode "resize"
-
 mode "multiscreen" {
-    bindsym 1 move workspace to output eDP-1
-    bindsym 2 move workspace to output HDMI-A-1
-    bindsym 3 move workspace to output DP-1
+    bindsym 1 move workspace to output eDP-1; mode "default"
+    bindsym 2 move workspace to output HDMI-A-1; mode "default"
+    bindsym 3 move workspace to output DP-1; mode "default"
+
+    # h: home
+    bindsym h output eDP-1 mode 1920x1080@60.008Hz pos 0 0; output HDMI-A-1 mode 1920x1080@60.000Hz pos 1920 0; output DP-1 mode 1440x900@59.887Hz pos 3840 0; mode "default"
 
     # back to normal
     bindsym Escape mode "default"
@@ -191,6 +169,12 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [title="splash"] floating enable
 
+assign [class="firefox"] "6:m"
+assign [class="Shutter"] "9:9"
+assign [class="discord"] "8:8"
+assign [class="bitwarden"] "7"
+assign [class="brave-browser"] "5:n"
+
 bar {
      swaybar_command waybar
 }
@@ -199,3 +183,4 @@ default_border none
 gaps inner 2
 smart_gaps on
 
+exec /usr/bin/firefox

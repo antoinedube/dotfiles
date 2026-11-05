@@ -177,10 +177,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 mode "multiscreen" {
-    bindsym 1 move workspace to output eDP1
-    bindsym 2 move workspace to output HDMI2
-    bindsym 3 move workspace to output DP1
-    bindsym 4 move workspace to output HDMI1
+    bindsym 1 move workspace to output eDP-1
+    bindsym 2 move workspace to output HDMI-A-1
+    bindsym 3 move workspace to output DP-1
 
     # back to normal
     bindsym Escape mode "default"

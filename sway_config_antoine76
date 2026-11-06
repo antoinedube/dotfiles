@@ -28,7 +28,7 @@ bindsym XF86AudioPlay exec --no-startup-id mpc toggle && $refresh_i3status
 
 # Set background color
 # output HDMI-A-1 background #2c415e solid_color
-# output * bg #1e1e2e solid_color
+output eDP-1 bg #1e1e2e solid_color
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -183,4 +183,4 @@ default_border none
 gaps inner 2
 smart_gaps on
 
-exec /usr/bin/firefox
+include /etc/sway/config.d/*

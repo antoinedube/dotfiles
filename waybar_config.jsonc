@@ -20,8 +20,8 @@
     "temperature",
     "sway/language",
     "battery",
-    "clock",
-    "tray"
+    "tray",
+    "clock"
   ],
   "sway/mode": {
     "format": "<span style=\"italic\">{}</span>"
@@ -83,7 +83,8 @@
     ]
   },
   "sway/language": {
-    "format": "{short}"
+    "format": "{short}",
+    "expand": true
   },
   "battery": {
     "states": {

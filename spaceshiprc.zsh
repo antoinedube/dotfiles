@@ -13,9 +13,8 @@ SPACESHIP_CHAR_COLOR_SUCCESS='#f8f8f8'
 SPACESHIP_CHAR_COLOR_SECONDARY='#efbf6f'
 SPACESHIP_CHAR_COLOR_FAILURE='#870000'
 
-# if [[ $(hostname) = "Emilie" ]]; then
-#   SPACESHIP_HOST_SHOW="always"
-# fi
+# hostname
+# SPACESHIP_HOST_SHOW="always"
 
 # dir
 SPACESHIP_DIR_COLOR='#5f87ff'
@@ -32,6 +31,7 @@ SPACESHIP_GIT_STATUS_COLOR='#870000'
 
 # Minimal spaceship sections for performance
 SPACESHIP_PROMPT_ORDER=(
+  host
   dir
   aws
   venv

@@ -13,10 +13,10 @@ font pango:monospace 10
 #font pango:DejaVu Sans Mono 8
 
 # Lock screen
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- /usr/bin/lock-screen.sh --nofork
-# bindsym Control+Shift+l exec /usr/bin/lock-screen.sh
+bindsym Control+Shift+l exec /usr/sbin/swaylock
+
+# Autolock after 60*10 seconds
+exec swayidle -w timeout 600 'swaylock' timeout 605 'swaymsg "output * power off"' resume 'swaymsg "output * power on"'
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status

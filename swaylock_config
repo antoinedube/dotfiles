@@ -44,7 +44,7 @@ line-wrong-color=#eb6f9211
 
 # Indicator ring
 indicator-radius=100
-indicator-radius=30
+indicator-thickness=20
 ring-color=#31748faa
 ring-clear-color=#9ccfd8aa
 ring-caps-lock-color=#f6c177aa
